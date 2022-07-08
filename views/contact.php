@@ -1,6 +1,6 @@
 <?php
+require_once '../controllers/calendar_controller.php';
 require('../inc/header.php');
-
 ?>
 <h2 class="text-center mb-5">Bienvenus sur notre page de contact!</h2>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -48,13 +48,58 @@ require('../inc/header.php');
                 </div>
             </div>
             <div class="col-11 mb-3 text-center">
-                <button class="btn btn-primary" type="submit">Submit form</button>
+                <button class="btn btn-primary" type="submit">Envoyer</button>
             </div>
         </form>
     </div>
-    <div class="tab-pane fade my-5" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
-</div>
+    <div class="tab-pane fade my-5" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+        <form class="row justify-content-center" action="" method="post">
+            <div class="mb-3 col-11">
+                <label for="">Nom et Prénom</label>
+                <div class="input-group">
+                    <input type="text" aria-label="First name" placeholder="Nom" class="form-control" required>
+                    <input type="text" aria-label="Last name" placeholder="Prénom" class="form-control" required>
+                </div>
+            </div>
+            <div class="mb-3 col-11">
+                <label for="">Email</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" required>
+                    <span class="input-group-text">@</span>
+                    <input type="text" class="form-control" placeholder="Server" aria-label="Server" required>
+                </div>
+            </div>
 
+            <div class="col-11 mb-3 justify-content-center">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                    <label class="form-check-label" for="invalidCheck2">
+                        J'ai lu et j'accepte la <a href="politiques.php">politique de confidentialité</a>
+                    </label>
+                </div>
+            </div>
+            <div class="col-11 mb-3 text-center">
+                <button class="btn btn-primary" type="submit">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="">
+    <p class="text-center"><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year - 1 ?>"><i class="bi bi-arrow-left-circle"></i></a><?= $year ?><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year + 1 ?>"><i class="bi bi-arrow-right-circle"></i></a></p>
+    <p><a class="btn" href="index.php?<?= isset($_GET['year']) ? ($monthNumber == 1 ? 'year=' . $_GET['year'] - 1 . '&' :  'year=' . $_GET['year'] . '&') : '' ?>month=<?= $monthNumber == 1 ? 12 : $monthNumber - 1 ?>"><i class="bi bi-chevron-left me-1"></i></a><?= $monthLetters ?><a class="btn" href="index.php?<?= isset($_GET['year']) ? ($monthNumber == 12 ? 'year=' . $_GET['year'] + 1 . '&' :  'year=' . $_GET['year'] . '&') : '' ?>month=<?= $monthNumber == 12 ? 1 : $monthNumber + 1 ?>"><i class="bi bi-chevron-right ms-1"></i></a></p>
+    <div class="row justify-content-center p-0 mt-5 mx-0">
+        <div class="col-10 calendar p-0 m-0">
+            <?php
+            foreach ($days as $key => $value) { ?>
+                <div class="text-center text-light bg-dark"><?= $value ?></div>
+            <?php }
+            for ($i = 1; $i <= $lines; $i++) { ?>
+                <?= createCase($firstCaseTimestamp, $i, $monthNumber, $arraySpecialDays) ?>
+            <?php }
+            ?>
+        </div>
+    </div>
+</div>
 <?php
 require('../inc/footer.php');
 ?>

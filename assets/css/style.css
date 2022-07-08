@@ -4,3 +4,13 @@
 .slider img {
     width: 100%;
 }
+/* body {
+    background-color:darkcyan;
+} */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.feries {
+    font-size: 0.8rem;
+}
