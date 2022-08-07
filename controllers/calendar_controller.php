@@ -1,12 +1,12 @@
 <?php
 $days = [
-    1 => 'Lundi',
-    2 => 'Mardi',
-    3 => 'Mercredi',
-    4 => 'Jeudi',
-    5 => 'Vendredi',
-    6 => 'Samedi',
-    7 => 'Dimanche'
+    1 => 'L',
+    2 => 'Ma',
+    3 => 'Me',
+    4 => 'J',
+    5 => 'V',
+    6 => 'S',
+    7 => 'D'
 ];
 $months = [
     1 => 'Javier',
@@ -67,12 +67,9 @@ function getSpecialDays($year)
         strtotime("$easterDay + 50 days") => 'Pentecote',
 
         // annivs apprenant LHP8
-        strtotime("$year-10-11") => 'Jordan <i class="bi bi-balloon-fill"></i>',
-        strtotime("$year-9-21") => 'Sophie <i class="bi bi-balloon-heart-fill"></i>',
-        strtotime("$year-12-21") => 'Alexandre <i class="bi bi-balloon-fill"></i>',
-        strtotime("$year-12-20") => 'Mickael <i class="bi bi-balloon-fill"></i>',
-        strtotime("$year-3-23") => 'Anousone <i class="bi bi-balloon-fill"></i>',
-        strtotime("$year-2-21") => 'Valentin <i class="bi bi-balloon-fill"></i>',
+        strtotime("$year-4-17") => 'papa <i class="bi bi-balloon-fill"></i>',
+        strtotime("$year-4-23") => 'maman <i class="bi bi-balloon-heart-fill"></i>',
+        strtotime("$year-5-21") => 'Raphaelle <i class="bi bi-balloon-fill"></i>',
         strtotime("$year-4-10") => 'Stella <i class="bi bi-balloon-heart-fill"></i>'
     ];
     return $specialDays;
@@ -82,12 +79,16 @@ function createCase($firstCaseTimestamp, $caseNumber, $month, $arraySpecialDays)
 {
     $timestamp = strtotime(date('Y-m-d', $firstCaseTimestamp) . '+' . ($caseNumber - 1) . 'days');
     if (isset($arraySpecialDays[$timestamp])) {
-        return '<div class="feries text-center bg-success border border-dark"><a href="">' . $arraySpecialDays[$timestamp] . '</a></div>';
+        return '<div class="text-center text-secondary border border-dark">' . date('j', $timestamp)  . '</div>';
     } elseif (date('Y-m-d', $timestamp) == date('Y-m-d')) {
-        return '<div class="text-center border border-dark bg-info">' . date('j', $timestamp) . '</div>';
-    } elseif (date('n', $timestamp) == $month) {
-        return '<div class="text-center border border-dark bg-white">' . date('j', $timestamp) . '</div>';
-    } else {
+        return '<div class="text-center border border-dark text-primary">' . date('j', $timestamp) . '</div>';
+    }elseif (date('D', $timestamp) == 'Sun' || date('D', $timestamp) == 'Sat' ) {
+        return '<div class="text-center border border-dark text-danger">' . date('j', $timestamp) . '</div>';
+    } elseif (date('n', $timestamp) == $month && date('Y-m-d', $timestamp) > date('Y-m-d')) {
+        return '<a href="" class="text-dark"><div class="text-center border border-dark">' . date('j', $timestamp) . '</div></a>';
+    }elseif (date('n', $timestamp) == $month && date('Y-m-d', $timestamp) < date('Y-m-d')) {
+        return '<div class="text-center border border-dark bg-white text-secondary">' . date('j', $timestamp) . '</div>';
+    }  else {
         return '<div class="text-center border border-dark bg-secondary">' . date('j', $timestamp) . '</div>';
     }
 }

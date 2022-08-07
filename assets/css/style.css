@@ -1,7 +1,7 @@
 .slider {
     width: 50%;
 }
-.slider img {
+img {
     width: 100%;
 }
 /* body {
@@ -11,6 +11,12 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
 }
-.feries {
-    font-size: 0.8rem;
+a{
+    text-decoration: none;
+}
+.befor{
+ color: gray;
+}
+.img-article{
+    width: 90%;
 }
