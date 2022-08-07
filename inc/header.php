@@ -32,15 +32,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="actualite.php">Actualité</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Contact
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="contact.php">Nous contacter</a></li>
-                                <li><a class="dropdown-item" href="#">Nous Laisser un message</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.php">Contacts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php">Connextion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="redgister.php">Inscription</a>
                         </li>
                     </ul>
                 </div>
