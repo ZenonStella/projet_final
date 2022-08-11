@@ -41,6 +41,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="redgister.php">Inscription</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../admin/home.php">Admin</a>
+                        </li>
                     </ul>
                 </div>
             </div>

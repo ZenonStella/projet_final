@@ -5,7 +5,7 @@ if ($showForm) { ?>
     <h1 class="m-5 text-center">Formulaire de contact</h1>
     <form action="" method="POST">
         <div class="row justify-content-center">
-            <div class="col-lg-5 col-11 border border-secondary rounded shadow p-4">
+            <div class="col-lg-8 col-11 border border-secondary rounded shadow p-4">
                 <div class="mb-3 col-11">
                     <label for="">Nom et Prénom </label>
                     <span class="ms-2 text-danger"><?= isset($errors['lastname']) ? $errors['lastname'] : '' ?></span>
@@ -28,27 +28,23 @@ if ($showForm) { ?>
                     <label for="phone">Numéro de téléphone</label>
                     <span class="ms-2 text-danger"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
                     <div class="input-group">
-                        <input type="phone" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}">
+                        <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}">
                     </div>
                 </div>
                 <div class="mb-3 col-11">
                     <label for="password">Mot de passe</label>
                     <span class="ms-2 text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span>
                     <div class="input-group">
-                        <input type="password" id="password" name="password" value="<?= isset($_POST['password']) ? $_POST['password'] : '' ?>">
+                        <input type="password" class="form-control" id="password" name="password" value="<?= isset($_POST['password']) ? $_POST['password'] : '' ?>">
                     </div>
                 </div>
                 <div class="mb-3 col-11">
                     <label for="confirmPassword">Confirmation du mot de passe</label>
                     <span class="ms-2 text-danger"><?= isset($errors['confirmPassword']) ? $errors['confirmPassword'] : '' ?></span>
                     <div class="input-group">
-                        <input type="password" id="confirmPassword" name="confirmPassword" value="<?= isset($_POST['confirmPassword']) ? $_POST['confirmPassword'] : '' ?>">
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" value="<?= isset($_POST['confirmPassword']) ? $_POST['confirmPassword'] : '' ?>">
                     </div>
                 </div>
-
-
-
-
                 <div class="col-11 mb-3 justify-content-center">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
