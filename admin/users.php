@@ -8,7 +8,7 @@ require('inc/header.php');
     <div class="col-11 my-3">
         <div class="row justify-content-center">
             <table class="table table-striped rounded border">
-            <thead>
+                <thead>
                     <tr>
                         <th scope="col">Indentité</th>
                         <th scope="col">Adresse mail</th>
@@ -16,16 +16,13 @@ require('inc/header.php');
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
+                    <?php for ($i = 0; $i < 7; $i++) { ?>
+                        <tr>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td><a href="" class="btn btn-warning">Signaler</a><a href="" class="btn btn-danger">Supprimer</a></td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
             <a href="" class="col-6 mt-3 btn btn-secondary">Gerer mes messages</a>

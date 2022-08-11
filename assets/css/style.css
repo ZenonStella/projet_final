@@ -7,9 +7,9 @@
 img {
     width: 100%;
 }
-/* body {
-    background-color:darkcyan;
-} */
+.img-card-admin {
+    width: 20%;
+}
 .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);

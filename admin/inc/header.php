@@ -27,19 +27,22 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                                <a class="nav-link active" aria-current="page" href="home.php">Accueil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Mes rendez-vous</a>
+                                <a class="nav-link" href="meet.php">Mes rendez-vous</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Mes messages</a>
+                                <a class="nav-link" href="messages.php">Mes messages</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Mes devis</a>
+                                <a class="nav-link" href="devis.php">Mes devis</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Gerer mon contenu</a>
+                                <a class="nav-link" href="users.php">Mes clients</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.php">Gerer mon contenu</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

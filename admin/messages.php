@@ -14,19 +14,16 @@ require('inc/header.php');
                         <th scope="col">Messages</th>
                         <th scope="col">Action</th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                </tbody>
+                    </thead>
+                    <tbody>
+                        <?php for ($i = 0; $i < 7; $i++) { ?>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td><a href="" class="btn btn-warning">Editer</a><a href="" class="btn btn-danger">Supprimer</a></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
             </table>
             <a href="" class="col-6 mt-3 btn btn-secondary">Gerer mes messages</a>
         </div>
