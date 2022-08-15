@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'img' => 'stella'
 
         ];
-        header('Location: dashboard.php');
+        header('Location: home.php');
     }
 }
 

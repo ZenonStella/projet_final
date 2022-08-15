@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('inc/header.php');
 require_once '../controllers/calendar_controller.php';
 ?>
@@ -28,19 +29,16 @@ require_once '../controllers/calendar_controller.php';
                     <tr>
                         <th scope="col">Identité</th>
                         <th scope="col">Messages</th>
-                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Mark</td>
                         <td>Otto</td>
-                        <td>@mdo</td>
                     </tr>
                     <tr>
                         <td>Jacob</td>
                         <td>Thornton</td>
-                        <td>@fat</td>
                     </tr>
                 </tbody>
             </table>
@@ -54,7 +52,7 @@ require_once '../controllers/calendar_controller.php';
                     <tr>
                         <th scope="col">Indentité</th>
                         <th scope="col">Adresse mail</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">numero de telephone</th>
                     </tr>
                 </thead>
                 <tbody>

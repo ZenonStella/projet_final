@@ -11,38 +11,36 @@ if ($showForm) { ?>
                     <span class="ms-2 text-danger"><?= isset($errors['lastname']) ? $errors['lastname'] : '' ?></span>
                     <span class="ms-2 text-danger"><?= isset($errors['firstname']) ? $errors['firstname'] : '' ?></span>
                     <div class="input-group">
-                        <input type="text" aria-label="First name" placeholder="Nom" class="form-control" required>
-                        <input type="text" aria-label="Last name" placeholder="Prénom" class="form-control" required>
+                        <input type="text" placeholder="Nom" class="form-control" required value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>">
+                        <input type="text" aria-label="Last name" placeholder="Prénom" class="form-control" required value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : '' ?>">
                     </div>
                 </div>
                 <div class="mb-3 col-11">
                     <label for="">Email</label>
-                    <span class="ms-2 text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span>
+                    <span class="ms-2 text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" required>
-                        <span class="input-group-text">@</span>
-                        <input type="text" class="form-control" placeholder="Server" aria-label="Server" required>
+                        <input type="text" class="form-control" placeholder="Email" aria-label="Email" required value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>">
                     </div>
                 </div>
                 <div class="mb-3 col-11">
                     <label for="phone">Numéro de téléphone</label>
                     <span class="ms-2 text-danger"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
                     <div class="input-group">
-                        <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}">
+                        <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
                     </div>
                 </div>
                 <div class="mb-3 col-11">
                     <label for="password">Mot de passe</label>
                     <span class="ms-2 text-danger"><?= isset($errors['password']) ? $errors['password'] : '' ?></span>
                     <div class="input-group">
-                        <input type="password" class="form-control" id="password" name="password" value="<?= isset($_POST['password']) ? $_POST['password'] : '' ?>">
+                        <input type="password" class="form-control" id="password" name="password" value="<?= isset($_POST['password']) ? $_POST['password'] : '' ?>" require>
                     </div>
                 </div>
                 <div class="mb-3 col-11">
                     <label for="confirmPassword">Confirmation du mot de passe</label>
                     <span class="ms-2 text-danger"><?= isset($errors['confirmPassword']) ? $errors['confirmPassword'] : '' ?></span>
                     <div class="input-group">
-                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" value="<?= isset($_POST['confirmPassword']) ? $_POST['confirmPassword'] : '' ?>">
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" require>
                     </div>
                 </div>
                 <div class="col-11 mb-3 justify-content-center">

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('inc/header.php');
 ?>
 <div class="row justify-content-center">
@@ -12,7 +13,7 @@ require('inc/header.php');
         </div>
         <div class="galery row" data-masonry='{"percentPosition": true }'>
             <?php for ($i = 0; $i < 4; $i++) { ?>
-                <div class="col-sm-6 col-lg-4 col-3 mb-4">
+                <div class="col-sm-4 col-lg-2 col-3 mb-4">
                     <div class="card">
                         <img src="../assets/img/facade_en_torchie.jpg" alt="">
                     </div>

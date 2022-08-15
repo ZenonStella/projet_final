@@ -38,15 +38,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contact.php">Contacts</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Connextion</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="redgister.php">Inscription</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../admin/home.php">Admin</a>
-                        </li>
+
+                        <?php
+                        if (isset($_SESSION['user'])) { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="redgister.php">Deconnextion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../admin/home.php">Admin</a>
+                            </li>
+                        <?php } else { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.php">Connextion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="redgister.php">Inscription</a>
+                            </li>
+                        <?php }
+                        ?>
+
                     </ul>
                 </div>
             </div>

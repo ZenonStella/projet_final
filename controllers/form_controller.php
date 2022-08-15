@@ -4,6 +4,7 @@ $errors = [];
 $showForm = true;
 $regexName = "/^[a-zA-Z]+$/";
 $regexPassword = "/^.{8,12}$/";
+$regexPhone = "/^[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}$/";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // echo 'let\'s go';
@@ -29,6 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['mail'] = 'Format invalide';
         }
     }
+    if (isset($_POST['phone'])) {
+        if (empty($_POST['phone'])) {
+            $errors['phone'] = 'Champs obligatoire';
+        } else if (!preg_match($regexPhone,$_POST['phone'])) {
+            $errors['phone'] = 'Format invalide';
+        }
+    }
     if (isset($_POST['password'])) {
         if (empty($_POST['password'])) {
             $errors['password'] = 'Champs obligatoire';
@@ -41,9 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $errors['confirmPassword'] = 'Les mots de passes doivent être identiques';
             }
         }
-    }
-    if (!isset($_POST['formula'])) {
-        $errors['formula'] = "Veuillez sélectionner une formule";
     }
     if (!isset($_POST['cgu'])) {
         $errors['cgu'] = 'Veuillez accepter les CGU';
@@ -59,8 +64,3 @@ function safeInput($input)
    $safeInput = htmlspecialchars($safeInput);
    return $safeInput;
 };
-$arrayFormula = [
-    1 => 'Etudiant',
-    2 => 'Normal',
-    3 => 'Premium'
-];

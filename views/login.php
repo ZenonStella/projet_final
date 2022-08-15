@@ -1,12 +1,8 @@
 <?php
 require_once '../controllers/login_controller.php';
 include('../inc/header.php');
-if (!isset($_SESSION['user'])) { ?>
-    <h1 class="m-5 text-center title brown">Formulaire d'identification</h1>
-<?php } else { ?>
-    <h1 class="m-5 text-center title <?= $_COOKIE['theme'] ?>">Formulaire d'identification</h1>
-<?php }
 ?>
+<h2>Connectez vous pour faciliter votre navigation et vos interactions a travers notre site</h2>
 <form action="" method="POST">
     <div class="row justify-content-center">
         <div class="col-8 border border-secondary rounded shadow p-4 d-flex flex-wrap justify-content-evenly">

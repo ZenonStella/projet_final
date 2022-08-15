@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../controllers/calendar_controller.php';
 require('../inc/header.php');
 ?>
@@ -27,10 +28,16 @@ require('../inc/header.php');
             </div>
             <div class="mb-3 col-11">
                 <label for="">Email</label>
+                <span class="ms-2 text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" required>
-                    <span class="input-group-text">@</span>
-                    <input type="text" class="form-control" placeholder="Server" aria-label="Server" required>
+                    <input type="text" class="form-control" placeholder="Email" aria-label="Email" required value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>">
+                </div>
+            </div>
+            <div class="mb-3 col-11">
+                <label for="phone">Numéro de téléphone</label>
+                <span class="ms-2 text-danger"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
+                <div class="input-group">
+                    <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
                 </div>
             </div>
             <div class="mb-3 col-11">
@@ -63,14 +70,20 @@ require('../inc/header.php');
             </div>
             <div class="mb-3 col-11">
                 <label for="">Email</label>
+                <span class="ms-2 text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" required>
-                    <span class="input-group-text">@</span>
-                    <input type="text" class="form-control" placeholder="Server" aria-label="Server" required>
+                    <input type="text" class="form-control" placeholder="Email" aria-label="Email" required value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>">
+                </div>
+            </div>
+            <div class="mb-3 col-11">
+                <label for="phone">Numéro de téléphone</label>
+                <span class="ms-2 text-danger"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
+                <div class="input-group">
+                    <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
                 </div>
             </div>
 
-            
+
             <div class="col-10 mb-3 justify-content-center">
                 <p class="text-center"><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year - 1 ?>"><i class="bi bi-arrow-left-circle"></i></a><?= $year ?><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year + 1 ?>"><i class="bi bi-arrow-right-circle"></i></a></p>
                 <p class="text-center"><a class="btn" href="index.php?<?= isset($_GET['year']) ? ($monthNumber == 1 ? 'year=' . $_GET['year'] - 1 . '&' :  'year=' . $_GET['year'] . '&') : '' ?>month=<?= $monthNumber == 1 ? 12 : $monthNumber - 1 ?>"><i class="bi bi-chevron-left me-1"></i></a><?= $monthLetters ?><a class="btn" href="index.php?<?= isset($_GET['year']) ? ($monthNumber == 12 ? 'year=' . $_GET['year'] + 1 . '&' :  'year=' . $_GET['year'] . '&') : '' ?>month=<?= $monthNumber == 12 ? 1 : $monthNumber + 1 ?>"><i class="bi bi-chevron-right ms-1"></i></a></p>

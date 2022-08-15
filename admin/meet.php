@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('inc/header.php');
 require_once '../controllers/calendar_controller.php';
 ?>

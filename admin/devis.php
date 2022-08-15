@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('inc/header.php');
 ?>
 <div class="row justify-content-center">
