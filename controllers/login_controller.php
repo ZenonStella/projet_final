@@ -1,5 +1,4 @@
 <?php
-session_start();
 $errors = [];
 $regexPassword = "/^.{8,12}$/";
 $login = 'stellazenon@gmail.com';
@@ -24,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['all'] = 'Mot de passe ou identifient incorrect';
     }
     if (count($errors) == 0) {
-        // $session_start();
         $_SESSION['user'] = [
             'lastname' => 'Stella',
             'firstname' => 'Zenon',
