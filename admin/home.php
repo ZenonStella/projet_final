@@ -1,9 +1,9 @@
 <?php
 session_start();
 require('inc/header.php');
+require_once '../controllers/admin_cilents_controller.php';
 require_once '../controllers/calendar_controller.php';
 ?>
-
 <div class="row justify-content-center">
     <div class="col-10 my-3 justify-content-center">
         <p class="text-center"><?= $monthLetters ?> <?= $year ?></p>
@@ -32,14 +32,12 @@ require_once '../controllers/calendar_controller.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                    </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                    </tr>
+                    <?php foreach ($missives as $missive) { ?>
+                        <tr>
+                            <td><?php $missive['c_lastname'] ?> <?php $missive['c_lastname'] ?></td>
+                            <td class="text-truncate"><?php $missive['mi_missive'] ?></td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
             <a href="messages.php" class="col-6 mt-3 btn btn-secondary">Gerer mes messages</a>
@@ -56,16 +54,13 @@ require_once '../controllers/calendar_controller.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
+                    <?php foreach ($clients as $client) { ?>
+                        <tr>
+                            <td><?php $client['c_lastname'] ?> <?php $client['c_firstname'] ?></td>
+                            <td><?php $client['c_email'] ?></td>
+                            <td><?php $client['c_phone'] ?></td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
             <a href="users.php" class="col-6 mt-3 btn btn-secondary">Gerer les utilisateurs</a>

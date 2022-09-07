@@ -27,7 +27,7 @@
                             <a class="nav-link active" aria-current="page" href="home.php">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="devis.php">Devis</a>
+                            <a class="nav-link" href="devis.php?steps=0">Devis</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="gallery.php">Galerie</a>

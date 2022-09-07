@@ -19,57 +19,6 @@ require('../inc/header.php');
     <div class="tab-pane fade show active my-5" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
     <div class="tab-pane fade my-5" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
         <form class="row justify-content-center" action="" method="post">
-            <?php if (!isset($_SESSION['user'])) { ?>
-                <div class="mb-3 col-11">
-                    <label for="">Nom et Prénom</label>
-                    <div class="input-group">
-                        <input type="text" aria-label="First name" placeholder="Nom" class="form-control" required>
-                        <input type="text" aria-label="Last name" placeholder="Prénom" class="form-control" required>
-                    </div>
-                </div>
-                <div class="mb-3 col-11">
-                    <label for="">Email</label>
-                    <span class="ms-2 text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email" aria-label="Email" required value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>">
-                    </div>
-                </div>
-                <div class="mb-3 col-11">
-                    <label for="phone">Numéro de téléphone</label>
-                    <span class="ms-2 text-danger"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
-                    <div class="input-group">
-                        <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
-                    </div>
-                </div>
-            <?php } else { ?>
-                <div class="mb-3 col-11">
-                    <p>Bonjour <?= "user" ?></p>
-                </div>
-            <?php } ?>
-            <div class="mb-3 col-11">
-                <label for="">Message</label>
-                <div class="input-group">
-                    <textarea class="form-control" placeholder="Ecrire ici..." aria-label="With textarea" required></textarea>
-                </div>
-            </div>
-            <?php if (!isset($_SESSION['user'])) { ?>
-                <div class="col-11 mb-3 justify-content-center">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            J'ai lu et j'accepte la <a href="politiques.php">politique de confidentialité</a>
-                        </label>
-                    </div>
-                </div>
-            <?php } ?>
-            <div class="col-11 mb-3 text-center">
-                <button class="btn btn-primary" type="submit">Envoyer</button>
-            </div>
-        </form>
-    </div>
-    <div class="tab-pane fade my-5" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-        <form class="row justify-content-center" action="" method="post">
-        <?php if (!isset($_SESSION['user'])) { ?>
             <div class="mb-3 col-11">
                 <label for="">Nom et Prénom</label>
                 <div class="input-group">
@@ -91,11 +40,51 @@ require('../inc/header.php');
                     <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
                 </div>
             </div>
-            <?php } else { ?>
-                <div class="mb-3 col-11">
-                    <p>Bonjour <?= 'user' ?></p>
+            <div class="mb-3 col-11">
+                <label for="">Message</label>
+                <div class="input-group">
+                    <textarea class="form-control" placeholder="Ecrire ici..." aria-label="With textarea" required></textarea>
                 </div>
-            <?php } ?>
+            </div>
+            <div class="col-11 mb-3 justify-content-center">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                    <label class="form-check-label" for="invalidCheck2">
+                        J'ai lu et j'accepte la <a href="politiques.php">politique de confidentialité</a>
+                    </label>
+                </div>
+            </div>
+            <div class="col-11 mb-3 text-center">
+                <button class="btn btn-primary" type="submit">Envoyer</button>
+            </div>
+        </form>
+    </div>
+    <div class="tab-pane fade my-5" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+        <form class="row justify-content-center" action="" method="post">
+            <div class="mb-3 col-11">
+                <label for="">Nom et Prénom</label>
+                <div class="input-group">
+                    <input type="text" aria-label="First name" placeholder="Nom" class="form-control" required>
+                    <input type="text" aria-label="Last name" placeholder="Prénom" class="form-control" required>
+                </div>
+            </div>
+            <div class="mb-3 col-11">
+                <label for="">Email</label>
+                <span class="ms-2 text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Email" aria-label="Email" required value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>">
+                </div>
+            </div>
+            <div class="mb-3 col-11">
+                <label for="phone">Numéro de téléphone</label>
+                <span class="ms-2 text-danger"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
+                <div class="input-group">
+                    <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
+                </div>
+            </div>
+            <div class="mb-3 col-11">
+                <p>Bonjour <?= 'user' ?></p>
+            </div>
             <div class="col-10 mb-3 justify-content-center">
                 <p class="text-center"><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year - 1 ?>"><i class="bi bi-arrow-left-circle"></i></a><?= $year ?><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year + 1 ?>"><i class="bi bi-arrow-right-circle"></i></a></p>
                 <p class="text-center"><a class="btn" href="index.php?<?= isset($_GET['year']) ? ($monthNumber == 1 ? 'year=' . $_GET['year'] - 1 . '&' :  'year=' . $_GET['year'] . '&') : '' ?>month=<?= $monthNumber == 1 ? 12 : $monthNumber - 1 ?>"><i class="bi bi-chevron-left me-1"></i></a><?= $monthLetters ?><a class="btn" href="index.php?<?= isset($_GET['year']) ? ($monthNumber == 12 ? 'year=' . $_GET['year'] + 1 . '&' :  'year=' . $_GET['year'] . '&') : '' ?>month=<?= $monthNumber == 12 ? 1 : $monthNumber + 1 ?>"><i class="bi bi-chevron-right ms-1"></i></a></p>
@@ -112,7 +101,6 @@ require('../inc/header.php');
                     </div>
                 </div>
             </div>
-            <?php if (!isset($_SESSION['user'])) { ?>
             <div class="col-11 mb-3 justify-content-center">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
@@ -121,7 +109,6 @@ require('../inc/header.php');
                     </label>
                 </div>
             </div>
-            <?php } ?>
             <div class="col-11 mb-3 text-center">
                 <button class="btn btn-primary" type="submit">Envoyer</button>
             </div>

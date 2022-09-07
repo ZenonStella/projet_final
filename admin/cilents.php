@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../controllers/admin_users_controller.php';
+require_once '../controllers/admin_clients_controller.php';
 require('inc/header.php');
 ?>
 <div class="row justify-content-center">
@@ -17,12 +17,12 @@ require('inc/header.php');
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($users as $user) { ?>
+                    <?php foreach ($clients as $client) { ?>
                         <tr>
-                            <td><?php $user['u_email'] ?></td>
+                            <td><?php $client['u_email'] ?></td>
                             <td>
-                                <a href="<?php $user['u_id'] ?>" class="btn btn-warning">Signaler</a>
-                                <a href="<?php $user['u_id'] ?>" class="btn btn-danger">Supprimer</a>
+                                <a href="<?php $client['u_id'] ?>" class="btn btn-warning">Signaler</a>
+                                <a href="<?php $client['u_id'] ?>" class="btn btn-danger">Supprimer</a>
                             </td>
                         </tr>
                     <?php } ?>
