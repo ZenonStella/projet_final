@@ -9,3 +9,4 @@ require_once '../models/Missives.php';
 
 $missivesO = new Missives();
 $missives = $missivesO->getAllMissives();
+$tenMissives = $missivesO->getTenMissives();

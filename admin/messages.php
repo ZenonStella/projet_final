@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('inc/header.php');
+require_once '../controllers/admin_missives_controller.php'
 ?>
 <div class="row justify-content-center">
     <div class="back">
@@ -17,12 +18,14 @@ require('inc/header.php');
                     </tr>
                     </thead>
                     <tbody>
-                        <?php for ($i = 0; $i < 7; $i++) { ?>
+                        <?php foreach ($missives as $missive) { ?>
                             <tr>
-                                <td>Mark</td>
-                                <td>Otto</td>
+                                <td><?= $missive['c_lastname'] ?> <?= $missive['c_firstname'] ?></td>
+                                <td><?= $missive['mi_missive'] ?></td>
                                 <td><a href="" class="btn btn-warning">Editer</a><a href="" class="btn btn-danger">Supprimer</a></td>
                             </tr>
+                       <?php } { ?>
+                            
                         <?php } ?>
                     </tbody>
             </table>

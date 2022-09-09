@@ -108,6 +108,14 @@ class Clients extends DataBase
         $result = $query->fetChAll();
         return $result;
     }
+    public function getTenClients()
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM clients LIMIT 10";
+        $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
+    }
     public function getAOneClients(int $clients)
     {
         $pdo = parent::connectDb();

@@ -2,6 +2,8 @@
 session_start();
 require('inc/header.php');
 require_once '../controllers/admin_cilents_controller.php';
+require_once '../controllers/admin_meets_controller.php';
+require_once '../controllers/admin_missives_controller.php';
 require_once '../controllers/calendar_controller.php';
 ?>
 <div class="row justify-content-center">
@@ -32,7 +34,7 @@ require_once '../controllers/calendar_controller.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($missives as $missive) { ?>
+                    <?php foreach ($tenMissives as $missive) { ?>
                         <tr>
                             <td><?php $missive['c_lastname'] ?> <?php $missive['c_lastname'] ?></td>
                             <td class="text-truncate"><?php $missive['mi_missive'] ?></td>

@@ -101,7 +101,17 @@ class Missives extends DataBase
     public function getAllMissives()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM missives";
+        $sql = "SELECT * FROM missives
+        INNER JOIN clients ON missives.c_id_clients = clients.c_id";
+        $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
+    }
+    public function getTenMissives()
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM missives
+        INNER JOIN clients ON missives.c_id_clients = clients.c_id LIMIT 10";
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -109,8 +119,10 @@ class Missives extends DataBase
     public function getAOneMissives(int $missives)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM missives WHERE missives_id = $missives";
-        $query = $pdo->query($sql);
+        $sql = "SELECT * FROM missives INNER JOIN clients ON missives.c_id_clients = clients.c_id WHERE missives_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $missives, PDO::PARAM_STR);
+        $query->execute();
         $result = $query->fetCh();
         return $result;
     }

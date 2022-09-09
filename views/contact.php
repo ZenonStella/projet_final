@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once '../controllers/calendar_controller.php';
+// require_once '../controllers/calendar_controller.php';
+// require_once '../controllers/meets_controller.php';
 require('../inc/header.php');
 ?>
 <h2 class="text-center mb-5">Bienvenus sur notre page de contact!</h2>
@@ -41,9 +42,9 @@ require('../inc/header.php');
                 </div>
             </div>
             <div class="mb-3 col-11">
-                <label for="">Message</label>
+                <label for="text">Message</label>
                 <div class="input-group">
-                    <textarea class="form-control" placeholder="Ecrire ici..." aria-label="With textarea" required></textarea>
+                    <textarea id="text" class="form-control" placeholder="Ecrire ici..." aria-label="With textarea" required></textarea>
                 </div>
             </div>
             <div class="col-11 mb-3 justify-content-center">
@@ -79,25 +80,22 @@ require('../inc/header.php');
                 <label for="phone">Numéro de téléphone</label>
                 <span class="ms-2 text-danger"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
                 <div class="input-group">
-                    <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
+                    <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required>
                 </div>
             </div>
-            <div class="mb-3 col-11">
-                <p>Bonjour <?= 'user' ?></p>
-            </div>
             <div class="col-10 mb-3 justify-content-center">
-                <p class="text-center"><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year - 1 ?>"><i class="bi bi-arrow-left-circle"></i></a><?= $year ?><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year + 1 ?>"><i class="bi bi-arrow-right-circle"></i></a></p>
-                <p class="text-center"><a class="btn" href="index.php?<?= isset($_GET['year']) ? ($monthNumber == 1 ? 'year=' . $_GET['year'] - 1 . '&' :  'year=' . $_GET['year'] . '&') : '' ?>month=<?= $monthNumber == 1 ? 12 : $monthNumber - 1 ?>"><i class="bi bi-chevron-left me-1"></i></a><?= $monthLetters ?><a class="btn" href="index.php?<?= isset($_GET['year']) ? ($monthNumber == 12 ? 'year=' . $_GET['year'] + 1 . '&' :  'year=' . $_GET['year'] . '&') : '' ?>month=<?= $monthNumber == 12 ? 1 : $monthNumber + 1 ?>"><i class="bi bi-chevron-right ms-1"></i></a></p>
-                <div class="row justify-content-center p-0 mt-1 mx-0">
-                    <div class="col-12 calendar p-0 m-0">
-                        <?php
-                        foreach ($days as $key => $value) { ?>
-                            <div class="text-center text-light bg-dark"><?= $value ?></div>
-                        <?php }
-                        for ($i = 1; $i <= $lines; $i++) { ?>
-                            <?= createCase($firstCaseTimestamp, $i, $monthNumber, $arraySpecialDays) ?>
-                        <?php }
-                        ?>
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-check-label" for="date">date de rendez-vous <?= isset($errors['date']) ? $errors['date'] : '' ?></label>
+                        <div class="input-group">
+                            <input type="date" class="form-control" name="date" id="date" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-check-label" for="hour">et heure <?= isset($errors['hour']) ? $errors['hour'] : '' ?></label>
+                        <div class="input-group">
+                            <input type="time" class="form-control" name="hour" id="hour" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required>
+                        </div>
                     </div>
                 </div>
             </div>

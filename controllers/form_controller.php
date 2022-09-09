@@ -7,8 +7,6 @@ $regexPassword = "/^.{8,12}$/";
 $regexPhone = "/^[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}$/";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // echo 'let\'s go';
-    // var_dump($_POST);
     if (isset($_POST['lastname'])) {
         if (empty($_POST['lastname'])) {
             $errors['lastname'] = 'Champs obligatoire';
@@ -35,6 +33,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['phone'] = 'Champs obligatoire';
         } else if (!preg_match($regexPhone,$_POST['phone'])) {
             $errors['phone'] = 'Format invalide';
+        }
+    }   
+     if (isset($_POST['text'])) {
+        if (empty($_POST['text'])) {
+            $errors['text'] = 'Champs obligatoire';
+        }
+    }
+    if (isset($_POST['date'])) {
+        if (empty($_POST['date'])) {
+            $errors['date'] = 'Champs obligatoire';
+        }
+    }
+    if (isset($_POST['hour'])) {
+        if (empty($_POST['hour'])) {
+            $errors['hour'] = 'Champs obligatoire';
         }
     }
     if (isset($_POST['password'])) {

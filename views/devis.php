@@ -1,18 +1,6 @@
 <?php
 session_start();
 require_once '../controllers/calendar_controller.php';
-$steps = [
-    'Avant de commencer',
-    'Etape 1',
-    'Etape 2',
-    'Etape 3',
-    'Etape 4'
-];
-$firstChoices = [
-    'Gros Oeuvres',
-    'Secondes Oeuvres',
-    'Espaces Vert'
-];
 include('../inc/header.php');
 ?>
 <ul class="nav">
@@ -95,33 +83,27 @@ include('../inc/header.php');
                 <div class="row justify-content-center">
                     <h2 class="text-center">Générer votre devis : <br> Les traveaux que vous sohaitez</h2>
                     <form class="row justify-content-center my-5" action="" method="post">
-                        <div class="form-check col-6">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Default checkbox
-                            </label>
-                        </div>
-                        <div class="form-check col-6">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                            <label class="form-check-label" for="flexCheckChecked">
-                                Checked checkbox
-                            </label>
-                        </div>
-                        <div class="form-check col-6">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Default checkbox
-                            </label>
-                        </div>
-                        <div class="form-check col-6">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                            <label class="form-check-label" for="flexCheckChecked">
-                                Checked checkbox
-                            </label>
-                        </div>
-                        <div class="col-11 my-3 text-center">
-                            <button class="btn btn-primary" type="submit">Envoyer</button>
-                        </div>
+                        <?php foreach ($jobs as $job) { ?>
+                            <div class="form-check col-6">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    <?php $job['tp_name'] ?>
+                                </label>
+                            </div>
+
+                            <div class="form-check col-6">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    <?php $job['tp_name'] ?>
+                                </label>
+                                <input type="number" name="" id="">
+                                <select name="" id="">
+                                    <option value="">--- Choisir une valeur ---</option>
+                                    <option value="">m²</option>
+                                    <option value="">m</option>
+                                    <option value="">Autre</option>
+                                </select>
+                            </div>
+                        <?php } ?>
                     </form>
                 </div>
             <?php } else { ?>
