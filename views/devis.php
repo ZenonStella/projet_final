@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../controllers/calendar_controller.php';
+require_once '../controllers/devis_controller.php';
 include('../inc/header.php');
 ?>
 <ul class="nav">
@@ -20,7 +21,7 @@ include('../inc/header.php');
         <a class="nav-link" href="devis.php?steps=4">Etape 4</a>
     </li>
 </ul>
-<?php if (isset($_GET['step'])) {
+<?php if (isset($_GET['steps'])) {
 } ?>
 <div class="my-3">
     <?php

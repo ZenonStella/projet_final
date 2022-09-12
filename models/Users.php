@@ -48,7 +48,7 @@ class Users extends DataBase
     public function checkIfMailExists(string $mail): bool
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT `users_mail` FROM `users` WHERE `users_mail` = :mail";
+        $sql = "SELECT u_email FROM users WHERE u_email = :mail";
         $query = $pdo->prepare($sql);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->execute();
@@ -90,7 +90,15 @@ class Users extends DataBase
     public function getAllUsers()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM users WHERE u_soft_delete = 0";
+        $query = $pdo->query($sql);
+        $result = $query->fetchAll();
+        return $result;
+    }
+    public function getAllUsersDelete()
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM users WHERE u_soft_delete = 1";
         $query = $pdo->query($sql);
         $result = $query->fetchAll();
         return $result;
@@ -98,7 +106,7 @@ class Users extends DataBase
     public function getOneUsers(string $mail)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM users WHERE users_mail = :mail";
+        $sql = "SELECT * FROM users WHERE u_email = :mail AND u_soft_delete = 0";
         $query = $pdo->prepare($sql);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->execute();
@@ -108,18 +116,38 @@ class Users extends DataBase
     public function updateUsers(string $mail)
     {
         $pdo = parent::connectDb();
-        $sql = "UPDATE users SET users_mail=:mail, WHERE users_mail = :mail";
+        $sql = "UPDATE users SET u_email=:mail WHERE u_email = :mail";
         $query = $pdo->prepare($sql);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
 
         $query->execute();
     }
-    public function deleteUsers(int $doctor)
+    public function updatePasswordUser(string $mail ,string $password)
     {
         $pdo = parent::connectDb();
-        $sql = "DELETE FROM users WHERE users_mail = :mail";
+        $sql = "UPDATE users SET u_password=:password WHERE u_email = :mail";
         $query = $pdo->prepare($sql);
-        $query->bindValue(':mail', $doctor, PDO::PARAM_STR);
+        $query->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $query->bindValue(':password', $password, PDO::PARAM_STR);
+
+        $query->execute();
+    }
+    public function softDeleteUsers(int $user)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE users SET u_soft_delete=:soft WHERE u_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $user, PDO::PARAM_STR);
+        $query->bindValue(':soft', 1, PDO::PARAM_STR);
+
+        $query->execute();
+    }
+    public function deleteUsers(int $user)
+    {
+        $pdo = parent::connectDb();
+        $sql = "DELETE FROM users WHERE u_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $user, PDO::PARAM_STR);
         $query->execute();
     }
 }

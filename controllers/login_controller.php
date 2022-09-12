@@ -1,8 +1,12 @@
 <?php
+require_once '../config.php';
+require_once '../models/Database.php';
+require_once '../models/Users.php';
+$usersObj = new Users();
 $errors = [];
 $regexPassword = "/^.{8,12}$/";
-$login = 'stellazenon@gmail.com';
-$passwordLog = password_hash('Coucou12', PASSWORD_DEFAULT);
+// $login = 'stellazenon@gmail.com';
+// $passwordLog = password_hash('Coucou12', PASSWORD_DEFAULT);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['mail'])) {
@@ -19,22 +23,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['password'] = 'Le mot de passe doit contenire entre 8 et 12 caractères';
         }
     }
-    if ($_POST['mail'] != $login && !password_verify($_POST['password'], $passwordLog)) {
-        $errors['all'] = 'Mot de passe ou identifient incorrect';
-    }
-    if (count($errors) == 0) {
-        $_SESSION['user'] = [
-            'lastname' => 'Stella',
-            'firstname' => 'Zenon',
-            'gender' => 'femme',
-            'role' => 2,
-            'identifient' => $login,
-            'theme' => 'brown',
-            'choise' => 'homme',
-            'img' => 'stella'
 
-        ];
-        header('Location: home.php');
+    if (count($errors) == 0) {
+        $mail = htmlspecialchars($_POST['mail']);
+        $user = $usersObj->getOneUsers($mail);
+        if ($usersObj->checkIfMailExists($mail) && !password_verify($_POST['password'], $user['u_password'])) {
+            $errors['all'] = 'Mot de passe ou identifient incorrect';
+        }
+        if (count($errors) == 0) {
+            $_SESSION['user'] = $user;
+            header('Location: home.php');
+        }
     }
 }
 

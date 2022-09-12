@@ -63,6 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
     }
+    if (isset($_POST['categorys'])) {
+        if (empty($_POST['categorys'])) {
+            $errors['categorys'] = '*Categorie obligatoire';
+        }
+    }
     if (!isset($_POST['cgu'])) {
         $errors['cgu'] = 'Veuillez accepter les CGU';
     }

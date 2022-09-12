@@ -1,4 +1,9 @@
 <?php
+require_once '../config.php';
+require_once '../models/Database.php';
+require_once '../models/Meets.php';
+$meetsObj = new Meets();
+// $meet = $meetsObj->getAOneMeets();
 $days = [
     1 => 'L',
     2 => 'Ma',
@@ -53,6 +58,7 @@ function getSpecialDays($year)
     $specialDays = [
         // On définie les jours fériés fixe : les classiquess 8 jours 
         // format de la clé : Month - Day, la clé permettra d'obtenir le jour férié respectif
+
         strtotime("$year-1-1") => '1er janvier',
         strtotime("$year-5-1") => 'Fête du travail',
         strtotime("$year-5-8") => 'Victoire des allies',
@@ -66,15 +72,15 @@ function getSpecialDays($year)
         strtotime("$easterDay+ 39 days")  => 'Ascension',
         strtotime("$easterDay + 50 days") => 'Pentecote',
 
-        // annivs apprenant LHP8
-        strtotime("$year-4-17") => 'papa <i class="bi bi-balloon-fill"></i>',
-        strtotime("$year-4-23") => 'maman <i class="bi bi-balloon-heart-fill"></i>',
-        strtotime("$year-5-21") => 'Raphaelle <i class="bi bi-balloon-fill"></i>',
-        strtotime("$year-4-10") => 'Stella <i class="bi bi-balloon-heart-fill"></i>'
-    ];
-    return $specialDays;
+
+    ];  
+         return $specialDays;
 }
 $arraySpecialDays = getSpecialDays($year);
+
+    // $meets = $obj->getAllMeetsByYearAndMonth($year, $monthNumber);
+
+
 function createCase($firstCaseTimestamp, $caseNumber, $month, $arraySpecialDays)
 {
     $timestamp = strtotime(date('Y-m-d', $firstCaseTimestamp) . '+' . ($caseNumber - 1) . 'days');
@@ -85,6 +91,9 @@ function createCase($firstCaseTimestamp, $caseNumber, $month, $arraySpecialDays)
     }elseif (date('D', $timestamp) == 'Sun' || date('D', $timestamp) == 'Sat' ) {
         return '<div class="text-center border border-dark text-danger">' . date('j', $timestamp) . '</div>';
     } elseif (date('n', $timestamp) == $month && date('Y-m-d', $timestamp) > date('Y-m-d')) {
+        // if (getMeetsProgamms()) {
+            
+        // }
         return '<a href="" class="text-dark"><div class="text-center border border-dark">' . date('j', $timestamp) . '</div></a>';
     }elseif (date('n', $timestamp) == $month && date('Y-m-d', $timestamp) < date('Y-m-d')) {
         return '<div class="text-center border border-dark bg-white text-secondary">' . date('j', $timestamp) . '</div>';

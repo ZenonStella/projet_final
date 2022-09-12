@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
 .slider {
     width: 50%;
+}
+.green{
+    background-color: #3c6f3aa1;
+}
+.navig {
+    font-family: 'Allerta Stencil', sans-serif;
 }
 /* .slider img {
     height: ;
@@ -22,4 +29,12 @@ a{
 }
 .img-article{
     width: 90%;
+}
+@media screen and (max-width: 600px){
+.slider {
+    width: 100%;
+}
+.box-img-2 {
+    order: -1;
+}
 }

@@ -103,8 +103,19 @@ class Meets extends DataBase
     public function getAllMeets()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM `meets`";
+        $sql = "SELECT * FROM meets";
         $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
+    }
+    public function getAllMeetsByYearAndMonth($year, $month)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM meets WHERE me_meet_date = LIKE '%:year:month%'";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':year', $year, PDO::PARAM_STR);
+        $query->bindValue(':month', $month, PDO::PARAM_STR);
+        $query->execute();
         $result = $query->fetChAll();
         return $result;
     }
@@ -112,7 +123,16 @@ class Meets extends DataBase
     {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM meets 
-        WHERE meets_id = $meets";
+        WHERE me_id = $meets";
+        $query = $pdo->query($sql);
+        $result = $query->fetCh();
+        return $result;
+    }
+    public function getOneMeetsByDate(int $meets)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM meets 
+        WHERE me_meets_date = $meets";
         $query = $pdo->query($sql);
         $result = $query->fetCh();
         return $result;
