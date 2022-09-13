@@ -104,14 +104,14 @@
                         <?php
                         if (isset($_SESSION['user'])) { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="redgister.php">Deconnextion</a>
+                                <a class="nav-link" href="logout.php">Deconnection</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../admin/home.php">Admin</a>
                             </li>
                         <?php } else { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="login.php">Connextion</a>
+                                <a class="nav-link" href="login.php">Connection</a>
                             </li>
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="redgister.php">Inscription</a>

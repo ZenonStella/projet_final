@@ -3,11 +3,6 @@ session_start();
 require('inc/header.php');
 require_once '../controllers/admin_missives_controller.php'
 ?>
-<pre>
-    <?php
-    print_r($_SESSION['user']);
-    ?>
-</pre>
 <div class="row justify-content-center">
     <div class="back">
         <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>

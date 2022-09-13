@@ -152,33 +152,33 @@ include('../inc/header.php');
                     <div class="mb-3 col-11">
                         <label for="">Nom et Prénom</label>
                         <div class="input-group">
-                            <input type="text" aria-label="First name" placeholder="Nom" class="form-control" required>
-                            <input type="text" aria-label="Last name" placeholder="Prénom" class="form-control" required>
+                            <input type="text" aria-label="First name" placeholder="Nom" class="form-control" >
+                            <input type="text" aria-label="Last name" placeholder="Prénom" class="form-control" >
                         </div>
                     </div>
                     <div class="mb-3 col-11">
                         <label for="">Email</label>
                         <span class="ms-2 text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Email" aria-label="Email" required value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>">
+                            <input type="text" class="form-control" placeholder="Email" aria-label="Email"  value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>">
                         </div>
                     </div>
                     <div class="mb-3 col-11">
                         <label for="phone">Numéro de téléphone</label>
                         <span class="ms-2 text-danger"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
                         <div class="input-group">
-                            <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" required value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
+                            <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>"  value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
                         </div>
                     </div>
                     <div class="mb-3 col-11">
                         <label for="">Ajouter plus de details pour les traveaux</label>
                         <div class="input-group">
-                            <textarea class="form-control" placeholder="Ecrire ici..." aria-label="With textarea" required></textarea>
+                            <textarea class="form-control" placeholder="Ecrire ici..." aria-label="With textarea" ></textarea>
                         </div>
                     </div>
                     <div class="col-11 mb-3 justify-content-center">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" >
                             <label class="form-check-label" for="invalidCheck2">
                                 J'ai lu et j'accepte la <a href="politiques.php">politique de confidentialité</a>
                             </label>

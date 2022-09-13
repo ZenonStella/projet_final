@@ -55,11 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // vérification du numéro de téléphone
-    if (isset($_POST['phoneNumber'])) {
-        if (empty($_POST['phoneNumber'])) { // si c'est vide
-            $errors['phoneNumber'] = '*Numéro de tél. obligatoire';
-        } else if (!preg_match($regexPhoneNumber, $_POST['phoneNumber'])) { // si ça ne remplit pas le pattern
-            $errors['phoneNumber'] = '*Mauvais format, ex. 0631234456';
+    if (isset($_POST['phone'])) {
+        if (empty($_POST['phone'])) { // si c'est vide
+            $errors['phone'] = '*Numéro de tél. obligatoire';
+        } else if (!preg_match($regexPhoneNumber, $_POST['phone'])) { // si ça ne remplit pas le pattern
+            $errors['phone'] = '*Mauvais format, ex. 0631234456';
         }
     }
     // vérification de l'input password si vide
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (count($errors) == 0) {
         $lastname = htmlspecialchars($_POST['lastname']);
         $firstname = htmlspecialchars($_POST['firstname']);
-        $phoneNumber = htmlspecialchars($_POST['phoneNumber']);
+        $phoneNumber = htmlspecialchars($_POST['phone']);
         $specialities = htmlspecialchars($_POST['specialities']);
         $password = htmlspecialchars($_POST['password']);
         $mail = htmlspecialchars($_POST['mail']);

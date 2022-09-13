@@ -69,17 +69,17 @@ class Users extends DataBase
     public function getInfoUsers(string $mail): array
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM users WHERE users_mail = :mail";
+        $sql = "SELECT * FROM users WHERE u_email = :mail";
         $query = $pdo->prepare($sql);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
-    public function addUsers(string $mail, string $password, int $role)
+    public function addUsers(string $mail, string $password, string $role)
     {
         $pdo = parent::connectDb();
-        $sql = "INSERT INTO users (users_mail, users_password, role_id_role) VALUES (:mail,:password, :role)";
+        $sql = "INSERT INTO users (u_email, u_password, u_role) VALUES (:mail,:password, :role)";
         $query = $pdo->prepare($sql);
         $query->bindValue(':role', $role, PDO::PARAM_STR);
         $query->bindValue(':password', $password, PDO::PARAM_STR);

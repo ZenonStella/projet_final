@@ -25,7 +25,8 @@ class Estimations extends DataBase
     public function getAllEstimations()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM type_of_postes";
+        $sql = "SELECT * FROM estimations INNER JOIN
+        clients ON estimations.c_id_clients = clients.c_id";
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;

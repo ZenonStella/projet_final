@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('inc/header.php');
+require_once '../controllers/form_controller.php';
 require_once '../controllers/admin_devis_controller.php';
 ?>
 <div class="row justify-content-center">
@@ -18,9 +19,9 @@ require_once '../controllers/admin_devis_controller.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($jobs as $job) { ?>
+                    <?php foreach ($devis as $devi) { ?>
                         <tr>
-                            <td><?= $job[''] ?></td>
+                            <td><?= $devi[''] ?></td>
                             <td><a href="" class="btn btn-info">Voir +</a><a href="" class="btn btn-primary">Modifier</a><a href="" class="btn btn-danger">Supprimer</a></td>
                         </tr>
                     <?php } ?>

@@ -111,7 +111,7 @@ class Meets extends DataBase
     public function getAllMeetsByYearAndMonth($year, $month)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM meets WHERE me_meet_date = LIKE '%:year:month%'";
+        $sql = "SELECT * FROM meets WHERE me_meet_date = LIKE '%:month:year%'";
         $query = $pdo->prepare($sql);
         $query->bindValue(':year', $year, PDO::PARAM_STR);
         $query->bindValue(':month', $month, PDO::PARAM_STR);

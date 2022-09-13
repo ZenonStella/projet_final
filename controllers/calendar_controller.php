@@ -3,7 +3,6 @@ require_once '../config.php';
 require_once '../models/Database.php';
 require_once '../models/Meets.php';
 $meetsObj = new Meets();
-// $meet = $meetsObj->getAOneMeets();
 $days = [
     1 => 'L',
     2 => 'Ma',
@@ -78,11 +77,15 @@ function getSpecialDays($year)
 }
 $arraySpecialDays = getSpecialDays($year);
 
-    // $meets = $obj->getAllMeetsByYearAndMonth($year, $monthNumber);
-
+    // $meets = $meetsObj->getAllMeetsByYearAndMonth($year, $monthNumber);
+// echo '<pre>';
+// print_r($meets);
+// echo '</pre>';
 
 function createCase($firstCaseTimestamp, $caseNumber, $month, $arraySpecialDays)
 {
+    
+
     $timestamp = strtotime(date('Y-m-d', $firstCaseTimestamp) . '+' . ($caseNumber - 1) . 'days');
     if (isset($arraySpecialDays[$timestamp])) {
         return '<div class="text-center text-secondary border border-dark">' . date('j', $timestamp)  . '</div>';
