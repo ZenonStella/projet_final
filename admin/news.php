@@ -8,7 +8,7 @@ require('inc/header.php');
     </div>
     <div class="content">
         <div class="edit mb-4">
-            <a href="" class="btn btn-primary">Ajouter des images</a>
+            <a href="addPictures.php" class="btn btn-primary">Ajouter des images</a>
             <a href="" class="btn btn-primary">Voir +</a>
         </div>
         <div class="galery row" data-masonry='{"percentPosition": true }'>

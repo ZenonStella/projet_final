@@ -2,6 +2,7 @@
 require_once '../config.php';
 require_once '../models/Database.php';
 require_once '../models/Users.php';
+require_once '../models/Pictures.php';
 $usersObj = new Users();
 // var_dump($_SERVER);
 $errors = [];
@@ -98,6 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
     }
+
     if (isset($_POST['cgu'])) {
         $errors['cgu'] = '*Veuillez accepter les CGU';
     }
@@ -112,10 +114,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
     if (count($errors) == 0) {
-        $mail = htmlspecialchars($_POST['mail']);
-        $user = $usersObj->getOneUsers($mail);
-        if ($usersObj->checkIfMailExists($mail) && !password_verify($_POST['password'], $user['u_password'])) {
-            $errors['all'] = '*Mot de passe ou identifient incorrect';
+        if (isset($_POST['mail'])) {
+            $mail = htmlspecialchars($_POST['mail']);
+            $user = $usersObj->getOneUsers($mail);
+            if ($usersObj->checkIfMailExists($mail) && !password_verify($_POST['password'], $user['u_password'])) {
+                $errors['all'] = '*Mot de passe ou identifient incorrect';
+            }
         }
         if (count($errors) == 0) {
             $showForm = true;

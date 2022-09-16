@@ -11,12 +11,19 @@ $steps = [
     'Etape 4'
 ];
 $firstChoices = [
-    'Gros Oeuvres',
-    'Secondes Oeuvres',
-    'Espaces Vert'
+    'Gros oeuvres',
+    'Seconds oeuvres',
+    'Espaces vert'
 ];
+$firstChoiceVal;
 $jobsObj = new Jobs();
-
+if ($showForm) {
+    if (isset($_POST)) {
+        
+    }
+}
 if (isset($_GET['firstchoice']) && array_key_exists($_GET['firstchoice'], $firstChoices)) {
-    $jobs = $jobsObj->getAlljobsById($_GET['firstchoice']);
+    $firstChoiceVal = $firstChoices[$_GET['firstchoice']];
+    // var_dump($firstChoiceVal)
+    $jobs = $jobsObj->getAlljobsById($firstChoiceVal);
 }

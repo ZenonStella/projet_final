@@ -76,13 +76,15 @@ class Users extends DataBase
         $result = $query->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
-    public function addUsers(string $mail, string $password, string $role)
+    public function addUsers(string $lastname,string $firstname,string $mail, string $password, string $role)
     {
         $pdo = parent::connectDb();
-        $sql = "INSERT INTO users (u_email, u_password, u_role) VALUES (:mail,:password, :role)";
+        $sql = "INSERT INTO users (u_lastname,u_firstname,u_email, u_password, u_role) VALUES (:lastname,:firstname,:mail,:password, :role)";
         $query = $pdo->prepare($sql);
         $query->bindValue(':role', $role, PDO::PARAM_STR);
         $query->bindValue(':password', $password, PDO::PARAM_STR);
+        $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
+        $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
 
         $query->execute();
@@ -113,13 +115,14 @@ class Users extends DataBase
         $result = $query->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
-    public function updateUsers(string $mail)
+    public function updateUsers(string $lastname,string $firstname,string $mail)
     {
         $pdo = parent::connectDb();
-        $sql = "UPDATE users SET u_email=:mail WHERE u_email = :mail";
+        $sql = "UPDATE users SET u_lastname=:lastname,u_firstname=:firstname,u_email=:mail WHERE u_email = :mail";
         $query = $pdo->prepare($sql);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
-
+        $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
+        $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
         $query->execute();
     }
     public function updatePasswordUser(string $mail ,string $password)

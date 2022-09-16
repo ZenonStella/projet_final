@@ -6,7 +6,7 @@ require('inc/header.php');
 <div class="row justify-content-center">
     <div class="back">
         <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
-        
+
         <a class="btn btn-danger rounded mb-5" href="redgister.php">Ajouter un nouvel utilisateur</a>
     </div>
     <div class="col-11 my-3">
@@ -23,8 +23,8 @@ require('inc/header.php');
                         <tr>
                             <td><?= $user['u_email'] ?></td>
                             <td>
-                                <a href="details.php?obj=users&id=<?php $user['u_id'] ?>" class="btn btn-warning">Signaler</a>
-                                <a href="soft_delete.php?obj=users&action=delete_soft&id=<?php $user['u_id'] ?>" class="btn btn-danger">Supprimer</a>
+                                <a href="details.php?obj=2&id=<?php $user['u_id'] ?>" class="btn btn-primary">+ d'infos</a>
+                                <a href="soft_delete.php?obj=2&id=<?php $user['u_id'] ?>" class="btn btn-danger">Supprimer</a>
                             </td>
                         </tr>
                     <?php } ?>

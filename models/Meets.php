@@ -40,19 +40,19 @@ class Meets extends DataBase
     {
         $this->_meets_phonenumber = $hour;
     }
-    public function getMeetsclients()
+    public function getMeetsClients()
     {
         return $this->_meets_clients;
     }
-    public function setMeetsclients(string $clients)
+    public function setMeetsClients(string $clients)
     {
         $this->_meets_clients = $clients;
     }
-    public function getMeetsusers()
+    public function getMeetsUsers()
     {
         return $this->_meets_users;
     }
-    public function setMeetsusers(string $users)
+    public function setMeetsUsers(string $users)
     {
         $this->_meets_users = $users;
     }
@@ -147,7 +147,7 @@ class Meets extends DataBase
         $query->bindValue(':id', $meets, PDO::PARAM_STR);
         $query->execute();
     }
-    public function deletemeets(int $meets)
+    public function deleteMeets(int $meets)
     {
         $pdo = parent::connectDb();
         $sql = "DELETE FROM meets WHERE meets_id = :id";

@@ -25,5 +25,6 @@ include('../inc/header.php');
         </div>
     </div>
 </form>
+<p><a href="passlost.php">Mot de passe oublier?</a></p>
 <?php
 include('../inc/footer.php');

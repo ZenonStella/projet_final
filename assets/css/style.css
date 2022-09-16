@@ -2,8 +2,11 @@
 .slider {
     width: 50%;
 }
+.greenbg {
+    background-color: #003926;
+}
 .green{
-    background-color: #3c6f3aa1;
+    background-color: #00593b9c;
 }
 .navig {
     font-family: 'Allerta Stencil', sans-serif;
@@ -16,6 +19,10 @@ img {
 }
 .img-card-admin {
     width: 20%;
+}
+.thepicture {
+    width: 50%;
+    height: auto;
 }
 .calendar {
     display: grid;
@@ -30,11 +37,28 @@ a{
 .img-article{
     width: 90%;
 }
+
+@media screen and (max-width: 900px){
+    .thepicture {
+        width: 100%;
+        height: auto;
+    }
+}
 @media screen and (max-width: 600px){
 .slider {
     width: 100%;
 }
 .box-img-2 {
     order: -1;
+}
+.inputNb {
+    width: 40px;
+}
+.inputSelect {
+    width: 50px;
+}
+.thepicture {
+    width: 100%;
+    height: auto;
 }
 }

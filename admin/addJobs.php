@@ -1,7 +1,8 @@
 <?php
 session_start();
-require('inc/header.php');
+require_once '../controllers/form_controller.php';
 require_once '../controllers/admin_devis_controller.php';
+require('inc/header.php');
 ?>
 <div class="row justify-content-center">
     <div class="col-11 my-3">

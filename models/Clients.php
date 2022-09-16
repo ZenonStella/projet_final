@@ -128,7 +128,7 @@ class Clients extends DataBase
     public function updateClients(int $clients,string $name,string $lastname,string $phoneNumber,string $mail, string $address)
     {
         $pdo = parent::connectDb();
-        $sql = "UPDATE clients SET clients_lastname=:lastname, clients_firstname=:name, clients_mail=:mail, clients_phonenumber=:phonenumber, WHERE clients_id = :id";
+        $sql = "UPDATE clients SET clients_lastname=:lastname, clients_firstname=:name, clients_mail=:mail, clients_phonenumber=:phonenumber WHERE clients_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':name', $name, PDO::PARAM_STR);
         $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
@@ -141,6 +141,14 @@ class Clients extends DataBase
     {
         $pdo = parent::connectDb();
         $sql = "DELETE FROM clients WHERE clients_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $clients, PDO::PARAM_STR);
+        $query->execute();
+    }
+    public function softDeleteClients(int $clients)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE clients SET  clients_mail=:mail WHERE clients_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $clients, PDO::PARAM_STR);
         $query->execute();
