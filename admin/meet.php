@@ -26,3 +26,5 @@ require_once '../controllers/calendar_controller.php';
 </div>
 <?php
 require('inc/footer.php');
+
+require('inc/end.php');

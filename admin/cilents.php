@@ -34,3 +34,5 @@ require('inc/header.php');
 </div>
 <?php
 require('inc/footer.php');
+
+require('inc/end.php');

@@ -33,3 +33,5 @@ require_once '../controllers/admin_devis_controller.php';
 </div>
 <?php
 require('inc/footer.php');
+
+require('inc/end.php');

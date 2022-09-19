@@ -10,3 +10,5 @@ include('../inc/header.php');
 <p>Vous vous êtes bien deconnecter</p>
 <?php 
 include('../inc/footer.php');
+
+include('../inc/end.php');

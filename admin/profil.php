@@ -20,3 +20,6 @@ require('inc/header.php');
         </div>
     </div>
 </div>
+
+<?php
+require('inc/end.php');

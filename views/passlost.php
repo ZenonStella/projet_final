@@ -39,3 +39,5 @@ include('../inc/header.php');
 </form>
 <?php
 include('../inc/footer.php');
+
+include('../inc/end.php');

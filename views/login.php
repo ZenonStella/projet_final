@@ -28,3 +28,5 @@ include('../inc/header.php');
 <p><a href="passlost.php">Mot de passe oublier?</a></p>
 <?php
 include('../inc/footer.php');
+
+include('../inc/end.php');

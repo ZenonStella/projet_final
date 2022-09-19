@@ -1,23 +1,10 @@
-// JS permettant de supprimer les messages d'erreurs lorsque nous entrons des données dans l'input
-let allInput = document.querySelectorAll('input');
-
-allInput.forEach(element => {
-    element.addEventListener('keyup', function(){
-        let inputName = this.id
-        let span = document.querySelector(`[data-span="error-${inputName}"]`);
-        span.innerText = ''
-    })
-});
-
-
-// JS permettant d'avoir un apercu de l'image lors du choix de l'input
-let inputPicture = document.getElementById('picture')
-inputPicture.addEventListener("change", function () {
-	let oFReader = new FileReader(); // on créé un nouvel objet FileReader
-	oFReader.readAsDataURL(this.files[0]);
-	oFReader.onload = function (oFREvent) {
-        let imgPreview = document.getElementById('imgPreview');
-        console.log(oFREvent.target.result)
-		imgPreview.setAttribute('src', oFREvent.target.result);
-	};
+let inputCgu = document.getElementById('cgu');
+let cgu = document.getElementById('cgu').checked;
+let btnSteps1 = document.getElementById('nextSteps1');
+inputCgu.addEventListener("change", function () {
+    if (cgu == true) {
+        btnSteps1.classList.remove("disabled");
+    }else {
+        btnSteps1.classList.add("disabled");
+    }
 })

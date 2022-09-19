@@ -45,3 +45,5 @@ require_once '../controllers/admin_missives_controller.php'
 </div>
 <?php
 require('inc/footer.php');
+
+require('inc/end.php');

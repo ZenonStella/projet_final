@@ -37,4 +37,7 @@ require('inc/header.php');
 
 
 <?php
-require('inc/footer.php');
+require('inc/footer.php'); ?>
+<script src="../assets/js/form.js"></script>
+<?php
+require('inc/end.php');

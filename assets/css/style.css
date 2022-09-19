@@ -1,64 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
 .slider {
     width: 50%;
 }
+
 .greenbg {
     background-color: #003926;
 }
-.green{
+
+.green {
     background-color: #00593b9c;
 }
+
 .navig {
     font-family: 'Allerta Stencil', sans-serif;
 }
+
 /* .slider img {
     height: ;
 } */
 img {
     width: 100%;
 }
+
 .img-card-admin {
     width: 20%;
 }
+
 .thepicture {
     width: 50%;
     height: auto;
 }
+
 .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
 }
-a{
+
+a {
     text-decoration: none;
 }
-.befor{
- color: gray;
+
+.befor {
+    color: gray;
 }
-.img-article{
+
+.img-article {
     width: 90%;
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 900px) {
     .thepicture {
         width: 100%;
         height: auto;
     }
 }
-@media screen and (max-width: 600px){
-.slider {
-    width: 100%;
-}
-.box-img-2 {
-    order: -1;
-}
-.inputNb {
-    width: 40px;
-}
-.inputSelect {
-    width: 50px;
-}
-.thepicture {
-    width: 100%;
-    height: auto;
-}
+
+@media screen and (max-width: 600px) {
+    .slider {
+        width: 100%;
+    }
+
+    .box-img-2 {
+        order: -1;
+    }
+
+    .inputNb {
+        width: 40px;
+    }
+
+    .inputSelect {
+        width: 50px;
+    }
+
+    .thepicture {
+        width: 100%;
+        height: auto;
+    }
 }

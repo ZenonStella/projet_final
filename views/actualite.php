@@ -24,4 +24,5 @@ require('../inc/header.php');
 </div>
 <?php
 require('../inc/footer.php');
+include('../inc/end.php');
 ?>

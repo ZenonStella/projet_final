@@ -34,3 +34,7 @@ require_once '../controllers/addPicture_controller.php';
 
 <?php
 include('inc/footer.php');
+?>
+<script src="../assets/js/upload.js"></script>
+<?php
+require('inc/end.php');
