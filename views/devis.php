@@ -467,31 +467,40 @@ include('../inc/header.php');
                     <div class="col-lg-9 col-12 flex-row">
                         <div class="row justify-content-center my-5">
                             <div class="col-12">
-                                <?php foreach ($jobs as $job) { ?>
-                                    <div class="row justify-content-center my-3">
-                                        <div class="form-check col-lg-2 col-4">
-                                            <input class="form-check-input" type="checkbox" name="post_<?= $job['tp_name'] ?>" id="post_<?= $job['tp_name'] ?>">
-                                            <label class="form-check-label" for="post_<?= $job['tp_name'] ?>">
+                                <div class="row justify-content-center my-3">
+                                    <?php foreach ($jobs as $job) { ?>
+                                        <div class="form-check col-lg-3 col-4">
+                                            <input class="form-check-input" type="radio" name="post" id="post">
+                                            <label class="form-check-label" for="post">
                                                 <?= $job['tp_name'] ?>
                                             </label>
                                         </div>
-                                        <div class="col-lg-8 col-6">
-                                            <label class="" for="">
-                                                Dimentions
-                                            </label>
-                                            <input class="inputNb" type="number" name="" id="">
-                                            <select class="inputSelect" name="" id="">
-                                                <option value="">Choisir une unitée de mesure</option>
-                                                <option value="">m²</option>
-                                                <option value="">m cube</option>
-                                                <option value="">m</option>
-                                                <option value="">Autre</option>
-                                            </select>
+                                    <?php } ?>
+                                </div>
+                                <div class="row justify-content-center my-3">
+                                    <div class="col-lg-8 col-6">
+                                        <label class="" for="">
+                                            Dimentions
+                                        </label>
+                                        <input class="inputNb" type="number" name="" id="">
+                                        <select class="inputSelect" name="" id="">
+                                            <option value="">Choisir une unitée de mesure</option>
+                                            <option value="">m²</option>
+                                            <option value="">m cube</option>
+                                            <option value="">m</option>
+                                            <option value="">Autre</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-11">
+                                        <label for="">Description</label>
+                                        <span class="ms-2 text-danger"><?= isset($errors['description']) ? $errors['description'] : '' ?></span>
+                                        <div class="input-group">
+                                            <textarea name="description" id="description" cols="30" rows="5" class="form-control" placeholder="Veuillez entrer la description des travaux demandés pour ce poste" aria-label="description"><?= isset($_POST['description']) ? $_POST['description'] : '' ?></textarea>
                                         </div>
                                     </div>
-                                <?php } ?>
+                                </div>
                             </div>
-                            <button class="btn btn-primary col-2" id="">Etape suivante</button>
+                            <a href="devis.php?steps=3" class="btn btn-primary col-2" id="nextStep3">Etape suivante</a>
                         </div>
                     </div>
                 </div>

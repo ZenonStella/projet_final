@@ -7,8 +7,9 @@ $usersObj = new Users();
 // var_dump($_SERVER);
 $errors = [];
 $showForm = false;
-$regexName = "/^[a-zA-Z]+$/";
+$regexName = "/^[ 'éèêëÉÈñàâçïîûüôöa-zA-Z]+$/";
 $regexPassword = "/^.{8,12}$/";
+$regexZip = "/[0-9]{5}$/";
 $regexPhone = "/^[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}$/";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -46,10 +47,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     // phone clients(messages, rdv, devis) 
     if (isset($_POST['phone'])) {
-        if (empty($_POST['phone'])) {
-            $errors['phone'] = '*Champs obligatoire';
-        } else if (!preg_match($regexPhone, $_POST['phone'])) {
+        if (!empty($_POST['phone']) && !preg_match($regexPhone, $_POST['phone'])) {
             $errors['phone'] = '*Format invalide';
+        }
+    }
+    if (isset($_POST['zip']) && isset($_POST['city'])) {
+        if (!empty($_POST['zip']) && !empty($_POST['city'])) {
+            if (!preg_match($regexZip, $_POST['zip'])) {
+                $errors['address'] = '*Format invalide du code postale';
+            }
+        } elseif (!empty($_POST['zip']) && empty($_POST['city'])) {
+            $errors['address'] = '*Veuillez entre une ville';
+        } elseif (empty($_POST['zip']) && !empty($_POST['city'])) {
+            $errors['address'] = '*Veuillez entre un code postal';
         }
     }
     if (isset($_POST['role'])) {
@@ -100,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    if (isset($_POST['cgu'])) {
+    if (!isset($_POST['cgu'])) {
         $errors['cgu'] = '*Veuillez accepter les CGU';
     }
     if (isset($_POST['specialities'])) {
@@ -114,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
     if (count($errors) == 0) {
-        if (isset($_POST['mail'])) {
+        if (isset($_POST['mail']) && isset($_POST['password'])) {
             $mail = htmlspecialchars($_POST['mail']);
             $user = $usersObj->getOneUsers($mail);
             if ($usersObj->checkIfMailExists($mail) && !password_verify($_POST['password'], $user['u_password'])) {

@@ -1,5 +1,7 @@
 <?php
-
+echo '<pre>';
+var_dump($_SERVER);
+echo '</pre>';
 require_once '../config.php';
 require_once '../models/Database.php';
 require_once '../models/Jobs.php';
@@ -17,11 +19,10 @@ $firstChoices = [
 ];
 $firstChoiceVal;
 $jobsObj = new Jobs();
-if ($showForm) {
-    if (isset($_POST)) {
-        
-    }
-}
+// if () {
+//     $_SESSION['devis'];
+
+// }
 if (isset($_GET['firstchoice']) && array_key_exists($_GET['firstchoice'], $firstChoices)) {
     $firstChoiceVal = $firstChoices[$_GET['firstchoice']];
     // var_dump($firstChoiceVal)

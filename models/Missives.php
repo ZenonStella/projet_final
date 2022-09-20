@@ -88,7 +88,7 @@ class Missives extends DataBase
      * 
      * @return void 
      */
-    public function addNewMissives(string $missive, string $created_at, string $address, string $client): void
+    public function addNewMissives(string $missive, string $created_at, string $client): void
     {
         $pdo = parent::connectDb();
         $sql = "INSERT INTO missives (mi_missive, mi_created_at, c_id_clients) VALUES (:created_at, :client)";

@@ -1,7 +1,14 @@
 <?php
 class Pictures
 {
-    
+    /**
+     * Methode permettant de contôler l'image selon des paramètres définies
+     * 
+     * @param string $inputName le nom de l'input de type file
+     * @param array $paramUpload le tableau contenant les paramètres
+     * 
+     * @return array Tableau contenant le statut de l'upload d'image
+     */
     public static function verifyImg(string $inputName, array $paramUpload): array
     {
         // Nous déclarons une variable nous permettant oui ou non d'uploader l'image
@@ -42,20 +49,24 @@ class Pictures
         ];
         return $statut;
     }
+    /**
+     * Methode permettant d'uploader l'image selon des paramètres définies
+     * 
+     * @param string $inputName le nom de l'input de type file
+     * @param array $paramUpload le tableau contenant les paramètres
+     * 
+     * @return array Tableau contenant le statut de l'upload d'image
+     */
     public static function uploadImage(string $inputName, array $paramUpload): array
     {
-
         // Nous allons créer une variable qui contiendra le message d'erreur
         $errorMessage = '';
         // Nous allons créer une variable qui contiendra le nom de l'image
         $imageName = '';
-
         // Nous indiquons le chemin du répertoire dans lequel les images vont être téléchargés.
         $directory = $paramUpload['directory'];
-
         // Nous allons définir $new_name qui aura un nom d'image unique avec : la fonction uniqid() et une extension choisie
         $new_name = uniqid() . '.' . $paramUpload['extend'];
-
         // Nous allons uploader l'image à l'aide de la fonction move_uploaded_file()
         if (move_uploaded_file($_FILES[$inputName]["tmp_name"], $directory . $new_name)) {
             $success = true;
@@ -64,7 +75,6 @@ class Pictures
             $success = false;
             $errorMessage = "L'image n'a pas pu être téléchargée";
         }
-
         // Nous allons créer un tableau contenant le statut de l'upload
         $statut = [
             'success' => $success,
@@ -74,7 +84,13 @@ class Pictures
 
         return $statut;
     }
-
+    /**
+     * Methode pour convertir une image en base 64
+     * 
+     * @param string $imagePath Chemin de l'image à convertir
+     * 
+     * @return string l'image encodée en base64
+     */
     public static function convertImagetoBase64(string $imagePath): string
     {
         // Nous allons récupérer l'image selon le chemin donné en paramètre.

@@ -57,28 +57,28 @@ class Clients extends DataBase
         $this->_clients_mail = $mail;
     }
 
-    // /**
-    //  * Fonction permettant de savoir si un mail est present dans la table clients
-    //  * 
-    //  * @param string $mail : Mail à rechercher
-    //  * 
-    //  * @return bool
-    //  */
-    // public function checkIfclientsExists(string $mail): bool
-    // {
-    //     $pdo = parent::connectDb();
-    //     $sql = "SELECT `clients_mail` FROM `clients` WHERE `clients_mail` = :mail";
-    //     $query = $pdo->prepare($sql);
-    //     $query->bindValue(':mail', $mail, PDO::PARAM_STR);
-    //     $query->execute();
-    //     $result = $query->fetchAll();
+    /**
+     * Fonction permettant de savoir si un client est present dans la table clients
+     * 
+     * @param string $mail : Mail à rechercher
+     * 
+     * @return bool
+     */
+    public function checkIfClientsExists(string $mail): bool
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT clients_mail FROM clients WHERE clients_mail = :mail";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetchAll();
 
-    //     if (count($result) == 0) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+        if (count($result) == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     /**
      * Permet de rajouter un clients dans la table clients
      * 
@@ -89,10 +89,10 @@ class Clients extends DataBase
      * 
      * @return void 
      */
-    public function addNewClients(string $lastname, string $firstname, string $phoneNumber, string $address, string $mail): void
+    public function addNewClients(string $lastname, string $firstname, string $phoneNumber, string $mail): void
     {
         $pdo = parent::connectDb();
-        $sql = "INSERT INTO `clients` (`clients_lastname`, `clients_firstname`, `clients_mail`, `clients_phonenumber`) VALUES (:lastname,:firstname,:mail,:phonenumber)";
+        $sql = "INSERT INTO clients (c_lastname, c_firstname, c_mail, c_phonenumber) VALUES (:lastname,:firstname,:mail,:phonenumber)";
         $query = $pdo->prepare($sql);
         $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
         $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
@@ -100,10 +100,33 @@ class Clients extends DataBase
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->execute();
     }
+        /**
+     * Permet de rajouter un clients dans la table clients
+     * 
+     * @param  string $lastname : Nom du clients
+     * @param  string $firstname : Prenom duu clients
+     * @param  string $phoneNumber : Numéro du clients
+     * @param  string $mail : Mail du clients 
+     * 
+     * @return void 
+     */
+    public function addNewClientsWithAddress(string $lastname, string $firstname, string $phoneNumber, string $mail, string $city, string $zip): void
+    {
+        $pdo = parent::connectDb();
+        $sql = "INSERT INTO clients (c_lastname, c_firstname, c_mail, c_phonenumber, c_city, c_zip) VALUES (:lastname,:firstname,:mail,:phonenumber,:mail,:phonenumber,:city,:zip)";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
+        $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
+        $query->bindValue(':phonenumber', $phoneNumber, PDO::PARAM_STR);
+        $query->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $query->bindValue(':city', $city, PDO::PARAM_STR);
+        $query->bindValue(':zip', $zip, PDO::PARAM_STR);
+        $query->execute();
+    }
     public function getAllClients()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM `clients`";
+        $sql = "SELECT * FROM clients";
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -116,19 +139,30 @@ class Clients extends DataBase
         $result = $query->fetChAll();
         return $result;
     }
+    public function getOneClientByMail(string $mail)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM clients 
+        WHERE c_mail = :mail";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $result = $query->fetCh();
+        return $result;
+    }
     public function getAOneClients(int $clients)
     {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM clients 
-        WHERE clients_id = $clients";
-        $query = $pdo->query($sql);
+        WHERE c_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $clients, PDO::PARAM_STR);
         $result = $query->fetCh();
         return $result;
     }
     public function updateClients(int $clients,string $name,string $lastname,string $phoneNumber,string $mail, string $address)
     {
         $pdo = parent::connectDb();
-        $sql = "UPDATE clients SET clients_lastname=:lastname, clients_firstname=:name, clients_mail=:mail, clients_phonenumber=:phonenumber WHERE clients_id = :id";
+        $sql = "UPDATE clients SET c_lastname=:lastname, c_firstname=:name, c_mail=:mail, c_phone=:phonenumber WHERE c_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':name', $name, PDO::PARAM_STR);
         $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
@@ -140,7 +174,7 @@ class Clients extends DataBase
     public function deleteClients(int $clients)
     {
         $pdo = parent::connectDb();
-        $sql = "DELETE FROM clients WHERE clients_id = :id";
+        $sql = "DELETE FROM clients WHERE c_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $clients, PDO::PARAM_STR);
         $query->execute();
@@ -148,7 +182,7 @@ class Clients extends DataBase
     public function softDeleteClients(int $clients)
     {
         $pdo = parent::connectDb();
-        $sql = "UPDATE clients SET  clients_mail=:mail WHERE clients_id = :id";
+        $sql = "UPDATE clients SET  c_mail=:mail WHERE c_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $clients, PDO::PARAM_STR);
         $query->execute();

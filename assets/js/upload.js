@@ -1,4 +1,3 @@
-
 // JS permettant d'avoir un apercu de l'image lors du choix de l'input
 let inputPicture = document.getElementById('picture')
 inputPicture.addEventListener("change", function () {

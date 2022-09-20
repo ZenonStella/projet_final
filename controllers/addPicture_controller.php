@@ -6,7 +6,7 @@ require_once '../models/Jobs.php';
 $jobsObj = new Jobs();
 $categorysJobs = $jobsObj->getAlljobs();
 $pictureObj = new Pictures();
-if ($showForm) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $paramUpload = [
         // Taille max de l'image
         'size' => 4000000,
