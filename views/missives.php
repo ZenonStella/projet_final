@@ -47,14 +47,6 @@ require('../inc/header.php');
         </div>
     </div>
     <div class="mb-3 col-11">
-        <label for="city">Ville et Code Postale</label>
-        <span class="ms-2 text-danger"><?= isset($errors['address']) ? $errors['address'] : '' ?></span>
-        <div class="input-group">
-            <input type="text" name="city" id="city" aria-label="City" placeholder="Ville" class="form-control" value="<?= isset($_POST['city']) ? $_POST['city'] : '' ?>">
-            <input type="text" name="zip" id="zip" aria-label="Zip" placeholder="Code postale" class="form-control" value="<?= isset($_POST['zip']) ? $_POST['zip'] : '' ?>">
-        </div>
-    </div>
-    <div class="mb-3 col-11">
         <label for="text">Message *</label>        
         <span class="ms-2 text-danger"><?= isset($errors['text']) ? $errors['text'] : '' ?></span>
 

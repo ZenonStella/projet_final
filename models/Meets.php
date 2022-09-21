@@ -91,7 +91,7 @@ class Meets extends DataBase
     public function addNewMeets(string $created_at, string $date, string $hour, string $clients, string $users): void
     {
         $pdo = parent::connectDb();
-        $sql = "INSERT INTO  meets (me_created_at, me_meet_date, me_meet_at, me_responce, u_id_users, c_id_clients) VALUES (:created_at,:date,:users,:hour, :users, :client)";
+        $sql = "INSERT INTO  meets (me_created_at, me_meet_date, me_meet_at, u_id_users, c_id_clients) VALUES (:created_at,:date,:hour, :users, :client)";
         $query = $pdo->prepare($sql);
         $query->bindValue(':created_at', $created_at, PDO::PARAM_STR);
         $query->bindValue(':date', $date, PDO::PARAM_STR);

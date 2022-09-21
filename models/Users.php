@@ -115,6 +115,16 @@ class Users extends DataBase
         $result = $query->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+    public function getOneUsersByRole(string $role)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM users WHERE u_role = :role AND u_soft_delete = 0";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':role', $role, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetch();
+        return $result;
+    }
     public function updateUsers(string $lastname,string $firstname,string $mail)
     {
         $pdo = parent::connectDb();

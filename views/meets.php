@@ -46,20 +46,12 @@ require('../inc/header.php');
         </div>
     </div>
     <div class="mb-3 col-11">
-        <label for="city">Ville et Code Postale</label>
-        <span class="ms-2 text-danger"><?= isset($errors['address']) ? $errors['address'] : '' ?></span>
-        <div class="input-group">
-            <input type="text" name="city" id="city" aria-label="City" placeholder="Ville" class="form-control" value="<?= isset($_POST['city']) ? $_POST['city'] : '' ?>">
-            <input type="text" name="zip" id="zip" aria-label="Zip" placeholder="Code postale" class="form-control" value="<?= isset($_POST['zip']) ? $_POST['zip'] : '' ?>">
-        </div>
-    </div>
-    <div class="mb-3 col-11">
         <label for="date">Date et heure de rendez-vous <span class="text-danger">*</span></label>
         <span class="ms-2 text-danger"><?= isset($errors['date']) ? $errors['date'] : '' ?></span>
         <span class="ms-2 text-danger"><?= isset($errors['hour']) ? $errors['hour'] : '' ?></span>
         <div class="input-group">
             <input type="date" placeholder="Date" name="date" id="date" class="form-control" value="<?= isset($_POST['date']) ? $_POST['date'] : '' ?>">
-            <input type="hour" placeholder="Heure" name="hour" id="hour" class="form-control" value="<?= isset($_POST['hour']) ? $_POST['hour'] : '' ?>">
+            <input type="time" placeholder="Heure" name="hour" id="hour" class="form-control" value="<?= isset($_POST['hour']) ? $_POST['hour'] : '' ?>">
         </div>
     </div>
     <div class="col-11 mb-3 justify-content-center">

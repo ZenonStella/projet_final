@@ -88,13 +88,13 @@ class Missives extends DataBase
      * 
      * @return void 
      */
-    public function addNewMissives(string $missive, string $created_at, string $client): void
+    public function addNewMissives(string $missive, string $created_at, int $client): void
     {
         $pdo = parent::connectDb();
-        $sql = "INSERT INTO missives (mi_missive, mi_created_at, c_id_clients) VALUES (:created_at, :client)";
+        $sql = "INSERT INTO missives (mi_missive, mi_created_at, c_id_clients) VALUES (:missive,:created, :client)";
         $query = $pdo->prepare($sql);
         $query->bindValue(':missive', $missive, PDO::PARAM_STR);
-        $query->bindValue(':created_at', $created_at, PDO::PARAM_STR);
+        $query->bindValue(':created', $created_at, PDO::PARAM_STR);
         $query->bindValue(':client', $client, PDO::PARAM_STR);
         $query->execute();
     }

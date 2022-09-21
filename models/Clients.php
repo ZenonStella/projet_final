@@ -67,7 +67,7 @@ class Clients extends DataBase
     public function checkIfClientsExists(string $mail): bool
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT clients_mail FROM clients WHERE clients_mail = :mail";
+        $sql = "SELECT c_mail FROM clients WHERE c_mail = :mail";
         $query = $pdo->prepare($sql);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->execute();
@@ -89,14 +89,13 @@ class Clients extends DataBase
      * 
      * @return void 
      */
-    public function addNewClients(string $lastname, string $firstname, string $phoneNumber, string $mail): void
+    public function addNewClients(string $lastname, string $firstname, string $mail): void
     {
         $pdo = parent::connectDb();
-        $sql = "INSERT INTO clients (c_lastname, c_firstname, c_mail, c_phonenumber) VALUES (:lastname,:firstname,:mail,:phonenumber)";
+        $sql = "INSERT INTO clients (c_lastname, c_firstname, c_mail) VALUES (:lastname,:firstname,:mail)";
         $query = $pdo->prepare($sql);
         $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
         $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
-        $query->bindValue(':phonenumber', $phoneNumber, PDO::PARAM_STR);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->execute();
     }
@@ -110,17 +109,15 @@ class Clients extends DataBase
      * 
      * @return void 
      */
-    public function addNewClientsWithAddress(string $lastname, string $firstname, string $phoneNumber, string $mail, string $city, string $zip): void
+    public function addNewClientsWithPhone(string $lastname, string $firstname, string $phoneNumber, string $mail): void
     {
         $pdo = parent::connectDb();
-        $sql = "INSERT INTO clients (c_lastname, c_firstname, c_mail, c_phonenumber, c_city, c_zip) VALUES (:lastname,:firstname,:mail,:phonenumber,:mail,:phonenumber,:city,:zip)";
+        $sql = "INSERT INTO clients (c_lastname, c_firstname, c_mail, c_phone) VALUES (:lastname,:firstname,:mail,:phonenumber)";
         $query = $pdo->prepare($sql);
         $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
         $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
         $query->bindValue(':phonenumber', $phoneNumber, PDO::PARAM_STR);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
-        $query->bindValue(':city', $city, PDO::PARAM_STR);
-        $query->bindValue(':zip', $zip, PDO::PARAM_STR);
         $query->execute();
     }
     public function getAllClients()
@@ -146,6 +143,7 @@ class Clients extends DataBase
         WHERE c_mail = :mail";
         $query = $pdo->prepare($sql);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $query->execute();
         $result = $query->fetCh();
         return $result;
     }
@@ -156,6 +154,7 @@ class Clients extends DataBase
         WHERE c_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $clients, PDO::PARAM_STR);
+        $query->execute();
         $result = $query->fetCh();
         return $result;
     }

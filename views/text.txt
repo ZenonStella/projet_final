@@ -1,0 +1,5 @@
+$_SESSION['swal'] = [
+    'icon' => 'success',
+    'title' => 'Rendez-vous',
+    'text' => 'Le rendez vous a bien été prise en compte'
+];

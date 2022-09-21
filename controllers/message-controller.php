@@ -7,24 +7,35 @@ $missivessObj = new Missives();
 $clientsObj = new Clients();
 
 if ($showForm == true) {
-    $lastname = htmlspecialchars($_POST['lastname']);
-    $firstname = htmlspecialchars($_POST['firstname']);
-    $phoneNumber = htmlspecialchars($_POST['phone']);
-    $text = htmlspecialchars($_POST['text']);
-    $mail = htmlspecialchars($_POST['mail']);
-    $city = htmlspecialchars($_POST['city']);
-    $zip = htmlspecialchars($_POST['zip']);
-    $created = date('Y:m:d');
-    // echo $created;
-    if (!$clientsObj->checkIfClientsExists($mail)) {
-        $clientsObj->addNewClients($lastname, $firstname, $phoneNumber, $mail);
-    }
-    $client = $clientsObj->getOneClientByMail($mail);
-    $missivessObj->addNewMissives($text,$created,$client['c_id']);
-    // $doctorsObj = new Doctors();
-    // $usersDoctors = new Users();
 
-    // $doctorsObj->addNewdoctors($lastname, $firstname, $phoneNumber, $specialities, $mail);
-    // $usersDoctors->addUsers($mail, password_hash($password, PASSWORD_DEFAULT), 3);
-    // header('Location: dashboard.php');
+    if (!isset($_POST['cgu'])) {
+        $errors['cgu'] = '*Veuillez accepter les CGU';
+    } else {
+
+
+        $lastname = htmlspecialchars($_POST['lastname']);
+        $firstname = htmlspecialchars($_POST['firstname']);
+        $phoneNumber = htmlspecialchars($_POST['phone']);
+        $text = htmlspecialchars($_POST['text']);
+        $mail = htmlspecialchars($_POST['mail']);
+        $created = date('Y:m:d');
+        // echo $created;
+        // var_dump($phoneNumber);
+        if ($clientsObj->checkIfClientsExists($mail)) {
+            if ($phoneNumber != '') {
+                $clientsObj->addNewClientsWithPhone($lastname, $firstname, $phoneNumber, $mail);
+            } else {
+                $clientsObj->addNewClients($lastname, $firstname, $mail);
+            }
+        }
+        $client = $clientsObj->getOneClientByMail($mail);
+        var_dump($client);
+        $missivessObj->addNewMissives($text, $created, $client['c_id']);
+        // $doctorsObj = new Doctors();
+        // $usersDoctors = new Users();
+
+        // $doctorsObj->addNewdoctors($lastname, $firstname, $phoneNumber, $specialities, $mail);
+        // $usersDoctors->addUsers($mail, password_hash($password, PASSWORD_DEFAULT), 3);
+        // header('Location: dashboard.php');
+    }
 }
