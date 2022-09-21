@@ -22,8 +22,8 @@ $objs = [
 if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
     if ($_GET['obj'] == 1) {
         if (isset($_GET['id'])) {
-            $patientsObj = new Clients();
-            $patientsObj->softDeleteClients($_GET['id']);
+            $clientsObj = new Clients();
+            $clientsObj->softDeleteClients($_GET['id']);
             header('Location: dashboard.php');
         }
     }

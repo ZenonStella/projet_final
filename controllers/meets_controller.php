@@ -33,8 +33,12 @@ if ($showForm == true) {
         $client = $clientsObj->getOneClientByMail($mail);
         var_dump($user);
         $meetsObj->addNewMeets($created,$date,$hour,$client['c_id'],$user['u_id']);
-        // $doctorsObj->addNewdoctors($lastname, $firstname, $phoneNumber, $specialities, $mail);
-        // $usersDoctors->addUsers($mail, password_hash($password, PASSWORD_DEFAULT), 3);
-        // header('Location: dashboard.php');
+        $_SESSION['swal'] = [
+            'icon' => 'success',
+            'title' => 'Rendez-vous',
+            'text' => 'Le rendez vous a bien été prise en compte, nous vous recontacterons prochainement pour le confirmer '
+        ];
+        header('Location: home.php');
+        exit;
     }
 }

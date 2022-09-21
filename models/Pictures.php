@@ -1,5 +1,5 @@
 <?php
-class Pictures
+class Pictures extends DataBase
 {
     /**
      * Methode permettant de contôler l'image selon des paramètres définies
@@ -101,5 +101,16 @@ class Pictures
         unlink($imagePath);
         // Nous récupérons l'image à l'aide du return
         return $image64;
+    }
+    public function addNewPicture(string $name, string $picture,int $category, bool $after)
+    {
+        $pdo = parent::connectDb();
+        $sql = "INSERT INTO galery (g_name, g_picture, g_category, g_after) VALUES (:name,:picture,:category, :after)";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':name', $name, PDO::PARAM_STR);
+        $query->bindValue(':picture', $picture, PDO::PARAM_STR);
+        $query->bindValue(':category', $category, PDO::PARAM_INT);
+        $query->bindValue(':after', $after, PDO::PARAM_BOOL);
+        $query->execute();
     }
 }

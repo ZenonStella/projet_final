@@ -13,32 +13,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // les extensions autorisé
         'extension' => ['jpeg', 'jpg', 'webp', 'png'],
         // le nom du répertoire qui va accueillir les images
-        'directory' => '../assets/upload/',
+        'directory' => '../assets/img/',
         // choix de l'extension lors de l'enregistrement de l'image
         'extend' => 'webp'
     ];
-    $resultVerifyImg = Pictures::verifyImg('picture', $paramUpload);
-    if ($resultVerifyImg['permissionToUpload'] === false) {
-        $errors['picture'] = $resultVerifyImg['errorMessage'];
-    }
-
-    var_dump($resultVerifyImg);
-    if (count($errors) == 0) {
-        $resultUploadImage = Pictures::uploadImage('picture', $paramUpload);
-        // si l'uploadImage est ok, nous allons créer le docteur dans la bdd
-        if ($resultUploadImage['success'] === true) {
-            // Je stock les valeurs des inputs dans des variables en effectuant un htmlspecialchars et intval afin de m'assurer que les données soient safe
-            $name = htmlspecialchars($_POST['name']);
-            $category = htmlspecialchars($_POST['category']);
-            $after = htmlspecialchars($_POST['after']);
-            // Pour récupérer le path de l'image je concatène le chemin du directory et le nom de l'image
-            // Grace à la méthode je recupère une image encodée en base 64
-            // $picture = Pictures::convertImagetoBase64($paramUpload['directory'] . $resultUploadImage['imageName']);
-            // // Si tout est ok, nous retournons sur une page données
-            // header('Location: listDoctors.php');
-        } else {
-            $errors['picture'] = $resultUploadImage['messageError'];
+    if ($_FILES['picture']['error'] != 4) {
+        $resultVerifyImg = Pictures::verifyImg('picture', $paramUpload);
+        if ($resultVerifyImg['permissionToUpload'] === false) {
+            $errors['picture'] = $resultVerifyImg['errorMessage'];
         }
-        var_dump($resultUploadImage);
+    }
+    if (count($errors) == 0) {
+        // si l'uploadImage est ok, nous allons créer le docteur dans la bdd
+        $name = htmlspecialchars($_POST['name']);
+        $category = htmlspecialchars($_POST['categorys']);
+        if (isset($_POST['after'])) {
+            $after = true;
+        } else {
+            $after = false;
+        }
+        $after = htmlspecialchars($_POST['after']);
+        if ($_FILES['picture']['error'] == 4) {
+            $img = base64_encode(file_get_contents('../assets/img/IMG-20220912-WA0000.jpg'));
+        } else {
+            $resultUploadImage = Pictures::uploadImage('picture', $paramUpload);
+            $picture = Pictures::convertImagetoBase64($paramUpload['directory'] . $resultUploadImage['imageName']);
+        }
+        // $pictureObj->addNewPicture($name,$picture,$category,$after);
+        $_SESSION['swal'] = [
+            'icon' => 'success',
+            'title' => 'Image',
+            'text' => 'L\'image a bien été enregistrée'
+        ];
+        header('Location: news.php');
     }
 }

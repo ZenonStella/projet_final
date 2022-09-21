@@ -68,8 +68,7 @@ require('../inc/header.php');
     </div>
 </form>
 <?php
-require('../inc/footer.php'); ?>
-
-<?php
+require('../inc/footer.php'); 
+require_once '../inc/sweetAlert.php';
 include('../inc/end.php');
 ?>

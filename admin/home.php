@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('inc/header.php');
-require_once '../controllers/admin_cilents_controller.php';
+require_once '../controllers/admin_clients_controller.php';
 require_once '../controllers/admin_meets_controller.php';
 require_once '../controllers/admin_missives_controller.php';
 require_once '../controllers/calendar_controller.php';
@@ -36,8 +36,8 @@ require_once '../controllers/calendar_controller.php';
                 <tbody>
                     <?php foreach ($tenMissives as $missive) { ?>
                         <tr>
-                            <td><?php $missive['c_lastname'] ?> <?php $missive['c_lastname'] ?></td>
-                            <td class="text-truncate"><?php $missive['mi_missive'] ?></td>
+                            <td><?= $missive['c_lastname'] ?> <?= $missive['c_firstname'] ?></td>
+                            <td class="text-truncate"><?= $missive['mi_missive'] ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -58,14 +58,19 @@ require_once '../controllers/calendar_controller.php';
                 <tbody>
                     <?php foreach ($clients as $client) { ?>
                         <tr>
-                            <td><?php $client['c_lastname'] ?> <?php $client['c_firstname'] ?></td>
-                            <td><?php $client['c_email'] ?></td>
-                            <td><?php $client['c_phone'] ?></td>
+                            <td><?= $client['c_lastname'] ?> <?= $client['c_firstname'] ?></td>
+                            <td><?= $client['c_mail'] ?></td>
+                            <td><?php if ($client['c_phone'] == '') {?>
+                                Information non renseigner
+                            <?php }else{ ?>
+                                <?= $client['c_phone'] ?>
+                            <?php }?>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="users.php" class="col-6 mt-3 btn btn-secondary">Gerer les utilisateurs</a>
+            <a href="clients.php" class="col-6 mt-3 btn btn-secondary">Gerer les client</a>
         </div>
     </div>
 </div>

@@ -110,9 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // if (!isset($_POST['cgu'])) {
-    //     $errors['cgu'] = '*Veuillez accepter les CGU';
-    // }
+
     if (isset($_POST['specialities'])) {
         if (empty($_POST['specialities'])) { // si c'est vide
             $errors['specialities'] = '*spécialité obligatoire';
@@ -135,5 +133,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $showForm = true;
         }
     }
-    var_dump($errors);
+    // var_dump($errors);
 }

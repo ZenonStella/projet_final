@@ -12,6 +12,7 @@ require('inc/header.php');
             <table class="table table-striped rounded border">
                 <thead>
                     <tr>
+                        <th scope="col">Identité</th>
                         <th scope="col">Adresse mail</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -19,10 +20,11 @@ require('inc/header.php');
                 <tbody>
                     <?php foreach ($clients as $client) { ?>
                         <tr>
-                            <td><?php $client['u_email'] ?></td>
+                            <td><?= $client['c_firstname'] ?> <?= $client['c_lastname'] ?></td>
+                            <td><?= $client['c_mail'] ?></td>
                             <td>
-                                <a href="<?php $client['u_id'] ?>" class="btn btn-warning">Signaler</a>
-                                <a href="<?php $client['u_id'] ?>" class="btn btn-danger">Supprimer</a>
+                                <a href="<?= $client['c_id'] ?>" class="btn btn-warning">Signaler</a>
+                                <a href="soft_delete.php?obj=1&id=<?= $client['c_id'] ?>" class="btn btn-danger">Supprimer</a>
                             </td>
                         </tr>
                     <?php } ?>
