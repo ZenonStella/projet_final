@@ -1,7 +1,8 @@
 <?php
-include('inc/header.php');
+session_start();
 require_once '../controllers/form_controller.php';
 require_once '../controllers/addPicture_controller.php';
+include('inc/header.php');
 ?>
 <h2 class="text-center">Ajouter une image a la galerie</h2>
 <form action="" method="POST" enctype="multipart/form-data" class="row justify-content-cent">

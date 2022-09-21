@@ -46,5 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'text' => 'L\'image a bien été enregistrée'
         ];
         header('Location: news.php');
+        exit;
     }
 }
