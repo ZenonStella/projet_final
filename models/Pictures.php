@@ -113,4 +113,12 @@ class Pictures extends DataBase
         $query->bindValue(':after', $after, PDO::PARAM_BOOL);
         $query->execute();
     }
+    public function getAllPictures()
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM galery";
+        $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
+    }
 }

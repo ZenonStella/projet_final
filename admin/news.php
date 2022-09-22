@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once '../controllers/admin_news_controller.php';
 require('inc/header.php');
 ?>
 <div class="row justify-content-center">
@@ -12,10 +13,10 @@ require('inc/header.php');
             <a href="" class="btn btn-primary">Voir +</a>
         </div>
         <div class="galery row" data-masonry='{"percentPosition": true }'>
-            <?php for ($i = 0; $i < 4; $i++) { ?>
+            <?php foreach ($pictures as $picture) {?>
                 <div class="col-sm-4 col-lg-2 col-3 mb-4">
                     <div class="card">
-                        <img src="../assets/img/facade_en_torchie.jpg" alt="">
+                        <img src="data:image/webp;base64,<?= $picture['g_picture'] ?>" alt="<?= $picture['g_name'] ?>">
                     </div>
                 </div>
             <?php } ?>

@@ -50,8 +50,8 @@ include('inc/header.php');
 </form>
 
 <?php
-include('inc/footer.php');
-require_once '../inc/sweetAlert.php'
+require('inc/footer.php');
+require_once '../inc/sweetAlert.php';
 ?>
 <script src="../assets/js/upload.js"></script>
 <?php

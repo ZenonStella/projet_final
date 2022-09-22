@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // le nom du répertoire qui va accueillir les images
         'directory' => '../assets/img/',
         // choix de l'extension lors de l'enregistrement de l'image
-        'extend' => 'webp'
+        'extend' => 'png'
     ];
     if ($_FILES['picture']['error'] != 4) {
         $resultVerifyImg = Pictures::verifyImg('picture', $paramUpload);
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $resultUploadImage = Pictures::uploadImage('picture', $paramUpload);
             $picture = Pictures::convertImagetoBase64($paramUpload['directory'] . $resultUploadImage['imageName']);
         }
-        // $pictureObj->addNewPicture($name,$picture,$category,$after);
+        $pictureObj->addNewPicture($name,$picture,$category,$after);
         $_SESSION['swal'] = [
             'icon' => 'success',
             'title' => 'Image',
