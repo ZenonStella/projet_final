@@ -10,10 +10,10 @@ require('inc/header.php');
     <div class="content">
         <div class="edit mb-4">
             <a href="addPictures.php" class="btn btn-primary">Ajouter des images</a>
-            <a href="" class="btn btn-primary">Voir +</a>
+            <a href="pictures.php" class="btn btn-primary">Voir +</a>
         </div>
         <div class="galery row" data-masonry='{"percentPosition": true }'>
-            <?php foreach ($pictures as $picture) {?>
+            <?php foreach ($pictures as $picture) { ?>
                 <div class="col-sm-4 col-lg-2 col-3 mb-4">
                     <div class="card">
                         <img src="data:image/webp;base64,<?= $picture['g_picture'] ?>" alt="<?= $picture['g_name'] ?>">
@@ -22,18 +22,17 @@ require('inc/header.php');
             <?php } ?>
         </div>
         <div class="edit mb-4">
-            <a href="" class="btn btn-primary">Ajouter un article</a>
-            <a href="" class="btn btn-primary">Voir +</a>
+            <a href="addArticles.php" class="btn btn-primary">Ajouter un article</a>
+            <a href="articles.php" class="btn btn-primary">Voir +</a>
         </div>
         <div class="news">
-            <?php for ($i = 0; $i < 4; $i++) { ?>
+            <?php
+            foreach ($articles as $article) { ?>
                 <div class="card d-flex flex-row">
                     <div class="img-card-admin">
-                        <img src="../assets/img/facade_en_torchie.jpg" alt="">
+                        <!-- <img src="data:image/webp;base64,<?= $article['a_img'] ?>" alt="<?= $artticle['a_img_name'] ?>"> -->
                     </div>
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
+                    <div class="card-body"><?= $article['a_titles'] ?></div>
                 </div>
             <?php } ?>
         </div>

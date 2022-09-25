@@ -117,12 +117,28 @@ class Articles extends DataBase
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
+    }    
+    public function getAllArticlesPosted()
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM articles WHERE a_posted = 1";
+        $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
+    }
+    public function getAllArticlesId()
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT a_id FROM articles";
+        $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
     }
     public function getAOneArticles(int $articles)
     {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM articles 
-        WHERE articles_id = $articles";
+        WHERE a_id = $articles";
         $query = $pdo->query($sql);
         $result = $query->fetCh();
         return $result;

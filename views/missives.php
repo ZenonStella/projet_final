@@ -49,7 +49,6 @@ require('../inc/header.php');
     <div class="mb-3 col-11">
         <label for="text">Message *</label>        
         <span class="ms-2 text-danger"><?= isset($errors['text']) ? $errors['text'] : '' ?></span>
-
         <div class="input-group">
             <textarea id="text" name="text" id="text" class="form-control" placeholder="Ecrire ici votre message..." aria-label="With textarea"></textarea>
         </div>

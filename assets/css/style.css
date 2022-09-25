@@ -48,11 +48,20 @@ a {
 .img-article {
     width: 90%;
 }
-
+.login {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 @media screen and (max-width: 900px) {
     .thepicture {
         width: 100%;
         height: auto;
+    }
+    .login {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 }
 

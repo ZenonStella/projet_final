@@ -12,7 +12,7 @@
     <title>Traveaux service</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header class="greenbg">
         <nav class="navbar navbar-dark navbar-expand-lg">
             <div class="container-fluid">

@@ -5,6 +5,6 @@
         <p>Veuillez retourner en arrière pour pouvoir continuer à découvrir nos parfums les plus givrés</p>
     </div>
     <div class="redirect">
-        <a href="index.php" class="btn btn-secondary">Retour à la page des parfums</a>
+        <a href="home.php" class="btn btn-secondary">Retour à la page des parfums</a>
     </div>
 </div>

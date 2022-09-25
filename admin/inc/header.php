@@ -11,7 +11,7 @@
     <title>Administration</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <nav class="navbar navbar-dark greenbg fixed-top">
             <div class="container-fluid">

@@ -3,8 +3,6 @@ require_once '../config.php';
 require_once '../models/Database.php';
 require_once '../models/Pictures.php';
 require_once '../models/Jobs.php';
-$jobsObj = new Jobs();
-$categorysJobs = $jobsObj->getAlljobs();
 $pictureObj = new Pictures();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $paramUpload = [
@@ -35,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $img = base64_encode(file_get_contents('../assets/img/IMG-20220912-WA0000.jpg'));
         } else {
             $resultUploadImage = Pictures::uploadImage('picture', $paramUpload);
-            $picture = Pictures::convertImagetoBase64($paramUpload['directory'] . $resultUploadImage['imageName']);
+            // $pictureObj->addNewArticles($paramUpload['directory'] . $resultUploadImage['imageName']);
         }
         $pictureObj->addNewPicture($name, $picture, $category, $after);
         $_SESSION['swal'] = [
