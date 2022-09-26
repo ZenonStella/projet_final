@@ -8,6 +8,7 @@ require_once '../controllers/calendar_controller.php';
 ?>
 <div class="row justify-content-center">
     <div class="col-10 my-3 justify-content-center">
+        <p class="h3 text-center p3">Nos Rendez-vous</p>
         <p class="text-center"><?= $monthLetters ?> <?= $year ?></p>
         <p class="text-center"></p>
         <div class="row justify-content-center p-0 mt-1 mx-0">
@@ -26,6 +27,7 @@ require_once '../controllers/calendar_controller.php';
     </div>
     <div class="col-11 my-3">
         <div class="row justify-content-center">
+            <p class="h3 text-center p3">Les messages de nos clients</p>
             <table class="table table-striped rounded border">
                 <thead>
                     <tr>
@@ -47,6 +49,7 @@ require_once '../controllers/calendar_controller.php';
     </div>
     <div class="col-11 my-3">
         <div class="row justify-content-center">
+            <p class="h3 text-center p3">Nos clients</p>
             <table class="table table-striped rounded border">
                 <thead>
                     <tr>

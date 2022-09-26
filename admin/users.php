@@ -30,7 +30,7 @@ require('inc/header.php');
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="soft_delete.php?obj=users&action=view" class="col-6 mt-3 btn btn-secondary">Voir mes utilisateurs supprimés</a>
+            <a href="archivesUsers.php" class="col-6 mt-3 btn btn-secondary">Voir mes utilisateurs supprimés</a>
         </div>
     </div>
 </div>

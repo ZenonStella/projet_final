@@ -9,7 +9,8 @@ require('../inc/header.php');
     print_r($_POST);
     ?>
 </pre>
-<h2 class="text-center mb-5">Bienvenus sur notre page de prise de rendez-vous!</h2>
+<h2 class="text-center">Bienvenus sur notre page de prise de rendez-vous!</h2>
+<p class="text-center mb-5">Prenez rendez-vous avec nous</p>
 <ul class="nav nav-tabs mb-5">
     <li class="nav-item">
         <a class="nav-link" href="contact.php">Contact</a>

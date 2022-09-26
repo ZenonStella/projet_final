@@ -5,7 +5,7 @@ require_once '../controllers/login_controller.php';
 include('../inc/header.php');
 ?>
 <div class="mt-5">
-    <h2 class="text-center">Connection </h2>
+    <h2 class="text-center">Connection</h2>
     <form action="" method="POST">
         <div class="row justify-content-center">
             <div class="col-8 border border-secondary rounded shadow p-4 login">

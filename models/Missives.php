@@ -107,6 +107,15 @@ class Missives extends DataBase
         $result = $query->fetChAll();
         return $result;
     }
+    public function getAllMissivesDelete()
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM missives
+        INNER JOIN clients ON missives.c_id_clients = clients.c_id";
+        $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
+    }
     public function getTenMissives()
     {
         $pdo = parent::connectDb();

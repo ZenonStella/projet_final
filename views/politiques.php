@@ -20,7 +20,7 @@ require('../inc/header.php');
             <p><strong>Compte</strong> désigne un compte unique créé pour vous afin d'accéder à notre service ou à certaines parties de notre service.</p>
         </li>
         <li>
-            </p><strong>Société</strong> (désignée soit par &quot;la Société&quot ;, &quot;Nous&quot ;, &quot;Nous&quot ; ou &quot;Notre&quot ; dans le présent Accord) désigne croq'artCafé.</p>
+            </p><strong>Société</strong> (désignée soit par &quot;la Société&quot ;, &quot;Nous&quot ;, &quot;Nous&quot ; ou &quot;Notre&quot ; dans le présent Accord) désigne Travaux Service.</p>
             <p>.
         </li>
         <li>
@@ -53,7 +53,7 @@ require('../inc/header.php');
             <p>.
         </li>
         <li>
-            <p><strong>Site internet</strong> désigne le croq'artCafé, accessible à partir de <a href="https://www.croq%27artCaf%C3%A9.fr" rel="external nofollow noopener" target="_blank">https://www.croq'artCafé.fr</a></p>.
+            <p><strong>Site internet</strong> désigne le croq'artCafé, accessible à partir de <a href="http://localhost/La%20Manu/php/projet_final" rel="external nofollow noopener" target="_blank">https://www.TravauxService.com</a></p>.
         </li>
         <li>
             <p><strong>Vous</strong> désigne la personne physique qui accède ou utilise le service, ou la société, ou toute autre entité juridique au nom de laquelle cette personne physique accède ou utilise le service, le cas échéant.</p>

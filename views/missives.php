@@ -10,6 +10,7 @@ require('../inc/header.php');
     ?>
 </pre>
 <h2 class="text-center mb-5">Bienvenus sur notre page d'envoie de message!</h2>
+<p class="text-cneter">Laissez nous un message si vous avez des questions</p>
 <ul class="nav nav-tabs mb-5">
   <li class="nav-item">
     <a class="nav-link"  href="contact.php">Contact</a>

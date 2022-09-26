@@ -1,12 +1,11 @@
 <?php
 session_start();
-require_once '../controllers/admin_clients_controller.php';
+require_once '../controllers/archives_controller.php';
 require('inc/header.php');
 ?>
 <div class="row justify-content-center">
     <div class="back">
-        <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
-        <a href="archivesUser.php" class="btn btn-primary">Archives</a>
+        <a class="btn btn-danger rounded mb-5" href="users.php">Retour à la liste de utilisateurs</a>
     </div>
     <div class="col-11 my-3">
         <div class="row justify-content-center">
@@ -19,13 +18,13 @@ require('inc/header.php');
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($clients as $client) { ?>
+                    <?php foreach ($users as $user) { ?>
                         <tr>
-                            <td><?= $client['c_firstname'] ?> <?= $client['c_lastname'] ?></td>
-                            <td><?= $client['c_mail'] ?></td>
+                            <td><?= $user['c_firstname'] ?> <?= $user['c_lastname'] ?></td>
+                            <td><?= $user['c_mail'] ?></td>
                             <td>
-                                <a href="<?= $client['c_id'] ?>" class="btn btn-warning">Signaler</a>
-                                <a href="soft_delete.php?obj=1&id=<?= $client['c_id'] ?>" class="btn btn-danger">Supprimer</a>
+                                <a href="<?= $user['c_id'] ?>" class="btn btn-warning">Signaler</a>
+                                <a href="soft_delete.php?obj=1&id=<?= $user['c_id'] ?>" class="btn btn-danger">Supprimer</a>
                             </td>
                         </tr>
                     <?php } ?>
