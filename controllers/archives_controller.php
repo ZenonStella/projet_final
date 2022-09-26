@@ -13,7 +13,7 @@ require_once '../models/Estimations.php';
 $usersO = new Users();
 $users = $usersO->getAllUsersDelete();
 $missivesO = new Missives();
-$missives = $missivesO->getAllMissives();
+$missives = $missivesO->getAllMissivesDelete();
 
 $meetsO = new Meets();
 $meets = $meetsO->getAllMeets();
