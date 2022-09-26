@@ -3,6 +3,7 @@ session_start();
 require_once '../controllers/form_controller.php';
 require_once '../controllers/addArticles_controller.php';
 include('inc/header.php');
+    var_dump($_POST);
 ?>
 <h2 class="text-center">Ajouter un article aux actualitées</h2>
 <form action="" method="POST" enctype="multipart/form-data" class="row justify-content-center">

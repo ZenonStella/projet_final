@@ -96,15 +96,16 @@ class Articles extends DataBase
      * 
      * @return void 
      */
-    public function addNewArticles(string $created_at, string $posted_at, string $edit, string $text, string $preveiw, string $img, string $title, int $user): void
+    public function addNewArticles(string $created_at, string $text, string $preveiw, string $img,string $imgName, string $title, int $user): void
     {
+        // INSERT INTO articles(a_created_at, a_titles, a_preveiw, a_text, a_img, a_img_name, u_id_users) VALUES ('2022:09:26','tcfuygi_uàç','fhueijofjiohusude','ufegspfuigmshmqhdfmihmqhfvjdbhv bfuidhidxuihrdfsxcovihv fdhbfzemdfhcv vdfuicvhfbze sd cxifve zbdfxuhvf zsdfx chljfbdx cb ld wfxcjh','sdh:kjcxh!lsdwkbf:kvbs<!wjgvk:fhwcxbjnfjbb','fknfbdjxihnsdjmchùqrgzrbjfhd',1)
         $pdo = parent::connectDb();
-        $sql = "INSERT INTO  articles (a_created_at, a_posted_at, a_edit_at, a_titles, a_preveiw, a_text, a_img, u_id_users) VALUES (:created_at,:posted_at, :edit,:title, :preveiw, :text, :img, :user)";
+        $sql = "INSERT INTO  articles (a_created_at, a_titles, a_preveiw, a_text, a_img, a_img_name, u_id_users) VALUES (:created_at,:title, :preveiw, :text, :img, :nameImg, :user)";
         $query = $pdo->prepare($sql);
         $query->bindValue(':created_at', $created_at, PDO::PARAM_STR);
-        $query->bindValue(':title', $edit, PDO::PARAM_STR);
         $query->bindValue(':preveiw', $preveiw, PDO::PARAM_STR);
         $query->bindValue(':img', $img, PDO::PARAM_STR);
+        $query->bindValue(':nameImg', $imgName, PDO::PARAM_STR);
         $query->bindValue(':user', $user, PDO::PARAM_STR);
         $query->bindValue(':text', $text, PDO::PARAM_STR);
         $query->bindValue(':title', $title, PDO::PARAM_STR);
