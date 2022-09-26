@@ -108,6 +108,14 @@ class Meets extends DataBase
         $result = $query->fetChAll();
         return $result;
     }
+    public function getAllMeetsDelete()
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM meets WHERE me_responce = 1";
+        $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
+    }
     public function getAllMeetsByYearAndMonth($year, $month)
     {
         $pdo = parent::connectDb();

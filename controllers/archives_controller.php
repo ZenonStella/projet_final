@@ -16,11 +16,11 @@ $missivesO = new Missives();
 $missives = $missivesO->getAllMissivesDelete();
 
 $meetsO = new Meets();
-$meets = $meetsO->getAllMeets();
+$meets = $meetsO->getAllMeetsDelete();
 
 $clientsO = new Clients();
-$clients = $clientsO->getAllClients();
+$clients = $clientsO->getAllClientsDelete();
 
 $estimationsO = new Estimations();
-$estimations = $estimationsO->getAllEstimations();
+$estimations = $estimationsO->getAllEstimationsDelete();
 

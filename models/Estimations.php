@@ -31,6 +31,15 @@ class Estimations extends DataBase
         $result = $query->fetChAll();
         return $result;
     }
+    public function getAllEstimationsDelete()
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM estimations INNER JOIN
+        clients ON estimations.c_id_clients = clients.c_id WHERE e_responce = 1";
+        $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
+    }
     public function getAllCategorysEstimations()
     {
         $pdo = parent::connectDb();

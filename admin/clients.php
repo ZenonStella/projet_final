@@ -6,7 +6,7 @@ require('inc/header.php');
 <div class="row justify-content-center">
     <div class="back">
         <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
-        <a href="archivesUser.php" class="btn btn-primary">Archives</a>
+        <a href="archivesClients.php" class="btn btn-primary mb-5">Archives</a>
     </div>
     <div class="col-11 my-3">
         <div class="row justify-content-center">
@@ -31,7 +31,6 @@ require('inc/header.php');
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="" class="col-6 mt-3 btn btn-secondary">Gerer mes messages</a>
         </div>
     </div>
 </div>

@@ -128,6 +128,14 @@ class Clients extends DataBase
         $result = $query->fetChAll();
         return $result;
     }
+    public function getAllClientsDelete()
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM clients WHERE c_soft_delete = 1";
+        $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
+    }
     public function getTenClients()
     {
         $pdo = parent::connectDb();

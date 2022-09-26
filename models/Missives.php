@@ -111,7 +111,7 @@ class Missives extends DataBase
     {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM missives
-        INNER JOIN clients ON missives.c_id_clients = clients.c_id WHERE c_soft_delete = 1";
+        INNER JOIN clients ON missives.c_id_clients = clients.c_id WHERE mi_responce = 1";
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
