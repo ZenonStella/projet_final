@@ -59,6 +59,20 @@ class Users extends DataBase
             return false;
         }
     }
+    public function checkIfIdExists(string $id): bool
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT u_id FROM users WHERE u_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $id, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetchAll();
+        if (count($result) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     /**
      * Fonction permettant de récupérer les infos presentes dan sla table users selon le mail reseigné 
      *  
@@ -111,6 +125,16 @@ class Users extends DataBase
         $sql = "SELECT * FROM users WHERE u_email = :mail AND u_soft_delete = 0";
         $query = $pdo->prepare($sql);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    public function getOneUsersById(string $id)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT * FROM users WHERE u_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $id, PDO::PARAM_STR);
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
         return $result;

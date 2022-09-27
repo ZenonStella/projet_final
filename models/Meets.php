@@ -127,6 +127,17 @@ class Meets extends DataBase
         $result = $query->fetChAll();
         return $result;
     }
+    public function getAllMeetsByClients($client)
+    {
+        $pdo = parent::connectDb();
+        $sql = 'SELECT me_id, DATE_FORMAT(meets.me_created_at, "%d/%m/%Y") as me_created_at, DATE_FORMAT(meets.me_meet_date, "%d/%m/%Y") as me_meet_date, TIME_FORMAT(meets.me_meet_at,"%Hh%i") AS me_meet_at, me_responce FROM meets 
+        INNER JOIN clients ON clients.c_id = meets.c_id_clients WHERE clients.c_id = :id';
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $client, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetchAll();
+        return $result;
+    }
     public function getAOneMeets(int $meets)
     {
         $pdo = parent::connectDb();

@@ -78,6 +78,21 @@ class Clients extends DataBase
         } else {
             return false;
         }
+    }    
+    public function checkIfClientsExistsById(string $id): bool
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT c_id FROM clients WHERE c_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $id, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetchAll();
+
+        if (count($result) == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
     /**
      * Permet de rajouter un clients dans la table clients

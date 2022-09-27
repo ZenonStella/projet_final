@@ -23,8 +23,8 @@ require('inc/header.php');
                         <tr>
                             <td><?= $user['u_email'] ?></td>
                             <td>
-                                <a href="details.php?obj=2&id=<?php $user['u_id'] ?>" class="btn btn-primary">+ d'infos</a>
-                                <a href="soft_delete.php?obj=2&id=<?php $user['u_id'] ?>" class="btn btn-danger">Supprimer</a>
+                                <a href="details.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-primary">+ d'infos</a>
+                                <a href="soft_delete.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-danger">Supprimer</a>
                             </td>
                         </tr>
                     <?php } ?>

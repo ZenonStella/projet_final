@@ -122,7 +122,17 @@ class Missives extends DataBase
         $sql = "SELECT * FROM missives
         INNER JOIN clients ON missives.c_id_clients = clients.c_id LIMIT 10";
         $query = $pdo->query($sql);
-        $result = $query->fetChAll();
+        $result = $query->fetchAll();
+        return $result;
+    }
+    public function getMissivesByClients($idClient)
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT mi_id,mi_missive,mi_created_at,mi_responce FROM missives INNER JOIN clients ON missives.c_id_clients = clients.c_id WHERE c_id_clients = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $idClient, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetchAll();
         return $result;
     }
     public function getAOneMissives(int $missives)
@@ -132,7 +142,7 @@ class Missives extends DataBase
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $missives, PDO::PARAM_STR);
         $query->execute();
-        $result = $query->fetCh();
+        $result = $query->fetchAll();
         return $result;
     }
     public function updateMissives(int $missives,string $name,string $missive,string $phoneNumber,string $mail, string $address)

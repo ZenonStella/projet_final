@@ -24,7 +24,7 @@ require('inc/header.php');
                             <td><?= $client['c_firstname'] ?> <?= $client['c_lastname'] ?></td>
                             <td><?= $client['c_mail'] ?></td>
                             <td>
-                                <a href="<?= $client['c_id'] ?>" class="btn btn-warning">Signaler</a>
+                                <a href="details.php?obj=1&id=<?= $client['c_id'] ?>" class="btn btn-primary">Voir +</a>
                                 <a href="soft_delete.php?obj=1&id=<?= $client['c_id'] ?>" class="btn btn-danger">Supprimer</a>
                             </td>
                         </tr>
