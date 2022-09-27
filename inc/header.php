@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Traveaux service</title>
 </head>
-
 <body class="d-flex flex-column min-vh-100">
     <header class="greenbg">
         <nav class="navbar navbar-dark navbar-expand-lg">
@@ -91,7 +90,6 @@
                                 </linearGradient>
                             </defs>
                         </svg>
-
                     </a>
                 </div>
                 <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,7 +112,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="contact.php">Contacts</a>
                         </li>
-
                         <?php
                         if (isset($_SESSION['user'])) { ?>
                             <li class="nav-item">
@@ -127,12 +124,8 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="login.php">Connection</a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link text-white" href="redgister.php">Inscription</a>
-                            </li> -->
                         <?php }
                         ?>
-
                     </ul>
                 </div>
             </div>

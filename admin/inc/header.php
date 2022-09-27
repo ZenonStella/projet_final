@@ -107,7 +107,7 @@
                         </defs>
                     </svg>
                 </a>
-                <a class="text-light" href="../index.php">Retour coté client</a>
+                <span class="text-light">Menus</span>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -147,10 +147,11 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    plus d'options
+                                    Plus d'options
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="profil.php"><i class="bi bi-person-circle"></i> Mon compte</a></li>
+                                    <li><a class="dropdown-item" href="../index.php">Retour coté client</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

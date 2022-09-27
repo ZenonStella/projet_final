@@ -4,10 +4,9 @@ require_once '../controllers/admin_users_controller.php';
 require('inc/header.php');
 ?>
 <div class="row justify-content-center">
-    <div class="back">
-        <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
-
-        <a class="btn btn-danger rounded mb-5" href="redgister.php">Ajouter un nouvel utilisateur</a>
+    <div class="back mb-5">
+        <a class="btn btn-danger rounded my-1" href="home.php">Retour à la page d'accueil</a>
+        <a class="btn btn-danger rounded my-1" href="redgister.php">Ajouter un nouvel utilisateur</a>
     </div>
     <div class="col-11 my-3">
         <div class="row justify-content-center">
@@ -23,14 +22,12 @@ require('inc/header.php');
                         <tr>
                             <td><?= $user['u_email'] ?></td>
                             <td>
-                                <a href="details.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-primary">+ d'infos</a>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#user<?= $user['u_id'] ?>">
+                                <a href="details.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-primary my-1">+ d'infos</a>
+                                <button type="button" class="btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#user<?= $user['u_id'] ?>">
                                     Supprimer
                                 </button>
                             </td>
                         </tr>
-
-
                         <div class="modal fade" id="user<?= $user['u_id'] ?>" tabindex="-1" aria-labelledby="user<?= $user['u_id'] ?>Label" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">

@@ -43,7 +43,7 @@ require('inc/header.php');
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <a href="<?= $user['u_id'] ?>" class="btn btn-primary">Désarchiver</a>
+                                        <a href="unarchive.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-primary">Désarchiver</a>
                                     </div>
                                 </div>
                             </div>

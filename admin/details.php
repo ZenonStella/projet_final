@@ -12,7 +12,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                 <p class="h2 text-center">Informations client</p>
                 <p>Ces informations ne sont modifiable que par le client en question ou l'administrateur.</p>
             </div>
-            <div class="card col-5 my-3 py-5 shadow justify-content-center">
+            <div class="card col-lg-5 col-11 border-green my-3 py-5 shadow justify-content-center">
                 <div class="row justify-content-center">
                     <p>Nom : <?= $client['c_firstname'] ?></p>
                     <p>Prénom : <?= $client['c_lastname'] ?></p>
@@ -104,12 +104,12 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                 <p class="h2 text-center">Informations d'utilisateur</p>
                 <p>Ces informations ne sont modifiable que par l'utilisateur en question ou l'administrateur.</p>
             </div>
-            <div class="card col-5 my-3 py-5 shadow justify-content-center">
+            <div class="card col-lg-5 col-11 border-green my-3 py-5 shadow justify-content-center">
                 <div class="row justify-content-center">
                     <p>Nom : <?= $user['u_firstname'] ?></p>
                     <p>Prénom : <?= $user['u_lastname'] ?></p>
                     <p>Mail : <?= $user['u_email'] ?></p>
-                    <p>Role : <?= $user['u_role'] ?></p>
+                    <p>Rôle : <?= $user['u_role'] ?></p>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                     <p class="h2 text-center">Informations d'un message</p>
                     <p>Ces informations ne sont modifiable que par l'administrateur ou l'éditeur.</p>
                 </div>
-                <div class="card col-5 my-3 py-5 shadow justify-content-center">
+                <div class="card col-lg-5 col-11 border-green my-3 py-5 shadow justify-content-center">
                     <div class="row justify-content-center">
                         <p>Nom : <?= $meet['c_firstname'] ?></p>
                         <p>Prénom : <?= $meet['c_lastname'] ?></p>
@@ -149,7 +149,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                 <p class="h2 text-center">Informations d'un message</p>
                 <p>Ces informations ne sont modifiable que par l'administrateur ou l'éditeur.</p>
             </div>
-            <div class="card col-5 my-3 py-5 shadow justify-content-center">
+            <div class="card col-lg-5 col-11 border-green my-3 py-5 shadow justify-content-center">
                 <div class="row justify-content-center">
                     <p>Nom : <?= $missive['c_firstname'] ?></p>
                     <p>Prénom : <?= $missive['c_lastname'] ?></p>

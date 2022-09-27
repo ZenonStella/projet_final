@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
 
 .slider {
-    width: 50%;
+    width: 100%;
 }
 
 .greenbg {
@@ -15,14 +15,13 @@
 .navig {
     font-family: 'Allerta Stencil', sans-serif;
 }
-
-/* .slider img {
-    height: ;
-} */
 img {
     width: 100%;
 }
-
+.border-green {
+    border: #003926 solid 1px;
+    background-color: silver;
+}
 .img-card-admin {
     width: 20%;
 }

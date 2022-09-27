@@ -169,6 +169,15 @@ class Users extends DataBase
 
         $query->execute();
     }
+    public function unarchiveUsers(int $user)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE users SET u_soft_delete=:soft WHERE u_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $user, PDO::PARAM_STR);
+        $query->bindValue(':soft', 0, PDO::PARAM_STR);
+        $query->execute();
+    }
     public function softDeleteUsers(int $user)
     {
         $pdo = parent::connectDb();
@@ -176,7 +185,6 @@ class Users extends DataBase
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $user, PDO::PARAM_STR);
         $query->bindValue(':soft', 1, PDO::PARAM_STR);
-
         $query->execute();
     }
     public function deleteUsers(int $user)

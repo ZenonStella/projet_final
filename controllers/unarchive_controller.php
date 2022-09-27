@@ -23,36 +23,34 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
     if ($_GET['obj'] == 1) {
         if (isset($_GET['id'])) {
             $patientsObj = new Clients();
-            $patientsObj->deleteClients($_GET['id']);
-            header('Location: home.php');
+            // $patientsObj->unarchiveClients($_GET['id']);
+            header('Location: archivesClients.php');
         }
-    }
-    if ($_GET['obj'] == 2) {
+    } else if ($_GET['obj'] == 2) {
         if (isset($_GET['id'])) {
             $usersObj = new Users();
-            $usersObj->deleteUsers($_GET['id']);
+            $usersObj->unarchiveUsers($_GET['id']);
             header('Location: archivesUsers.php');
         }
-    }
-    if ($_GET['obj'] == 3) {
+    } else if ($_GET['obj'] == 3) {
         if (isset($_GET['id'])) {
             $meetsObj = new Meets();
-            $meetsObj->deleteMeets($_GET['id']);
-            header('Location: home.php');
+            // $meetsObj->unarchiveMeets($_GET['id']);
+            header('Location: archivesMeets.php');
         }
-    }
-    if ($_GET['obj'] == 4) {
+    } else if ($_GET['obj'] == 4) {
         if (isset($_GET['id'])) {
             $meetsObj = new Missives();
-            $missivesObj->deleteMissives($_GET['id']);
-            header('Location: home.php');
+            // $missivesObj->unarchiveMissives($_GET['id']);
+            header('Location: archivesMissives.php');
         }
-    }
-    if ($_GET['obj'] == 5) {
+    } else if ($_GET['obj'] == 5) {
         if (isset($_GET['id'])) {
             $meetsObj = new Estimations();
-            $estiationsObj->deleteEstimations($_GET['id']);
-            header('Location: home.php');
+            // $estiationsObj->unarchiveEstimations($_GET['id']);
+            header('Location: archivesEstimations.php');
         }
+    } else {
+        header('Location: ../views/404.php');
     }
 }
