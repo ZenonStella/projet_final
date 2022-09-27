@@ -42,14 +42,17 @@ require('../inc/header.php');
       Vous pouvez dés aprésent faire une demande de <a href="devis.php">devis gratuit personalisé</a>, prendre <a href="meets.php">rendez-vous</a> avec nous ou encore nous <a href="missives.php">envoyer un message</a> via l'interface web.
     </p>
     <div class="row">
+      <h3>Les gros oeuvres</h3>
       <div class="flex-shrink-0 col-lg-4">
         <img src="../assets/img/IMG-20220912-WA0000.jpg" alt="...">
       </div>
-      <p class="col-lg-8">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magnam, tenetur esse eaque suscipit fugit, inventore eos blanditiis eum eveniet ipsa, minima optio aut possimus nihil. Quo provident quod exercitationem.
-      </p>
-      <p class="col-lg-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magnam, tenetur esse eaque suscipit fugit, inventore eos blanditiis eum eveniet ipsa, minima optio aut possimus nihil. Quo provident quod exercitationem. </p>
-      <p class="col-lg-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magnam, tenetur esse eaque suscipit fugit, inventore eos blanditiis eum eveniet ipsa, minima optio aut possimus nihil. Quo provident quod exercitationem. </p>
+      <div class="col-lg-8">
+        <p class="">
+          Vous avez acheté un terrain vide? Vous voulez une piscine ou une terrasse pour l'été? vous voulez renover un batiment existant? <a href="contact.php">Contactez-nous!</a>
+        </p>
+        <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magnam, tenetur esse eaque suscipit fugit, inventore eos blanditiis eum eveniet ipsa, minima optio aut possimus nihil. Quo provident quod exercitationem. </p>
+        <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magnam, tenetur esse eaque suscipit fugit, inventore eos blanditiis eum eveniet ipsa, minima optio aut possimus nihil. Quo provident quod exercitationem. </p>
+      </div>
     </div>
 
     <div class="row">
