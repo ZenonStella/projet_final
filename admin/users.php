@@ -24,9 +24,30 @@ require('inc/header.php');
                             <td><?= $user['u_email'] ?></td>
                             <td>
                                 <a href="details.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-primary">+ d'infos</a>
-                                <a href="soft_delete.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-danger">Supprimer</a>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#user<?= $user['u_id'] ?>">
+                                    Supprimer
+                                </button>
                             </td>
                         </tr>
+
+
+                        <div class="modal fade" id="user<?= $user['u_id'] ?>" tabindex="-1" aria-labelledby="user<?= $user['u_id'] ?>Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="user<?= $user['u_id'] ?>Label">Supprimer <?= $user['u_firstname'] ?> <?= $user['u_lastname'] ?></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Vous vous apretez à supprimer un utilisateur. Voulez vous continuer?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <a href="soft_delete.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-danger">Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <?php } ?>
                 </tbody>
             </table>
