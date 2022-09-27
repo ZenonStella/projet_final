@@ -24,35 +24,35 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
         if (isset($_GET['id'])) {
             $clientsObj = new Clients();
             $clientsObj->softDeleteClients($_GET['id']);
-            header('Location: dashboard.php');
+            header('Location: home.php');
         }
     }
     if ($_GET['obj'] == 2) {
         if (isset($_GET['id'])) {
             $usersObj = new Users();
             $usersObj->softDeleteUsers($_GET['id']);
-            header('Location: dashboard.php');
+            header('Location: home.php');
         }
     }
     if ($_GET['obj'] == 3) {
         if (isset($_GET['id'])) {
             $meetsObj = new Meets();
             // $meetsObj->archiveMeets($_GET['id']);
-            header('Location: dashboard.php');
+            header('Location: home.php');
         }
     }
     if ($_GET['obj'] == 4) {
         if (isset($_GET['id'])) {
             $meetsObj = new Missives();
             // $meetsObj->archiveMissives($_GET['id']);
-            header('Location: dashboard.php');
+            header('Location: home.php');
         }
     }
     if ($_GET['obj'] == 5) {
         if (isset($_GET['id'])) {
             $meetsObj = new Estimations();
             // $meetsObj->archiveDevis($_GET['id']);
-            header('Location: dashboard.php');
+            header('Location: home.php');
         }
     }
 }

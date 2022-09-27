@@ -23,14 +23,14 @@ require_once '../controllers/admin_missives_controller.php'
                         <tr>
                             <td><?= $missive['c_lastname'] ?> <?= $missive['c_firstname'] ?></td>
                             <td><?= $missive['mi_missive'] ?></td>
-                            <td>
-                                <a href="detail.php?obj=1&id=<?= $missive['mi_id'] ?>" class="btn btn-warning">Voir +</a>
-                                <?php if ($_SESSION['user']['u_role'] == 'admin') { ?>
-                                    <a href="" class="btn btn-warning">Editer</a>
-                                    <a href="" class="btn btn-danger">Supprimer</a>
-                                <?php
-                                } ?>
-                            </td>
+                                <td>
+                                    <a href="details.php?obj=4&id=<?= $missive['mi_id'] ?>" class="btn btn-primary">Voir +</a>
+                                    <?php if ($_SESSION['user']['u_role'] == 'admin') { ?>
+                                        <a href="" class="btn btn-warning">Editer</a>
+                                        <a href="" class="btn btn-danger">Supprimer</a>
+                                    <?php
+                                    } ?>
+                                </td>
                         </tr>
                     <?php } { ?>
                     <?php } ?>

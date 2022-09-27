@@ -41,7 +41,7 @@ if ($showForm == true) {
             'title' => 'Message',
             'text' => 'Le message a bien été prise en compte, nous vous recontacterons prochainement y repondre '
         ];
-        header('Location: dashboard.php');
+        header('Location: home.php');
         exit;
     }
 }

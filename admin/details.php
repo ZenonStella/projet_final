@@ -28,7 +28,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                             <tr>
                                 <th scope="col">Date du message</th>
                                 <th scope="col">Messages</th>
-                                <th scope="col">Reponce</th>
+                                <th scope="col">Réponse</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,7 +53,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                             <tr>
                                 <th scope="col">Date du rendez-vous</th>
                                 <th scope="col">Heure du rendez-vous</th>
-                                <th scope="col">Reponce</th>
+                                <th scope="col">Réponse</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,7 +77,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                             <tr>
                                 <th scope="col">Devis</th>
                                 <th scope="col"></th>
-                                <th scope="col">Reponce</th>
+                                <th scope="col">Réponse</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -115,16 +115,51 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
         </div>
     <?php }
     if ($_GET['obj'] == 3) { ?>
-
-
-
-
+        <pre>
+            <?php
+                print_r($meet);
+            ?>
+        </pre>
+            <div class="row justify-content-center">
+                <div class="back">
+                    <a class="btn btn-danger rounded mb-5" href="messages.php">Retour à la liste des messages</a>
+                </div>
+                <div>
+                    <p class="h2 text-center">Informations d'un message</p>
+                    <p>Ces informations ne sont modifiable que par l'administrateur ou l'éditeur.</p>
+                </div>
+                <div class="card col-5 my-3 py-5 shadow justify-content-center">
+                    <div class="row justify-content-center">
+                        <p>Nom : <?= $meet['c_firstname'] ?></p>
+                        <p>Prénom : <?= $meet['c_lastname'] ?></p>
+                        <p>Mail : <?= $meet['c_mail'] ?></p>
+                        <p>Créer le : <?= $meet['me_created_at'] ?></p>
+                        <p>message : <br><?= $meet['me_meet_date'] ?></p>
+                        <p>Réponse : <?= $meet['me_responce'] == 0 ? 'non': 'oui' ?></p>
+                    </div>
+                </div>
+            </div>
     <?php }
     if ($_GET['obj'] == 4) { ?>
-
-
-
-
+        <div class="row justify-content-center">
+            <div class="back">
+                <a class="btn btn-danger rounded mb-5" href="messages.php">Retour à la liste des messages</a>
+            </div>
+            <div>
+                <p class="h2 text-center">Informations d'un message</p>
+                <p>Ces informations ne sont modifiable que par l'administrateur ou l'éditeur.</p>
+            </div>
+            <div class="card col-5 my-3 py-5 shadow justify-content-center">
+                <div class="row justify-content-center">
+                    <p>Nom : <?= $missive['c_firstname'] ?></p>
+                    <p>Prénom : <?= $missive['c_lastname'] ?></p>
+                    <p>Mail : <?= $missive['c_mail'] ?></p>
+                    <p>Créer le : <?= $missive['mi_created_at'] ?></p>
+                    <p>message : <br><?= $missive['mi_missive'] ?></p>
+                    <p>Réponse : <?= $missive['mi_responce'] == 0 ? 'non': 'oui' ?></p>
+                </div>
+            </div>
+        </div>
     <?php }
     if ($_GET['obj'] == 5) { ?>
 

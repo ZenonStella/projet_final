@@ -20,3 +20,4 @@ require('inc/header.php');
 
 <?php
 require('inc/end.php');
+require('inc/footer.php');

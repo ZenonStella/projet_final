@@ -63,21 +63,21 @@ class Meets extends DataBase
     //  * 
     //  * @return bool
     //  */
-    // public function checkIfmeetsExists(string $users): bool
-    // {
-    //     $pdo = parent::connectDb();
-    //     $sql = "SELECT `meets_users` FROM `meets` WHERE `meets_users` = :users";
-    //     $query = $pdo->prepare($sql);
-    //     $query->bindValue(':users', $users, PDO::PARAM_STR);
-    //     $query->execute();
-    //     $result = $query->fetchAll();
+    public function checkIfmeetsExists(string $id): bool
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT me_id FROM meets WHERE me_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $id, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetchAll();
 
-    //     if (count($result) == 0) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+        if (count($result) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     /**
      * Permet de rajouter un meets dans la table meets
      * 
@@ -103,7 +103,7 @@ class Meets extends DataBase
     public function getAllMeets()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM meets";
+        $sql = "SELECT * FROM meets INNER JOIN clients ON meets.c_id_clients = clients.c_id";
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -111,7 +111,7 @@ class Meets extends DataBase
     public function getAllMeetsDelete()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM meets WHERE me_responce = 1";
+        $sql = 'SELECT *,DATE_FORMAT(me_created_at,"%d/%m/%Y") AS me_created_at,DATE_FORMAT(me_meet_date,"%d/%m/%Y") AS me_meet_date,TIME_FORMAT(me_meet_at,"%Hh%i") AS me_meet_at FROM meets INNER JOIN clients ON meets.c_id_clients = clients.c_id WHERE me_responce = 1';
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -141,10 +141,12 @@ class Meets extends DataBase
     public function getAOneMeets(int $meets)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM meets 
-        WHERE me_id = $meets";
-        $query = $pdo->query($sql);
-        $result = $query->fetCh();
+        $sql = 'SELECT *, DATE_FORMAT(meets.me_created_at, "%d/%m/%Y") as me_created_at, DATE_FORMAT(meets.me_meet_date, "%d/%m/%Y") as me_meet_date, TIME_FORMAT(meets.me_meet_at,"%Hh%i") AS me_meet_at FROM meets 
+        INNER JOIN clients ON clients.c_id = meets.c_id_clients WHERE meets.me_id = :id';
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $meets, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetch();
         return $result;
     }
     public function getOneMeetsByDate(int $meets)

@@ -63,21 +63,21 @@ class Missives extends DataBase
     //  * 
     //  * @return bool
     //  */
-    // public function checkIfmissivesExists(string $mail): bool
-    // {
-    //     $pdo = parent::connectDb();
-    //     $sql = "SELECT `missives_mail` FROM `missives` WHERE `missives_mail` = :mail";
-    //     $query = $pdo->prepare($sql);
-    //     $query->bindValue(':mail', $mail, PDO::PARAM_STR);
-    //     $query->execute();
-    //     $result = $query->fetchAll();
+    public function checkIfmissivesExists(int $id): bool
+    {
+        $pdo = parent::connectDb();
+        $sql = "SELECT mi_id FROM missives WHERE mi_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $id, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetchAll();
 
-    //     if (count($result) == 0) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+        if (count($result) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     /**
      * Permet de rajouter un missives dans la table missives
      * 
@@ -138,11 +138,11 @@ class Missives extends DataBase
     public function getAOneMissives(int $missives)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM missives INNER JOIN clients ON missives.c_id_clients = clients.c_id WHERE missives_id = :id";
+        $sql = 'SELECT *,DATE_FORMAT(mi_created_at, "%d/%m/%Y") AS mi_created_at FROM missives INNER JOIN clients ON missives.c_id_clients = clients.c_id WHERE mi_id = :id';
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $missives, PDO::PARAM_STR);
         $query->execute();
-        $result = $query->fetchAll();
+        $result = $query->fetch();
         return $result;
     }
     public function updateMissives(int $missives,string $name,string $missive,string $phoneNumber,string $mail, string $address)

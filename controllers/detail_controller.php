@@ -50,13 +50,21 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
         }
     } else if ($_GET['obj'] == 3) {
         if (isset($_GET['id'])) {
-            // $meetsObj->deleteMeets($_GET['id']);
+            if ($meetsObj->checkIfmeetsExists($_GET['id'])) {
+                $meet = $meetsObj->getAOneMeets($_GET['id']);
+            } else {
+                header('Location: ../views/404.php');
+            }
         } else {
             header('Location: ../views/404.php');
         }
     } else if ($_GET['obj'] == 4) {
         if (isset($_GET['id'])) {
-            // $meetsObj->deleteMissives($_GET['id']);
+            if ($missivesObj->checkIfmissivesExists($_GET['id'])) {
+                $missive = $missivesObj->getAOneMissives($_GET['id']);
+            } else {
+                header('Location: ../views/404.php');
+            }
         } else {
             header('Location: ../views/404.php');
         }
