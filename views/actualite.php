@@ -17,7 +17,7 @@ require('../inc/header.php');
             <div class="card-body p-2 text-center">
                 <h5 class="card-title"><?= $article['a_titles'] ?></h5>
                 <p class="card-text"><?= $article['a_preveiw'] ?></p>
-                <a href="detail_actualite.php?article=<?= $article['a_id'] ?>" class="btn btn-primary">Lire +</a>
+                <a href="detail_actualite.php?article=<?= $article['a_id'] ?>" class="btn greenbtn">Lire +</a>
             </div>
         </div>
     <?php }

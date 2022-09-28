@@ -6,7 +6,9 @@ require_once '../controllers/calendar_controller.php';
 <div class="row justify-content-center">
     <div class="back">
         <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
-        <a href="archivesMeets.php" class="btn greenbtn mb-5">Archives</a>
+        <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
+            <a href="archivesMeets.php" class="btn greenbtn mb-5">Archives <i class="bi bi-archive-fill text-white"></i></a>
+        <?php } ?>
     </div>
     <div class="col-10 my-3 justify-content-center">
         <p class="text-center p-0 m-0"><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year - 1 ?>"><i class="bi bi-arrow-left-circle"></i></a><?= $year ?><a class="btn" href="index.php?<?= isset($_GET['month']) ? 'month=' . $_GET['month'] . '&' : '' ?>year=<?= $year + 1 ?>"><i class="bi bi-arrow-right-circle"></i></a></p>

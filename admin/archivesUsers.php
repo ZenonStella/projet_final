@@ -26,15 +26,17 @@ require('inc/header.php');
                                 <button type="button" class="btn greenbtn" data-bs-toggle="modal" data-bs-target="#user<?= $user['u_id'] ?>Update">
                                     Désarchiver
                                 </button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#user<?= $user['u_id'] ?>Delete">
-                                    Supprimer
-                                </button>
+                                <?php if ($_SESSION['user']['u_role'] == 'admin') { ?>
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#user<?= $user['u_id'] ?>Delete">
+                                        Supprimer <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                <?php } ?>
                             </td>
                         </tr>
                         <div class="modal fade" id="user<?= $user['u_id'] ?>Update" tabindex="-1" aria-labelledby="user<?= $user['u_id'] ?>UpdateLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header greenbg">
+                                    <div class="modal-header greenbg text-white">
                                         <h5 class="modal-title" id="user<?= $user['u_id'] ?>UpdateLabel">Désarchiver <?= $user['u_firstname'] ?> <?= $user['u_lastname'] ?></h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
@@ -51,7 +53,7 @@ require('inc/header.php');
                         <div class="modal fade" id="user<?= $user['u_id'] ?>Delete" tabindex="-1" aria-labelledby="user<?= $user['u_id'] ?>DeleteLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header greenbg text-white">
                                         <h5 class="modal-title" id="user<?= $user['u_id'] ?>DeleteLabel">Supprimer <?= $user['u_firstname'] ?> <?= $user['u_lastname'] ?></h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
@@ -59,8 +61,8 @@ require('inc/header.php');
                                         Vous vous apretez à supprimer définitivement un utilisateur. Voulez vous continuer?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                        <a href="delete.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-danger">Supprimer</a>
+                                        <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>
+                                        <a href="delete.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-danger">Supprimer <i class="bi bi-trash3-fill"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +70,7 @@ require('inc/header.php');
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="" class="col-6 mt-3 btn btn-secondary">Gerer mes messages</a>
+            <a href="" class="col-6 mt-3 btn greenbtn">Gerer mes messages</a>
         </div>
     </div>
 </div>

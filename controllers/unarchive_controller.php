@@ -41,7 +41,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
     } else if ($_GET['obj'] == 4) {
         if (isset($_GET['id'])) {
             $meetsObj = new Missives();
-            // $missivesObj->unarchiveMissives($_GET['id']);
+            $missivesObj->unarchiveMissives($_GET['id']);
             header('Location: archivesMissives.php');
         }
     } else if ($_GET['obj'] == 5) {

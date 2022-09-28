@@ -118,39 +118,40 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link text-dark active" aria-current="page" href="home.php">Accueil</a>
+                                <a class="nav-link text-dark active" aria-current="page" href="home.php"><i class="bi bi-house-fill"></i> Accueil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="meet.php">Mes rendez-vous</a>
+                                <a class="nav-link text-dark" href="meet.php"><i class="bi bi-calendar3"></i> Mes rendez-vous</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="messages.php">Mes messages</a>
+                                <a class="nav-link text-dark" href="messages.php"><i class="bi bi-chat-left-text-fill"></i> Mes messages</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="devis.php">Mes devis</a>
+                                <a class="nav-link text-dark" href="devis.php"><i class="bi bi-receipt"></i> Mes devis</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="clients.php">Mes clients</a>
+                                <a class="nav-link text-dark" href="clients.php"><i class="bi bi-people-fill"></i> Mes clients</a>
                             </li>
                             <?php
-                            // if ($_SESSION['user']['u_role'] == 'admin') { 
+                            if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') {
                             ?>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="users.php">Mes utilisateurs</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="users.php">Mes utilisateurs</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="news.php">Gerer mon contenu</a>
+                                </li>
                             <?php
-                            // } 
+                            }
                             ?>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="news.php">Gerer mon contenu</a>
-                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Plus d'options
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="profil.php"><i class="bi bi-person-circle"></i> Mon compte</a></li>
-                                    <li><a class="dropdown-item" href="../index.php">Retour coté client</a></li>
+                                    <li><a class="dropdown-item" href="../index.php"><i class="bi bi-door-open-fill"></i> Retour coté client</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

@@ -65,7 +65,7 @@ require('../inc/header.php');
         </div>
     </div>
     <div class="col-11 mb-3 text-center">
-        <button class="btn btn-primary" type="submit">Envoyer</button>
+        <button class="btn greenbtn" type="submit">Envoyer</button>
     </div>
 </form>
 <?php

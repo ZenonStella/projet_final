@@ -5,6 +5,6 @@
         <p>Veuillez retourner en arrière pour pouvoir continuer à naviger sur notre site</p>
     </div>
     <div class="redirect">
-        <a href="home.php" class="btn btn-secondary">Retour à la page d'acceuil</a>
+        <a href="home.php" class="btn greenbtn">Retour à la page d'acceuil</a>
     </div>
 </div>

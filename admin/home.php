@@ -25,7 +25,7 @@ require_once '../controllers/calendar_controller.php';
                 <?php }
                 ?>
             </div>
-            <a href="meet.php" class="col-5 mt-3 btn greenbtn">Gerer mes RDV</a>
+            <a href="meet.php" class="col-5 mt-3 btn greenbtn">Gerer mes RDV <i class="bi bi-calendar3 text-white"></i></a>
         </div>
     </div>
     <div class="col-11 my-3">
@@ -47,7 +47,7 @@ require_once '../controllers/calendar_controller.php';
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="messages.php" class="col-6 mt-3 btn greenbtn">Gerer mes messages</a>
+            <a href="messages.php" class="col-6 mt-3 btn greenbtn">Gerer mes messages <i class="bi bi-chat-left-text-fill text-white"></i></a>
         </div>
     </div>
     <div class="col-11 my-3">
@@ -69,7 +69,7 @@ require_once '../controllers/calendar_controller.php';
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="clients.php" class="col-6 mt-3 btn greenbtn">Gerer les client</a>
+            <a href="clients.php" class="col-6 mt-3 btn greenbtn">Gerer les client <i class="bi bi-people-fill text-white"></i></a>
         </div>
     </div>
 </div>

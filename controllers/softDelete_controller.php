@@ -44,7 +44,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
     if ($_GET['obj'] == 4) {
         if (isset($_GET['id'])) {
             $meetsObj = new Missives();
-            // $meetsObj->archiveMissives($_GET['id']);
+            $meetsObj->softDeleteMissives($_GET['id']);
             header('Location: messages.php');
         }
     }

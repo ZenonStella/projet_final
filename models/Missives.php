@@ -102,7 +102,7 @@ class Missives extends DataBase
     {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM missives
-        INNER JOIN clients ON missives.c_id_clients = clients.c_id";
+        INNER JOIN clients ON missives.c_id_clients = clients.c_id WHERE mi_soft_delete = 0";
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -111,7 +111,7 @@ class Missives extends DataBase
     {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM missives
-        INNER JOIN clients ON missives.c_id_clients = clients.c_id WHERE mi_responce = 1";
+        INNER JOIN clients ON missives.c_id_clients = clients.c_id WHERE mi_soft_delete = 1";
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -154,12 +154,20 @@ class Missives extends DataBase
         $query->bindValue(':id', $missives, PDO::PARAM_STR);
         $query->execute();
     }    
-    public function softDeleteMeets(int $meet)
+    public function unarchiveMissives(int $missive)
     {
         $pdo = parent::connectDb();
-        $sql = "UPDATE meets SET me_soft_delete = 1 WHERE me_id = :id";
+        $sql = "UPDATE missives SET mi_soft_delete = 0 WHERE mi_id = :id";
         $query = $pdo->prepare($sql);
-        $query->bindValue(':id', $meet, PDO::PARAM_STR);
+        $query->bindValue(':id', $missive, PDO::PARAM_STR);
+        $query->execute();
+    }
+    public function softDeleteMissives(int $missive)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE missives SET mi_soft_delete = 1 WHERE mi_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $missive, PDO::PARAM_STR);
         $query->execute();
     }
     public function deleteMissives(int $missives)

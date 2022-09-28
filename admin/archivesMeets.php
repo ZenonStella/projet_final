@@ -26,7 +26,7 @@ require('inc/header.php');
                                 <a href="" class="btn greenbtn">Désarchier</a>
                                 <?php if ($_SESSION['user']['u_role'] == 'admin') { ?>
                                     <a href="" class="btn btn-warning">Editer</a>
-                                    <a href="" class="btn btn-danger">Supprimer</a>
+                                    <a href="" class="btn btn-danger">Supprimer <i class="bi bi-trash3-fill"></i></a>
                                 <?php
                                 } ?> -->
                             </td>

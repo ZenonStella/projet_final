@@ -124,7 +124,7 @@ include('../inc/header.php');
                     </div>
                 </div>
                 <div class="col-7 my-3 justify-content-center">
-                    <a href="devis.php?steps=1" id="nextSteps1" class="btn btn-primary disabled" aria-disabled="true">Continuer</a>
+                    <a href="devis.php?steps=1" id="nextSteps1" class="btn greenbtn disabled" aria-disabled="true">Continuer</a>
                     <a href="home.php" class="btn btn-secondary">Annuler</a>
                 </div>
             </div>
@@ -500,7 +500,7 @@ include('../inc/header.php');
                                     </div>
                                 </div>
                             </div>
-                            <a href="devis.php?steps=3" class="btn btn-primary col-2" id="nextStep3">Etape suivante</a>
+                            <a href="devis.php?steps=3" class="btn greenbtn col-2" id="nextStep3">Etape suivante</a>
                         </div>
                     </div>
                 </div>
@@ -556,7 +556,7 @@ include('../inc/header.php');
                         </div>
                     </div>
                     <div class="col-11 mb-3 text-center">
-                        <button class="btn btn-primary" type="submit">Envoyer</button>
+                        <button class="btn greenbtn" type="submit">Envoyer</button>
                     </div>
                 </form>
             </div>

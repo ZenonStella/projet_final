@@ -7,8 +7,10 @@ require_once '../controllers/admin_devis_controller.php';
 <div class="row justify-content-center">
     <div class="back">
         <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
-        <a href="addJobs.php" class="btn greenbtn mb-5">Ajouter des tâches</a>
-        <a href="archivesEstimations.php" class="btn greenbtn mb-5">Archives</a>
+        <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
+            <a href="addJobs.php" class="btn greenbtn mb-5">Ajouter des tâches</a>
+            <a href="archivesEstimations.php" class="btn greenbtn mb-5">Archives <i class="bi bi-archive-fill text-white"></i></a>
+        <?php } ?>
     </div>
     <div class="col-11 my-3">
         <div class="row justify-content-center">
@@ -23,7 +25,12 @@ require_once '../controllers/admin_devis_controller.php';
                     <?php foreach ($devis as $devi) { ?>
                         <tr>
                             <td><?= $devi[''] ?></td>
-                            <td><a href="" class="btn btn-info">Voir +</a><a href="" class="btn greenbtn">Modifier</a><a href="" class="btn btn-danger">Supprimer</a></td>
+                            <td><a href="" class="btn btn-info">Voir +</a>
+                                <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
+                                    <a href="" class="btn greenbtn">Modifier</a>
+                                    <a href="" class="btn btn-danger">Supprimer <i class="bi bi-trash3-fill"></i></a>
+                                <?php } ?>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>

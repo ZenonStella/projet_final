@@ -25,14 +25,14 @@ require('inc/header.php');
                                     Désarchiver
                                 </button>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#client<?= $client['c_id'] ?>Delete">
-                                    Supprimer
+                                    Supprimer <i class="bi bi-trash3-fill"></i>
                                 </button>
                             </td>
                         </tr>
                         <div class="modal fade" id="client<?= $client['c_id'] ?>Update" tabindex="-1" aria-labelledby="client<?= $client['c_id'] ?>UpdateLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header greenbg text-white">
                                         <h5 class="modal-title" id="client<?= $client['c_id'] ?>UpdateLabel">Désarchiver <?= $client['c_firstname'] ?> <?= $client['c_lastname'] ?></h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
@@ -40,8 +40,8 @@ require('inc/header.php');
                                         Vous vous apretez à désarchiver un client. Voulez vous continuer?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>
-                                        <a href="unarchive.php?obj=1&id=<?= $client['c_id'] ?>" class="btn btn-primary">Désarchiver</a>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                        <a href="unarchive.php?obj=1&id=<?= $client['c_id'] ?>" class="btn greenbtn">Désarchiver</a>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ require('inc/header.php');
                         <div class="modal fade" id="client<?= $client['c_id'] ?>Delete" tabindex="-1" aria-labelledby="client<?= $client['c_id'] ?>DeleteLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header greenbg text-white">
                                         <h5 class="modal-title" id="client<?= $client['c_id'] ?>DeleteLabel">Supprimer <?= $client['c_firstname'] ?> <?= $client['c_lastname'] ?></h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
@@ -58,7 +58,7 @@ require('inc/header.php');
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>
-                                        <a href="delete.php?obj=1&id=<?= $client['c_id'] ?>" class="btn btn-danger">Supprimer</a>
+                                        <a href="delete.php?obj=1&id=<?= $client['c_id'] ?>" class="btn btn-danger">Supprimer <i class="bi bi-trash3-fill"></i></a>
                                     </div>
                                 </div>
                             </div>

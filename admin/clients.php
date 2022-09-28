@@ -6,7 +6,9 @@ require('inc/header.php');
 <div class="row justify-content-center">
     <div class="back">
         <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
-        <a href="archivesClients.php" class="btn greenbtn mb-5">Archives</a>
+        <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
+            <a href="archivesClients.php" class="btn greenbtn mb-5">Archives <i class="bi bi-archive-fill text-white"></i></a>
+        <?php } ?>
     </div>
     <div class="col-11 my-3">
         <div class="row justify-content-center">
@@ -25,9 +27,11 @@ require('inc/header.php');
                             <td><?= $client['c_mail'] ?></td>
                             <td>
                                 <a href="details.php?obj=1&id=<?= $client['c_id'] ?>" class="btn greenbtn">Voir +</a>
-                                <button type="button" class="btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#client<?= $client['c_id'] ?>">
-                                    Supprimer
-                                </button>
+                                <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
+                                    <button type="button" class="btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#client<?= $client['c_id'] ?>">
+                                        Supprimer <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                <?php } ?>
                             </td>
                         </tr>
                         <div class="modal fade " id="client<?= $client['c_id'] ?>" tabindex="-1" aria-labelledby="client<?= $client['c_id'] ?>Label" aria-hidden="true">
@@ -42,7 +46,7 @@ require('inc/header.php');
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>
-                                        <a href="soft_delete.php?obj=1&id=<?= $client['c_id'] ?>" class="btn btn-danger">Supprimer</a>
+                                        <a href="soft_delete.php?obj=1&id=<?= $client['c_id'] ?>" class="btn btn-danger">Supprimer <i class="bi bi-trash3-fill"></i></a>
                                     </div>
                                 </div>
                             </div>

@@ -9,7 +9,9 @@ require('inc/header.php');
     </div>
     <div class="content">
         <div class="edit mb-4">
-            <a href="addPictures.php" class="btn greenbtn">Ajouter des images</a>
+            <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
+                <a href="addPictures.php" class="btn greenbtn">Ajouter des images</a>
+            <?php } ?>
             <a href="pictures.php" class="btn greenbtn">Voir +</a>
         </div>
         <div class="galery row" data-masonry='{"percentPosition": true }'>
@@ -22,7 +24,9 @@ require('inc/header.php');
             <?php } ?>
         </div>
         <div class="edit mb-4">
-            <a href="addArticles.php" class="btn greenbtn">Ajouter un article</a>
+            <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
+                <a href="addArticles.php" class="btn greenbtn">Ajouter un article</a>
+            <?php } ?>
             <a href="articles.php" class="btn greenbtn">Voir +</a>
         </div>
         <div class="news">
