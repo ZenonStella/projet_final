@@ -138,7 +138,7 @@ class Clients extends DataBase
     public function getAllClients()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM clients";
+        $sql = "SELECT * FROM clients WHERE c_soft_delete = 0";
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -193,6 +193,15 @@ class Clients extends DataBase
         $query->bindValue(':id', $clients, PDO::PARAM_STR);
         $query->execute();
     }
+    public function unarchiveClients(int $client)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE clients SET c_soft_delete=:soft WHERE c_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $client, PDO::PARAM_STR);
+        $query->bindValue(':soft', 0, PDO::PARAM_STR);
+        $query->execute();
+    }
     public function deleteClients(int $clients)
     {
         $pdo = parent::connectDb();
@@ -204,7 +213,7 @@ class Clients extends DataBase
     public function softDeleteClients(int $clients)
     {
         $pdo = parent::connectDb();
-        $sql = "UPDATE clients SET  c_mail=:mail WHERE c_id = :id";
+        $sql = "UPDATE clients SET  c_soft_delete= 1 WHERE c_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $clients, PDO::PARAM_STR);
         $query->execute();

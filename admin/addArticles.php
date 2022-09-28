@@ -45,7 +45,7 @@ include('inc/header.php');
         </div>
     </div>
     <div class="d-flex justify-content-center mt-5">
-        <input class="btn btn-primary mt-2" type="submit" value="Enregistrer">
+        <input class="btn greenbtn mt-2" type="submit" value="Enregistrer">
     </div>
 </form>
 

@@ -9,8 +9,8 @@ require('inc/header.php');
     </div>
     <div class="content">
         <div class="edit mb-4">
-            <a href="addPictures.php" class="btn btn-primary">Ajouter des images</a>
-            <a href="pictures.php" class="btn btn-primary">Voir +</a>
+            <a href="addPictures.php" class="btn greenbtn">Ajouter des images</a>
+            <a href="pictures.php" class="btn greenbtn">Voir +</a>
         </div>
         <div class="galery row" data-masonry='{"percentPosition": true }'>
             <?php foreach ($pictures as $picture) { ?>
@@ -22,8 +22,8 @@ require('inc/header.php');
             <?php } ?>
         </div>
         <div class="edit mb-4">
-            <a href="addArticles.php" class="btn btn-primary">Ajouter un article</a>
-            <a href="articles.php" class="btn btn-primary">Voir +</a>
+            <a href="addArticles.php" class="btn greenbtn">Ajouter un article</a>
+            <a href="articles.php" class="btn greenbtn">Voir +</a>
         </div>
         <div class="news">
             <?php

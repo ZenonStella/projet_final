@@ -21,7 +21,7 @@ require_once '../controllers/admin_devis_controller.php';
                     <?php foreach ($devis as $devi) { ?>
                         <tr>
                             <td><?= $devi[''] ?></td>
-                            <td><a href="" class="btn btn-info">Voir +</a><a href="" class="btn btn-primary">Modifier</a><a href="" class="btn btn-danger">Supprimer</a></td>
+                            <td><a href="" class="btn greenbtn">Désarchiver</a><a href="" class="btn btn-primary">Modifier</a><a href="" class="btn btn-danger">Supprimer</a></td>
                         </tr>
                     <?php } ?>
                 </tbody>

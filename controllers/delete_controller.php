@@ -24,7 +24,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
         if (isset($_GET['id'])) {
             $patientsObj = new Clients();
             $patientsObj->deleteClients($_GET['id']);
-            header('Location: home.php');
+            header('Location: archivesClients.php');
         }
     }
     if ($_GET['obj'] == 2) {

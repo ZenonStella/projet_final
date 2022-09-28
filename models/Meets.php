@@ -103,7 +103,7 @@ class Meets extends DataBase
     public function getAllMeets()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM meets INNER JOIN clients ON meets.c_id_clients = clients.c_id";
+        $sql = "SELECT * FROM meets INNER JOIN clients ON meets.c_id_clients = clients.c_id WHERE me_soft_delete = 0";
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -111,7 +111,7 @@ class Meets extends DataBase
     public function getAllMeetsDelete()
     {
         $pdo = parent::connectDb();
-        $sql = 'SELECT *,DATE_FORMAT(me_created_at,"%d/%m/%Y") AS me_created_at,DATE_FORMAT(me_meet_date,"%d/%m/%Y") AS me_meet_date,TIME_FORMAT(me_meet_at,"%Hh%i") AS me_meet_at FROM meets INNER JOIN clients ON meets.c_id_clients = clients.c_id WHERE me_responce = 1';
+        $sql = 'SELECT *,DATE_FORMAT(me_created_at,"%d/%m/%Y") AS me_created_at,DATE_FORMAT(me_meet_date,"%d/%m/%Y") AS me_meet_date,TIME_FORMAT(me_meet_at,"%Hh%i") AS me_meet_at FROM meets INNER JOIN clients ON meets.c_id_clients = clients.c_id WHERE me_soft_delete = 1';
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -166,6 +166,14 @@ class Meets extends DataBase
         $query->bindValue(':hour', $hour, PDO::PARAM_STR);
         $query->bindValue(':date', $date, PDO::PARAM_STR);
         $query->bindValue(':id', $meets, PDO::PARAM_STR);
+        $query->execute();
+    }
+    public function softDeleteMeets(int $meet)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE meets SET me_soft_delete = 1 WHERE me_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $meet, PDO::PARAM_STR);
         $query->execute();
     }
     public function deleteMeets(int $meets)

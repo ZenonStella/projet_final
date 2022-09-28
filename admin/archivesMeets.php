@@ -23,7 +23,7 @@ require('inc/header.php');
                             <td><?= $meet['c_lastname'] ?> <?= $meet['c_firstname'] ?></td>
                             <td><?= $meet['me_meet_date'] ?> à <?= $meet['me_meet_at'] ?></td>
                             <!-- <td>
-                                <a href="" class="btn btn-warning">Editer</a>
+                                <a href="" class="btn greenbtn">Désarchier</a>
                                 <?php if ($_SESSION['user']['u_role'] == 'admin') { ?>
                                     <a href="" class="btn btn-warning">Editer</a>
                                     <a href="" class="btn btn-danger">Supprimer</a>

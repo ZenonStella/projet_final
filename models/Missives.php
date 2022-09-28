@@ -153,6 +153,14 @@ class Missives extends DataBase
         $query->bindValue(':missive', $missive, PDO::PARAM_STR);
         $query->bindValue(':id', $missives, PDO::PARAM_STR);
         $query->execute();
+    }    
+    public function softDeleteMeets(int $meet)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE meets SET me_soft_delete = 1 WHERE me_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $meet, PDO::PARAM_STR);
+        $query->execute();
     }
     public function deleteMissives(int $missives)
     {

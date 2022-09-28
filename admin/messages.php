@@ -6,7 +6,7 @@ require_once '../controllers/admin_missives_controller.php'
 <div class="row justify-content-center">
     <div class="back">
         <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
-        <a href="archivesMissives.php" class="btn btn-primary mb-5">Archives</a>
+        <a href="archivesMissives.php" class="btn greenbtn mb-5">Archives</a>
     </div>
     <div class="col-11 my-3">
         <div class="row justify-content-center">
@@ -23,16 +23,14 @@ require_once '../controllers/admin_missives_controller.php'
                         <tr>
                             <td><?= $missive['c_lastname'] ?> <?= $missive['c_firstname'] ?></td>
                             <td><?= $missive['mi_missive'] ?></td>
-                                <td>
-                                    <a href="details.php?obj=4&id=<?= $missive['mi_id'] ?>" class="btn btn-primary">Voir +</a>
-                                    <?php if ($_SESSION['user']['u_role'] == 'admin') { ?>
-                                        <a href="" class="btn btn-warning">Editer</a>
-                                        <a href="" class="btn btn-danger">Supprimer</a>
-                                    <?php
-                                    } ?>
-                                </td>
+                            <td>
+                                <a href="details.php?obj=4&id=<?= $missive['mi_id'] ?>" class="btn greenbtn">Voir +</a>
+                                <?php if ($_SESSION['user']['u_role'] == 'admin') { ?>
+                                    <a href="" class="btn btn-warning">Editer</a>
+                                    <a href="" class="btn btn-danger">Supprimer</a>
+                                <?php } ?>
+                            </td>
                         </tr>
-                    <?php } { ?>
                     <?php } ?>
                 </tbody>
             </table>

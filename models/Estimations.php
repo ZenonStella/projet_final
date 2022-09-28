@@ -97,6 +97,14 @@ class Estimations extends DataBase
         $query->bindValue(':id', $Estimations, PDO::PARAM_STR);
         $query->execute();
     }
+    public function softDeleteEstimations(int $devis)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE estimations SET e_soft_delete = 1 WHERE e_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $devis, PDO::PARAM_STR);
+        $query->execute();
+    }
     public function deleteEstimations(int $Estimations)
     {
         $pdo = parent::connectDb();

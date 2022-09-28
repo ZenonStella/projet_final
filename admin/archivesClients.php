@@ -4,8 +4,8 @@ require_once '../controllers/archives_controller.php';
 require('inc/header.php');
 ?>
 <div class="row justify-content-center">
-<div class="back">
-        <a class="btn btn-danger rounded mb-5" href="clients.php">Retour à la liste des messages</a>
+    <div class="back">
+        <a class="btn btn-danger rounded mb-5" href="clients.php">Retour à la liste des clients</a>
     </div>
     <div class="col-11 my-3">
         <div class="row justify-content-center">
@@ -20,19 +20,49 @@ require('inc/header.php');
                     <?php foreach ($clients as $client) { ?>
                         <tr>
                             <td><?= $client['c_lastname'] ?> <?= $client['c_firstname'] ?></td>
-                            <?php if ($_SESSION['user']['u_role'] == 'user') { ?>
-                                <td>
-                                    <a href="" class="btn btn-warning">Editer</a>
-                                    <?php if ($_SESSION['user']['u_role'] == 'admin') { ?>
-                                        <a href="" class="btn btn-warning">Editer</a>
-                                        <a href="" class="btn btn-danger">Supprimer</a>
-                                    <?php
-                                    } ?>
-                                </td>
-                            <?php
-                            } ?>
+                            <td>
+                                <button type="button" class="btn greenbtn" data-bs-toggle="modal" data-bs-target="#client<?= $client['c_id'] ?>Update">
+                                    Désarchiver
+                                </button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#client<?= $client['c_id'] ?>Delete">
+                                    Supprimer
+                                </button>
+                            </td>
                         </tr>
-                    <?php } { ?>
+                        <div class="modal fade" id="client<?= $client['c_id'] ?>Update" tabindex="-1" aria-labelledby="client<?= $client['c_id'] ?>UpdateLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="client<?= $client['c_id'] ?>UpdateLabel">Désarchiver <?= $client['c_firstname'] ?> <?= $client['c_lastname'] ?></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Vous vous apretez à désarchiver un client. Voulez vous continuer?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>
+                                        <a href="unarchive.php?obj=1&id=<?= $client['c_id'] ?>" class="btn btn-primary">Désarchiver</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="client<?= $client['c_id'] ?>Delete" tabindex="-1" aria-labelledby="client<?= $client['c_id'] ?>DeleteLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="client<?= $client['c_id'] ?>DeleteLabel">Supprimer <?= $client['c_firstname'] ?> <?= $client['c_lastname'] ?></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Vous vous apretez à supprimer définitivement un client. Voulez vous continuer?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>
+                                        <a href="delete.php?obj=1&id=<?= $client['c_id'] ?>" class="btn btn-danger">Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <?php } ?>
                 </tbody>
             </table>

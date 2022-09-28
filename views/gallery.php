@@ -9,7 +9,7 @@ require('../inc/header.php');
 <div class="row" data-masonry='{"percentPosition": true }'>
     <?php
     foreach ($pictures as $picture) { ?>
-        <div class="col-sm-4 col-lg-3 mb-4">
+        <div class="col-sm-4 col-lg-3 col-6 mb-4">
             <div class="card">
             <a class="example-image-link" href="data:image/png;base64,<?= $picture['g_picture'] ?>" data-lightbox="example-set"><img src="data:image/webp;base64,<?= $picture['g_picture'] ?>" alt="<?= $picture['g_name'] ?>"></a>
             </div>

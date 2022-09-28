@@ -24,7 +24,7 @@ require('inc/header.php');
                             <td><?= $missive['mi_missive'] ?></td>
                             <?php if ($_SESSION['user']['u_role'] == 'user') { ?>
                                 <td>
-                                    <a href="" class="btn btn-warning">Editer</a>
+                                    <a href="" class="btn greenbtn">Désarchiver</a>
                                     <?php if ($_SESSION['user']['u_role'] == 'admin') { ?>
                                         <a href="" class="btn btn-warning">Editer</a>
                                         <a href="" class="btn btn-danger">Supprimer</a>

@@ -24,35 +24,35 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
         if (isset($_GET['id'])) {
             $clientsObj = new Clients();
             $clientsObj->softDeleteClients($_GET['id']);
-            header('Location: home.php');
+            header('Location: clients.php');
         }
     }
     if ($_GET['obj'] == 2) {
         if (isset($_GET['id'])) {
             $usersObj = new Users();
             $usersObj->softDeleteUsers($_GET['id']);
-            header('Location: home.php');
+            header('Location: users.php');
         }
     }
     if ($_GET['obj'] == 3) {
         if (isset($_GET['id'])) {
             $meetsObj = new Meets();
-            // $meetsObj->archiveMeets($_GET['id']);
-            header('Location: home.php');
+            // $meetsObj->softDeleteMeets($_GET['id']);
+            header('Location: meets.php');
         }
     }
     if ($_GET['obj'] == 4) {
         if (isset($_GET['id'])) {
             $meetsObj = new Missives();
             // $meetsObj->archiveMissives($_GET['id']);
-            header('Location: home.php');
+            header('Location: messages.php');
         }
     }
     if ($_GET['obj'] == 5) {
         if (isset($_GET['id'])) {
             $meetsObj = new Estimations();
-            // $meetsObj->archiveDevis($_GET['id']);
-            header('Location: home.php');
+            // $meetsObj->softDeleteEstimations($_GET['id']);
+            header('Location: devis.php');
         }
     }
 }

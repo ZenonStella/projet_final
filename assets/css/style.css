@@ -12,16 +12,27 @@
     background-color: #00593b9c;
 }
 
+.greenbtn {
+    background-color: #003926cf;
+    color: white;
+}
+.greenbtn:hover {
+    background-color: #015a3cb9;
+}
+
 .navig {
     font-family: 'Allerta Stencil', sans-serif;
 }
+
 img {
     width: 100%;
 }
+
 .border-green {
     border: #003926 solid 1px;
     background-color: silver;
 }
+
 .img-card-admin {
     width: 20%;
 }
@@ -47,16 +58,19 @@ a {
 .img-article {
     width: 90%;
 }
+
 .login {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
+
 @media screen and (max-width: 900px) {
     .thepicture {
         width: 100%;
         height: auto;
     }
+
     .login {
         display: flex;
         flex-direction: column;

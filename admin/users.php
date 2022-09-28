@@ -22,14 +22,14 @@ require('inc/header.php');
                         <tr>
                             <td><?= $user['u_email'] ?></td>
                             <td>
-                                <a href="details.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-primary my-1">+ d'infos</a>
+                                <a href="details.php?obj=2&id=<?= $user['u_id'] ?>" class="btn greenbtn my-1">+ d'infos</a>
                                 <button type="button" class="btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#user<?= $user['u_id'] ?>">
                                     Supprimer
                                 </button>
                             </td>
                         </tr>
                         <div class="modal fade" id="user<?= $user['u_id'] ?>" tabindex="-1" aria-labelledby="user<?= $user['u_id'] ?>Label" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="user<?= $user['u_id'] ?>Label">Supprimer <?= $user['u_firstname'] ?> <?= $user['u_lastname'] ?></h5>
@@ -39,7 +39,7 @@ require('inc/header.php');
                                         Vous vous apretez à supprimer un utilisateur. Voulez vous continuer?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>
                                         <a href="soft_delete.php?obj=2&id=<?= $user['u_id'] ?>" class="btn btn-danger">Supprimer</a>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@ require('inc/header.php');
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="archivesUsers.php" class="col-6 mt-3 btn btn-secondary">Voir mes utilisateurs supprimés</a>
+            <a href="archivesUsers.php" class="col-6 mt-3 btn greenbtn">Voir mes utilisateurs supprimés</a>
         </div>
     </div>
 </div>

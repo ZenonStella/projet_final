@@ -33,7 +33,7 @@ require('../inc/header.php');
       Fort de nos 10 ans d'expèriences dans differants domaines, l'entreprise <span class="navig">Travaux Service</span> effectue les travaux que vous souhaitez entreprendre en y apportant le plus grand soin, tout en restant a votre écoute.
     </p>
     <p class="">
-      Nous proposons une large gamme de service, dont nous sommes fière de vous les presenter.
+      Nous proposons une large gamme de service, dont nous sommes fièrs de vous les presenter.
     </p>
     <p class="">
       Notre site expose des exemples de réalisations de chantier avant/après qui vous donnera un avant goût de nos tallents diversifiés et effectués soigneusement.
@@ -56,6 +56,7 @@ require('../inc/header.php');
     </div>
 
     <div class="row">
+      <h3>Les secondes oeuvres</h3>
       <p class="col-lg-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magnam, tenetur esse eaque suscipit fugit, inventore eos blanditiis eum eveniet ipsa, minima optio aut possimus nihil. Quo provident quod exercitationem. </p>
       <p class="col-lg-8">Reprehenderit earum sequi doloribus voluptatum quis quia dolores aliquam quos obcaecati cumque minus perferendis, delectus amet molestiae rem, esse quidem in, asperiores totam mollitia! Veniam blanditiis natus excepturi minima aspernatur.</p>
       <p class="col-lg-8"> Odio at nulla accusantium nisi quam! Minima necessitatibus ipsam quae voluptatum iusto, reprehenderit ipsa beatae distinctio laboriosam minus debitis hic enim quisquam. Incidunt, minus expedita cupiditate hic consequuntur exercitationem facilis.</p>
