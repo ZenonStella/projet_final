@@ -5,7 +5,7 @@ require('inc/header.php');
 ?>
 <div class="row justify-content-center">
     <div class="back">
-        <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
+        <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil <i class="bi bi-house-fill"></i></a>
         <a class="btn greenbtn rounded mb-5" href="redgister.php">Modifier mon profil <i class="bi bi-pencil-fill"></i></a>
     </div>
     <div class="col-11 my-3">

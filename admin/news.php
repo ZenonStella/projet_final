@@ -5,7 +5,7 @@ require('inc/header.php');
 ?>
 <div class="row justify-content-center">
     <div class="back">
-        <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
+        <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil <i class="bi bi-house-fill"></i></a>
     </div>
     <div class="content">
         <div class="edit mb-4">
@@ -34,7 +34,7 @@ require('inc/header.php');
             foreach ($articles as $article) { ?>
                 <div class="card d-flex flex-row">
                     <div class="img-card-admin">
-                        <!-- <img src="data:image/webp;base64,<?= $article['a_img'] ?>" alt="<?= $artticle['a_img_name'] ?>"> -->
+                        <img src="data:image/webp;base64,<?= $article['a_img'] ?>" alt="<?= $artticle['a_img_name'] ?>">
                     </div>
                     <div class="card-body"><?= $article['a_titles'] ?></div>
                 </div>

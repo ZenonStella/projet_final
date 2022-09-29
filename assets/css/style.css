@@ -16,10 +16,16 @@
     background-color: #003926cf;
     color: white;
 }
+
 .greenbtn:hover {
     background-color: #015a3cb9;
 }
-
+.edithbtn {
+    background-color: #bd9700;
+}
+.edithbtn:hover {
+    background-color: #e2b500;
+}
 .navig {
     font-family: 'Allerta Stencil', sans-serif;
 }
@@ -27,16 +33,23 @@
 img {
     width: 100%;
 }
-
 .border-green {
     border: #003926 solid 1px;
     background-color: silver;
 }
-
+.card-article-admin {
+    width: 45%;
+    margin: 1rem;
+}
+.cardChoicePicture {
+    width: 20%;
+}
 .img-card-admin {
     width: 20%;
 }
-
+.img-card-admin2 {
+    width: 50%;
+}
 .thepicture {
     width: 50%;
     height: auto;
@@ -70,7 +83,9 @@ a {
         width: 100%;
         height: auto;
     }
-
+    .card-article-admin {
+        width: 100%;
+    }
     .login {
         display: flex;
         flex-direction: column;

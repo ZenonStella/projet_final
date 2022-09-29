@@ -10,6 +10,9 @@ require_once '../models/Missives.php';
 require_once '../models/Meets.php';
 require_once '../models/Users.php';
 require_once '../models/Estimations.php';
+require_once '../models/Pictures.php';
+require_once '../models/Articles.php';
+
 
 $objs = [
     1 => 'client',
@@ -53,6 +56,13 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
             $meetsObj = new Estimations();
             // $meetsObj->softDeleteEstimations($_GET['id']);
             header('Location: devis.php');
+        }
+    }
+    if ($_GET['obj'] == 6) {
+        if (isset($_GET['id'])) {
+            $articlesObj = new Articles();
+            $aticlesObj->softDeleteArticles($_GET['id']);
+            header('Location: home.php');
         }
     }
 }

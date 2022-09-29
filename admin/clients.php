@@ -5,7 +5,7 @@ require('inc/header.php');
 ?>
 <div class="row justify-content-center">
     <div class="back">
-        <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
+        <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil <i class="bi bi-house-fill"></i></a>
         <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
             <a href="archivesClients.php" class="btn greenbtn mb-5">Archives <i class="bi bi-archive-fill text-white"></i></a>
         <?php } ?>

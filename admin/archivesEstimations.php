@@ -6,7 +6,7 @@ require_once '../controllers/admin_devis_controller.php';
 ?>
 <div class="row justify-content-center">
     <div class="back">
-        <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil</a>
+        <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil <i class="bi bi-house-fill"></i></a>
     </div>
     <div class="col-11 my-3">
         <div class="row justify-content-center">

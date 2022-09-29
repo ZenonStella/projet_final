@@ -114,7 +114,7 @@ class Articles extends DataBase
     public function getAllArticles()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM articles";
+        $sql = "SELECT * FROM articles WHERE a_soft_delete = 0";
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -155,6 +155,14 @@ class Articles extends DataBase
         $query->bindValue(':text', $text, PDO::PARAM_STR);
         $query->bindValue(':img', $img, PDO::PARAM_STR);
         $query->bindValue(':id', $articles, PDO::PARAM_STR);
+        $query->execute();
+    }
+    public function softDeleteArticles(int $article)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE articles SET a_soft_delete=1 WHERE a_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $article, PDO::PARAM_STR);
         $query->execute();
     }
     public function deleteArticles(int $articles)

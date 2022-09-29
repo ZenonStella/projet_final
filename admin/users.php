@@ -5,7 +5,7 @@ require('inc/header.php');
 ?>
 <div class="row justify-content-center">
     <div class="back mb-5">
-        <a class="btn btn-danger rounded my-1" href="home.php">Retour à la page d'accueil</a>
+        <a class="btn btn-danger rounded my-1" href="home.php">Retour à la page d'accueil <i class="bi bi-house-fill"></i></a>
         <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
             <a class="btn btn-danger rounded my-1" href="redgister.php">Ajouter un nouvel utilisateur</a>
         <?php } ?>

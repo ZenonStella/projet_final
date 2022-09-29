@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['mail']) && isset($_POST['password'])) {
             $mail = htmlspecialchars($_POST['mail']);
             $user = $usersObj->getOneUsers($mail);
-            if ($usersObj->checkIfMailExists($mail) && !password_verify($_POST['password'], $user['u_password'])) {
+            if (!$usersObj->checkIfMailExists($mail) || !password_verify($_POST['password'], $user['u_password'])) {
                 $errors['all'] = 'Mot de passe ou identifient incorrect';
             }
         }
