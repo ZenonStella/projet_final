@@ -28,10 +28,29 @@ require_once '../controllers/admin_devis_controller.php';
                             <td><a href="details.php?obj=5&id=<?= $devi['e_id'] ?>" class="btn btn-info">Voir +</a>
                                 <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
                                     <a href="" class="btn greenbtn">Modifier</a>
-                                    <a href="" class="btn btn-danger">Supprimer <i class="bi bi-trash3-fill"></i></a>
+                                    <button type="button" class="btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#devi<?= $devi['e_id'] ?>">
+                                        Supprimer <i class="bi bi-trash3-fill"></i>
+                                    </button>
                                 <?php } ?>
                             </td>
                         </tr>
+                        <div class="modal fade " id="devi<?= $devi['e_id'] ?>" tabindex="-1" aria-labelledby="devi<?= $devi['e_id'] ?>Label" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header greenbg text-white">
+                                        <h5 class="modal-title" id="devi<?= $devi['e_id'] ?>Label">Supprimer le devis de <?= $devi['c_firstname'] ?> <?= $devi['c_lastname'] ?></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Vous vous apretez à supprimer un devi. Voulez vous continuer?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>
+                                        <a href="soft_delete.php?obj=5&id=<?= $devi['e_id'] ?>" class="btn btn-danger">Supprimer <i class="bi bi-trash3-fill"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <?php } ?>
                 </tbody>
             </table>

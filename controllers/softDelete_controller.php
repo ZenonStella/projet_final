@@ -53,8 +53,8 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
     }
     if ($_GET['obj'] == 5) {
         if (isset($_GET['id'])) {
-            $meetsObj = new Estimations();
-            // $meetsObj->softDeleteEstimations($_GET['id']);
+            $estimationsObj = new Estimations();
+            $estimationsObj->softDeleteEstimations($_GET['id']);
             header('Location: devis.php');
         }
     }

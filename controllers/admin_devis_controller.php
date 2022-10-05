@@ -8,6 +8,7 @@ require_once '../models/Estimations.php';
 $jobsObj = new Jobs();
 $estimationsObj = new Estimations();
 $devis = $estimationsObj->getAllEstimations();
+$deleteDevis = $estimationsObj->getAllEstimationsDelete();
 // $jobs = $jobsObj->getAlljobs();
 // $categorysJobs = $jobsObj->getAllCategorysJobs();
 // if ($showForm) {

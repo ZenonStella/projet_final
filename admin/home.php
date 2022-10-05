@@ -57,14 +57,14 @@ require_once '../controllers/calendar_controller.php';
                 <thead class="green">
                     <tr>
                         <th scope="col">Indentité</th>
-                        <th scope="col">numero de telephone</th>
+                        <th scope="col">Contact</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($clients as $client) { ?>
                         <tr>
                             <td><?= $client['c_lastname'] ?> <?= $client['c_firstname'] ?></td>
-                            </td>
+                            <td><?= $client['c_mail'] ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
