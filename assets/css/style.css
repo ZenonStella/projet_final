@@ -26,6 +26,12 @@
 .edithbtn:hover {
     background-color: #e2b500;
 }
+.firstchoice {
+    background-color: #00392658;
+}
+.firstchoice:hover {
+    background-color:#00392629;
+}
 .navig {
     font-family: 'Allerta Stencil', sans-serif;
 }
@@ -102,13 +108,13 @@ a {
         order: -1;
     }
 
-    .inputNb {
-        width: 40px;
+    /* .inputNb {
+        width: 4rem;
     }
 
     .inputSelect {
-        width: 50px;
-    }
+        width: 19rem;
+    } */
 
     .thepicture {
         width: 100%;

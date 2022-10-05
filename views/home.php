@@ -30,16 +30,16 @@ require('../inc/header.php');
   <div class="col-11 my-5">
     <h2>A propos de nous</h2>
     <p class="">
-      Fort de nos 10 ans d'expèriences dans differants domaines, l'entreprise <span class="navig">Travaux Service</span> effectue les travaux que vous souhaitez entreprendre en y apportant le plus grand soin, tout en restant a votre écoute.
+      Fort de nos 10 ans d'expèriences dans differents domaines, l'entreprise <span class="navig">Travaux Service</span> effectue les travaux que vous souhaitez entreprendre en y apportant le plus grand soin, tout en restant a votre écoute.
     </p>
     <p class="">
-      Nous proposons une large gamme de service, dont nous sommes fièrs de vous les presenter.
+      Nous proposons une large gamme de service, dont nous sommes fiers de vous les presenter.
     </p>
     <p class="">
-      Notre site expose des exemples de réalisations de chantier avant/après qui vous donnera un avant goût de nos tallents diversifiés et effectués soigneusement.
+      Notre site expose des exemples de réalisations de chantier avant/après qui vous donnera un avant goût de nos talents diversifiés et effectués soigneusement.
     </p>
     <p class="">
-      Vous pouvez dés aprésent faire une demande de <a href="devis.php">devis gratuit personalisé</a>, prendre <a href="meets.php">rendez-vous</a> avec nous ou encore nous <a href="missives.php">envoyer un message</a> via l'interface web.
+      Vous pouvez dès a présent faire une demande de <a href="devis.php">devis gratuit personalisé</a>, prendre <a href="meets.php">rendez-vous</a> avec nous ou encore, nous <a href="missives.php">envoyer un message</a> via l'interface web.
     </p>
     <div class="row">
       <h3>Les gros oeuvres</h3>

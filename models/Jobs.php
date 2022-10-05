@@ -70,11 +70,9 @@ class Jobs extends DataBase
     public function getAlljobsById(string $jobs)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM type_of_postes
-        INNER JOIN categorys_postes ON categorys_postes.c_id = type_of_postes.c_id_categorys_postes
-        WHERE categorys_postes.c_name = :name";
+        $sql = "SELECT * FROM type_of_postes INNER JOIN categorys_postes ON categorys_postes.c_id = type_of_postes.c_id_categorys_postes WHERE categorys_postes.c_id = :id";
         $query = $pdo->prepare($sql);
-        $query->bindValue(':name', $jobs, PDO::PARAM_STR);
+        $query->bindValue(':id', $jobs, PDO::PARAM_STR);
         $query->execute();
         $result = $query->fetChAll();
         return $result;
@@ -83,7 +81,7 @@ class Jobs extends DataBase
     {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM type_of_postes 
-        WHERE c_id_categorys_postes = :id";
+        WHERE tp_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $jobs, PDO::PARAM_STR);
         $query->execute();

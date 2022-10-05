@@ -1,140 +1,35 @@
 <?php
 session_start();
-require_once '../controllers/form_controller.php';
 require_once '../controllers/devis_controller.php';
-
 include('../inc/header.php');
 ?>
-<ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="devis.php?steps=0">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="devis.php?steps=1">Etape 1</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="devis.php?steps=2">Etape 2</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="devis.php?steps=3">Etape 3</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="devis.php?steps=4">Etape 4</a>
-    </li>
-</ul>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item<?= isset($_GET['steps']) && $_GET['steps'] == 1  ? ' active" aria-current="page' : '' ?>">
+            <?= isset($_GET['steps']) && $_GET['steps'] == 1  ? '1 - Categorie de travaux' : '<a href="devis.php?steps=1' . (isset($_GET['firstchoice']) ? "&firstchoice=" . $_GET['firstchoice'] : "") . '">1 - Categorie de travaux</a>' ?>
+        </li>
+        <li class="breadcrumb-item<?= isset($_GET['steps']) && $_GET['steps'] == 2  ? ' active" aria-current="page' : '' ?>">
+            <?= isset($_GET['steps']) && $_GET['steps'] == 2  ? '2 - Description des travaux' : '<a href="devis.php?steps=2' . (isset($_GET['firstchoice']) ? "&firstchoice=" . $_GET['firstchoice'] : "") . '">2 - Description des travaux</a>' ?>
+        </li>
+        <li class="breadcrumb-item<?= isset($_GET['steps']) && $_GET['steps'] == 3  ? ' active" aria-current="page' : '' ?>">
+            <?= isset($_GET['steps']) && $_GET['steps'] == 3  ? '3 - Synthèse' : '<a href="devis.php?steps=3' . (isset($_GET['firstchoice']) ? "&firstchoice=" . $_GET['firstchoice'] : "") . '">3 - Synthèse</a>' ?>
+        </li>
+        <li class="breadcrumb-item<?= isset($_GET['steps']) && $_GET['steps'] == 4  ? ' active" aria-current="page' : '' ?>">
+            <?= isset($_GET['steps']) && $_GET['steps'] == 4  ? '4 - Informations de contact' : '<a href="devis.php?steps=4' . (isset($_GET['firstchoice']) ? "&firstchoice=" . $_GET['firstchoice'] : "") . '">4 - Informations de contact</a>' ?>
+        </li>
+    </ol>
+</nav>
 <?php if (isset($_GET['steps'])) {
 } ?>
 <div class="my-3">
     <?php
     if (isset($_GET['steps']) && array_key_exists($_GET['steps'], $steps)) {
-        if ($_GET['steps'] == 0) { ?>
-            <div class="row justify-content-center">
-                <h2 class="text-center">Générer votre devis : <br> Informez-vous avant de commencer</h2>
-                <div class="col-11 mb-3">
-                    <div class="col-11 mb-3 overflow-auto overflow-hidden">
-                        <p>Un devis est un engagement contractuel entre deux parties difficile à résilier.</p>
-                        <p>
-                            Lorsque nous proposons un devis à un client, nous nous engageons à réaliser les travaux indiqués.<br>
-                            La durée de validité du devis doit être mentionnée sur le papier et correspondre à la durée de validité de l'offre avant son acceptation par le prospect. <br> Généralement, un artisan propose une durée de validité de devis de trois mois en moyenne. Une fois le délai dépassé, le devis n'est plus valable : la durée des travaux, les tarifs... peuvent évoluer.
-                        </p>
-                        <p>
-                            Dès lors que nous proposons un devis à un client, il est considéré comme déjà signé par le professionnel. Une fois que le client appose sa signature, le devis n'a pas de date de fin de validité définie. <br> Toutefois, il pourra être annulé, si nous avons du retard sur les travaux ou si nous avons démarché le client chez lui. Vous vous engagez à versé une avance sur les travaux au moment de la signature. Il devait s’agir des arrhes ou d’un acompte.
-                        </p>
-                        <p>
-                            Pour annuler un devis signé, vous devez envoyer une lettre recommandée avec accusé de réception, datée et signée a l’entreprise.
-                            Aucune des deux parties ne peut se rétracter et demander son annulation, excepté dans les cas de figure suivants:
-                        <ul>
-                            <li>
-                                <p>Le client, vous:</p>
-                                <ul>
-                                    <li>
-                                        Les travaux ont un retard de plus 7 jours et n'est pas causé par un cas de force majeure comme des intempéries ou une catastrophe naturelle ? Alors comme précisé dans <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006291889/2011-03-28/">l’article R114-1 du Code de la consommation</a>, vous êtes en droit de réclamer l'annulation du contrat.
-                                    </li>
-                                    <li>
-                                        Si vous avez été démarché à votre domicile, par téléphone ou encore sur internet, alors vous disposez d’un délai de rétractation de 7 jours et pouvez annuler le devis si vous le souhaitez.
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <p>L’entreprise, nous:</p>
-                                <ul>
-                                    <li>
-                                        <p>Si vous annulez un devis signé ou nous avez communiqué votre intention de se rétracter
-                                            Malheureusement, nous avons déjà commandé les fournitures pour les travaux et organisé notre planning. Dans ce cas, nous pouvons récupérer un dédommagement.
-                                        </p>
-                                        <ul>
-                                            <li>
-                                                Le paiement d’arrhes : nous conservez les arrhes que vous nous avez versées, mais ne pouvons pas demander de dommages et intérêts.
-                                            </li>
-                                            <li>
-                                                Le versement d’un acompte : nous conservons l’acompte et nous pouvons vous réclamer des dommages et intérêts.
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            En cas de force majeur qui peuvent influer sur le bon déroulement des travaux, on retrouve par exemple:
-                                        </p>
-                                        <ul>
-                                            <li>
-                                                De mauvaises conditions de travail
-                                            </li>
-                                            <li>
-                                                Des intempéries graves (inondation, neige, canicule...)
-                                            </li>
-                                            <li>
-                                                Des grèves qui nous empêchent de nous rendre sur le chantier
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Si vous ne collaborez pas au bon dérouler du chantier avec nous:
-                                        </p>
-                                        <ul>
-                                            <li>
-                                                Si vous etes absent pour les rendez-vous ou le jour des travaux
-                                            </li>
-                                            <li>
-                                                Sivous nous empêche d’accéder au chantier
-                                            </li>
-                                            <li>
-                                                Si vous demandez régulièrement des modifications sur les prestations
-                                            </li>
-                                            <li>
-                                                Si vous demandez et insistez pour des prestations supplémentaires non facturées
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <p>
-                                    Nous serons en droit de rompre le contrat à condition de pouvoir apporter des preuves.
-                                </p>
-                            </li>
-                        </ul>
-                        </p>
-                    </div>
-                    <div class="col-11 mb-3 justify-content-center">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="cgu" name="cgu">
-                            <label class="form-check-label" for="cgu">
-                                En cochant cette case, je certifie avoir pris connaissance et j’accepte les conditions générales d’utilisation
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-7 my-3 justify-content-center">
-                    <a href="devis.php?steps=1" id="nextSteps1" class="btn greenbtn disabled" aria-disabled="true">Continuer</a>
-                    <a href="home.php" class="btn btn-secondary">Annuler</a>
-                </div>
-            </div>
-        <?php }
         if ($_GET['steps'] == 1) { ?>
             <div class="row justify-content-center">
                 <h2 class="text-center">Générer votre devis : <br> Choisissez la categorie de traveaux que vous sohaitez</h2>
                 <div class="row flex-row justify-content-evenly flex-wrap">
-                    <div class="card col-lg-2 col-5 mt-3 py-2">
-                        <a href="devis.php?steps=2&firstchoice=0">
+                    <div class="card col-lg-2 col-5 mt-3 py-2 firstchoice">
+                        <a class="<?= isset($_GET['type']) && $_GET['type'] == 1 ? 'active' : '' ?>" href="devis.php?steps=2&firstchoice=1">
                             <div class="card-body p-0">
                                 <p class="card-title text-black text-center">Gros Oeuvres</p>
                                 <div class="img d-flex justify-content-center">
@@ -253,8 +148,8 @@ include('../inc/header.php');
                             </div>
                         </a>
                     </div>
-                    <div class="card col-lg-2 col-5 mt-3 py-2">
-                        <a href="devis.php?steps=2&firstchoice=1">
+                    <div class="card col-lg-2 col-5 mt-3 py-2 firstchoice">
+                        <a class="<?= isset($_GET['type']) && $_GET['type'] == 1 ? 'active' : '' ?>" href="devis.php?steps=2&firstchoice=2">
                             <div class="card-body p-0">
                                 <p class="card-title text-black text-center">Secondes Oeuvres</p>
                                 <div class="img d-flex justify-content-center">
@@ -335,13 +230,12 @@ include('../inc/header.php');
                                             </filter>
                                         </defs>
                                     </svg>
-
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="card col-lg-2 col-5 mt-3 py-2">
-                        <a href="devis.php?steps=2&firstchoice=2">
+                    <div class="card col-lg-2 col-5 mt-3 py-2 firstchoice">
+                        <a class="<?= isset($_GET['type']) && $_GET['type'] == 1 ? 'active' : '' ?>" href="devis.php?steps=2&firstchoice=3">
                             <div class="card-body p-0">
                                 <p class="card-title text-black text-center">Espaces verts</p>
                                 <div class="img d-flex justify-content-center">
@@ -452,7 +346,6 @@ include('../inc/header.php');
                                             </linearGradient>
                                         </defs>
                                     </svg>
-
                                 </div>
                             </div>
                         </a>
@@ -465,50 +358,85 @@ include('../inc/header.php');
                 <div class="row justify-content-center">
                     <h2 class="text-center">Générer votre devis : <br> Choisissez les traveaux que vous sohaitez et leur dimentions</h2>
                     <div class="col-lg-9 col-12 flex-row">
-                        <div class="row justify-content-center my-5">
-                            <div class="col-12">
-                                <div class="row justify-content-center my-3">
-                                    <?php foreach ($jobs as $job) { ?>
-                                        <div class="form-check col-lg-3 col-4">
-                                            <input class="form-check-input" type="radio" name="post" id="post">
-                                            <label class="form-check-label" for="post">
-                                                <?= $job['tp_name'] ?>
-                                            </label>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                                <div class="row justify-content-center my-3">
-                                    <div class="col-lg-8 col-6">
-                                        <label class="" for="">
-                                            Dimentions
-                                        </label>
-                                        <input class="inputNb" type="number" name="" id="">
-                                        <select class="inputSelect" name="" id="">
-                                            <option value="">Choisir une unitée de mesure</option>
-                                            <option value="">m²</option>
-                                            <option value="">m cube</option>
-                                            <option value="">m</option>
-                                            <option value="">Autre</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3 col-11">
-                                        <label for="">Description</label>
-                                        <span class="ms-2 text-danger"><?= isset($errors['description']) ? $errors['description'] : '' ?></span>
-                                        <div class="input-group">
-                                            <textarea name="description" id="description" cols="30" rows="5" class="form-control" placeholder="Veuillez entrer la description des travaux demandés pour ce poste" aria-label="description"><?= isset($_POST['description']) ? $_POST['description'] : '' ?></textarea>
-                                        </div>
-                                    </div>
+                        <form action="devis.php?steps=3&firstchoice=<?= $_GET['firstchoice'] ?>" method="POST" class="row justify-content-center my-5">
+                            <div class="col-11 mb-3">
+                                <label class="" for="travaux">
+                                    Nom du type de travaux
+                                </label>
+                                <div class="select-group">
+                                    <select class="form-control" name="travaux" id="travaux">
+                                        <?php foreach ($jobs as $job) { ?>
+                                            <option value="<?= $job['tp_id'] ?>" <?= !isset($_SESSION['travaux']) && isset($_SESSION['travaux']) && $_SESSION['travaux'][$index]['travaux'] == $key ? 'selected' : '' ?>><?= $job['tp_name'] ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
-                            <a href="devis.php?steps=3" class="btn greenbtn col-2" id="nextStep3">Etape suivante</a>
-                        </div>
+                            <div class="col-11 mb-3">
+                                <label class="" for="meusure">
+                                    Dimentions
+                                </label>
+                                <div class="input-group">
+                                    <input class="inputNb form-control" type="number" name="meusure" id="meusure" value="<?= $_SESSION['travaux'][$index]['size'] ?? '' ?>">
+                                    <select class="form-control" name="units" id="units">
+                                        <option value="">Choisir une unitée de mesure</option>
+                                        <option value="m²" <?= !isset($_SESSION['addTravaux']) && isset($_SESSION['travaux']) && $_SESSION['travaux'][$index]['units'] == 'm²' ? 'selected' : '' ?>>m²</option>
+                                        <option value="m cube" <?= !isset($_SESSION['addTravaux']) && isset($_SESSION['travaux']) && $_SESSION['travaux'][$index]['units'] == 'm cube' ? 'selected' : '' ?>>m cube</option>
+                                        <option value="m" <?= !isset($_SESSION['addTravaux']) && isset($_SESSION['travaux']) && $_SESSION['travaux'][$index]['units'] == 'm' ? 'selected' : '' ?>>m</option>
+                                        <option value="autre" <?= !isset($_SESSION['addTravaux']) && isset($_SESSION['travaux']) && $_SESSION['travaux'][$index]['units'] == 'autre' ? 'selected' : '' ?>>Autre</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 col-11">
+                                <label for="">Description</label>
+                                <span class="ms-2 text-danger"><?= isset($errors['description']) ? $errors['description'] : '' ?></span>
+                                <div class="input-group">
+                                    <textarea name="description" id="description" cols="30" rows="5" class="form-control" placeholder="Veuillez entrer la description des travaux demandés pour ce poste" aria-label="description"><?= $_SESSION['travaux'][$index]['description'] ?? '' ?></textarea>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <a href="devis.php?steps=1&firstchoice=<?= $_GET['firstchoice'] ?>" class="btn btn-danger">Précédent</a>
+                                <input type="submit" name="recap" class="btn greenbtn" value="Suivant">
+                            </div>
+                        </form>
                     </div>
                 </div>
             <?php } else { ?>
-                <p>error</p>
+                <p>Veuillez sélectionner un type de travaux</p>
             <?php }
         }
         if ($_GET['steps'] == 3) { ?>
+            <div class="row justify-content-center">
+                <h2 class="text-center">Générer votre devis : <br> Resumé des traveaux que vous sohaitez</h2>
+                <form action="devis.php?steps=1" method="POST">
+                    <?php if (isset($_SESSION['travaux'])) { ?>
+                        <?php foreach ($_SESSION['travaux'] as $key => $value) {
+                           $thisJob =  $jobsObj->getAOnejobs($value['travaux']);
+                            // var_dump($jobs[$value['type']][$value['travaux']]);
+                        ?>
+                            <div class="border border-secondary rounded pt-3 m-2">
+                                <ul>
+                                    <li><b>Type : </b><?= $firstChoices[$value['type']] ?></li>
+                                    <li><b>Travaux : </b><?= $thisJob['tp_name'] ?></li>
+                                    <li><b>Taille : </b><?= $value['size'] . $value['units'] ?></li>
+                                    <li><b>Description : </b><?= $value['description'] ?></li>
+                                </ul>
+                            </div>
+                        <?php } ?>
+                    <?php } ?>
+
+                    <input type="submit" class="btn btn-dark" name="addTravaux" value="Ajout travaux">
+
+                    <div class="text-center">
+                        <a href="devis.php?steps=2&firstchoice=<?= $_GET['firstchoice'] ?>" class="btn btn-danger">Précédent</a>
+                        <input type="submit" name="info" class="btn greenbtn" value="Suivant">
+
+                    </div>
+
+                </form>
+            </div>
+
+        <?php }
+        if ($_GET['steps'] == 4) { ?>
             <div class="row justify-content-center">
                 <h2 class="text-center">Générer votre devis : <br> Les traveaux que vous sohaitez</h2>
                 <form class="row justify-content-center" action="devis.php?steps=4" method="post">
@@ -560,19 +488,16 @@ include('../inc/header.php');
                     </div>
                 </form>
             </div>
-        <?php }
-        if ($_GET['steps'] == 4) { ?>
-            <div class="row justify-content-center">
-                <h2 class="text-center">Générer votre devis : <br> Resumé des traveaux que vous sohaitez</h2>
-
-            </div>
     <?php }
     }
     ?>
+    <form action="" method="POST">
+        <input type="submit" name="cancel" class="btn btn-outline-danger m-2" value="Annuler">
+    </form>
 </div>
 
 <?php
 include('../inc/footer.php'); ?>
-<script src="../assets/js/script.js"></script>
+<!-- <script src="../assets/js/script.js"></script> -->
 <?php
 include('../inc/end.php');
