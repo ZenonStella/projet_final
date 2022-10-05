@@ -31,7 +31,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                 $client = $clientsObj->getAOneClients($_GET['id']);
                 $missives = $missivesObj->getMissivesByClients($_GET['id']);
                 $meets = $meetsObj->getAllMeetsByClients($_GET['id']);
-                $estimations = $estimationsObj->getEstimationsByClients($_GET['id']);
+                $estimations = $estimationsObj->getAllEstimationsByClients($_GET['id']);
             } else {
                 header('Location: ../views/404.php');
             }
@@ -70,7 +70,8 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
         }
     } else if ($_GET['obj'] == 5) {
         if (isset($_GET['id'])) {
-            // $meetsObj->deleteEstimations($_GET['id']);
+            $devis = $estimationsObj->getOneEstimation($_GET['id']);
+            $missions = $estimationsObj->getMissionsOfOneEstimationByClients($devis['e_id']);
         } else {
             header('Location: ../views/404.php');
         }

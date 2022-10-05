@@ -22,7 +22,6 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                         <?php } else { ?>
                             <?= $client['c_phone'] ?>
                         <?php } ?></p>
-                    <!-- <p>Role : <?= $client['c_role'] ?></p> -->
                 </div>
             </div>
             <div class="card my-3 shadow">
@@ -80,17 +79,19 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                     <table class="table table-striped rounded border">
                         <thead class="green">
                             <tr>
+                                <th scope="col">Localisation</th>
                                 <th scope="col">Devis</th>
-                                <th scope="col"></th>
-                                <th scope="col">Réponse</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($estimations as $estimation) { ?>
                                 <tr>
-                                    <td><?= $estimation['e_zip'] ?></td>
-                                    <!-- <td><?= $estimation['me_estimation_at'] ?></td> -->
-                                    <!-- <td><?= $estimation['me_responce'] == 0 ? 'non' : 'oui' ?></td> -->
+                                    <td><?= $estimation['e_zip'] ?> <?= $estimation['e_city'] ?></td>
+                                    <td><?= $estimation['e_created_at'] ?></td>
+                                    <td>
+                                        <a href="" class="btn btn-info">Voir +</a>
+                                    </td>
                                 </tr>
                             <?php } { ?>
                             <?php } ?>
@@ -172,7 +173,57 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
         </div>
     <?php }
     if ($_GET['obj'] == 5) { ?>
+        <div class="row justify-content-center">
+            <div class="back">
+                <a class="btn btn-danger rounded mb-5" href="devis.php">Retour à la liste des messages</a>
+            </div>
+            <div>
+                <p class="h2 text-center">Informations d'un devis</p>
+                <!-- <p>Ces informations ne sont modifiable que par l'administrateur ou l'éditeur.</p> -->
+            </div>
+            <div class="card text-white col-lg-5 col-11 green my-3 py-5 shadow justify-content-center">
+                <div class="row justify-content-center">
+                    <p>Nom : <?= $devis['c_firstname'] ?></p>
+                    <p>Prénom : <?= $devis['c_lastname'] ?></p>
+                    <p>Mail : <?= $devis['c_mail'] ?></p>
+                    <p>Téléphone : <?php if ($devis['c_phone'] == '') { ?>
+                            Information non renseigner
+                        <?php } else { ?>
+                            <?= $devis['c_phone'] ?>
+                        <?php } ?></p>
+                    <p>Localisation : <?= $devis['e_zip'] ?> <?= $devis['e_city'] ?></p>
+                    <p>Créer le : <?= $devis['e_created_at'] ?></p>
+                    <p>Réponse : <?= $devis['e_responce'] == 0 ? '<i class="bi bi-envelope-fill text-white"></i>' : '<i class="bi bi-envelope-paper-fill text-white"></i>' ?></p>
+                </div>
 
+            </div>
+            <div class="card my-3 shadow">
+                <p class="h3 text-center my-2">Liste des devis de ce client</p>
+                <div class="row">
+                    <table class="table table-striped rounded border">
+                        <thead class="green">
+                            <tr>
+                                <th scope="col">Categorie</th>
+                                <th scope="col">Mission</th>
+                                <th scope="col">Quantité</th>
+                                <th scope="col">Proprietés</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($missions as $mission) { ?>
+                                <tr>
+                                    <td><?= $mission['c_name'] ?></td>
+                                    <td><?= $mission['tp_name'] ?></td>
+                                    <td><?= $mission['p_quantity'] ?><?= $mission['p_unite'] ?></td>
+                                    <td><?= $mission['p_propriety'] ?></td>
+                                </tr>
+                            <?php } { ?>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
 
 

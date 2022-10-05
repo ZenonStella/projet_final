@@ -24,8 +24,8 @@ require_once '../controllers/admin_devis_controller.php';
                 <tbody>
                     <?php foreach ($devis as $devi) { ?>
                         <tr>
-                            <td><?= $devi[''] ?></td>
-                            <td><a href="" class="btn btn-info">Voir +</a>
+                            <td><?= $devi['c_firstname'] ?> <?= $devi['c_lastname'] ?></td>
+                            <td><a href="details.php?obj=5&id=<?= $devi['e_id'] ?>" class="btn btn-info">Voir +</a>
                                 <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
                                     <a href="" class="btn greenbtn">Modifier</a>
                                     <a href="" class="btn btn-danger">Supprimer <i class="bi bi-trash3-fill"></i></a>

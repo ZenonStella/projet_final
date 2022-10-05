@@ -27,6 +27,7 @@ require('inc/header.php');
                             <td><?= $client['c_mail'] ?></td>
                             <td>
                                 <a href="details.php?obj=1&id=<?= $client['c_id'] ?>" class="btn greenbtn">Voir +</a>
+                                <!-- <a href="details.php?obj=1&id=<?= $client['c_id'] ?>" class="btn greenbtn">Voir les deivs de ce clients</a> -->
                                 <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
                                     <button type="button" class="btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#client<?= $client['c_id'] ?>">
                                         Supprimer <i class="bi bi-trash3-fill"></i>

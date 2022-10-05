@@ -49,19 +49,33 @@ class Estimations extends DataBase
         $result = $query->fetChAll();
         return $result;
     }
-    public function getEstimationsByClients($client)
+    public function getAllEstimationsByClients()
     {
         $pdo = parent::connectDb();
-        $sql = 'SELECT jobs.p_id,jobs.p_quantity, jobs.p_propriety,jobs.p_unite,type_of_postes.tp_name AS p_name,categorys_postes.c_name,estimations.e_zip,estimations.e_city,DATE_FORMAT(estimations.e_created_at,"%d/%m/%Y") AS e_created_at ,estimations.e_responce, meets.me_id,DATE_FORMAT(meets.me_created_at,"%d/%m/%Y") AS me_created_at ,DATE_FORMAT(meets.me_meet_date,"%d/%m/%Y") AS me_meet_date,TIME_FORMAT(meets.me_meet_at,"%Hh%i") AS me_meet_at,meets.me_responce FROM jobs_to_do_estimations 
-        INNER JOIN jobs on jobs.p_id = jobs_to_do_estimations.p_id_jobs
-        INNER JOIN type_of_postes ON type_of_postes.tp_id = jobs.tp_id_type_of_postes
-        INNER JOIN categorys_postes ON categorys_postes.c_id = type_of_postes.c_id_categorys_postes
-        INNER JOIN estimations on estimations.e_id
-        INNER JOIN estimations_need_meets ON estimations_need_meets.e_id_estimations = estimations.e_id
-        INNER JOIN meets ON meets.me_id = estimations_need_meets.me_id_meets
-        WHERE estimations.c_id_clients = :id';
+        $sql = 'SELECT clients.c_lastname, clients.c_firstname, clients.c_mail, clients.c_phone, estimations.e_zip, estimations.e_city, DATE_FORMAT(estimations.e_created_at,"%d/%m/%Y") AS e_created_at, estimations.e_responce FROM estimations INNER JOIN clients ON estimations.c_id_clients = clients.c_id WHERE clients.c_id = 6';
+        $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
+    }
+    public function getOneEstimation($estimations)
+    {
+        $pdo = parent::connectDb();
+        $sql = 'SELECT estimations.e_id, clients.c_lastname, clients.c_firstname, clients.c_mail, clients.c_phone, estimations.e_zip, estimations.e_city, DATE_FORMAT(estimations.e_created_at,"%d/%m/%Y") AS e_created_at, estimations.e_responce FROM estimations INNER JOIN clients ON estimations.c_id_clients = clients.c_id WHERE estimations.e_id = :id';
         $query = $pdo->prepare($sql);
-        $query->bindValue(':id', $client, PDO::PARAM_STR);
+        $query->bindValue(':id', $estimations, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetch();
+        return $result;
+    }
+    public function getMissionsOfOneEstimationByClients($estimations)
+    {
+        $pdo = parent::connectDb();
+        $sql = 'SELECT jobs.p_id, categorys_postes.c_name, type_of_postes.tp_name, jobs.p_quantity, jobs.p_unite, jobs.p_propriety FROM jobs
+        INNER JOIN type_of_postes ON jobs.tp_id_type_of_postes = type_of_postes.tp_id
+        INNER JOIN categorys_postes ON categorys_postes.c_id = type_of_postes.c_id_categorys_postes
+        WHERE jobs.e_id_estimation = :id';
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $estimations, PDO::PARAM_STR);
         $query->execute();
         $result = $query->fetchAll();
         return $result;
@@ -70,7 +84,7 @@ class Estimations extends DataBase
     {
         $pdo = parent::connectDb();
         $sql = "SELECT * FROM estimations INNER JOIN
-        clients ON estimations.c_id_clients = clients.c_id WHERE e_responce = 1";
+        clients ON estimations.c_id_clients = clients.c_id WHERE e_soft_delete = 1";
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -126,7 +140,7 @@ class Estimations extends DataBase
     public function deleteEstimations(int $Estimations)
     {
         $pdo = parent::connectDb();
-        $sql = "DELETE FROM type_of_postes WHERE Estimations_id = :id";
+        $sql = "DELETE FROM estimations WHERE e_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $Estimations, PDO::PARAM_STR);
         $query->execute();
