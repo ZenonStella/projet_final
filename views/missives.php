@@ -44,14 +44,14 @@ require('../inc/header.php');
         <label for="phone">Numéro de téléphone</label>
         <span class="ms-2 text-danger"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
         <div class="input-group">
-            <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
+            <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
         </div>
     </div>
     <div class="mb-3 col-11">
         <label for="text">Message *</label>        
         <span class="ms-2 text-danger"><?= isset($errors['text']) ? $errors['text'] : '' ?></span>
         <div class="input-group">
-            <textarea id="text" name="text" id="text" class="form-control" placeholder="Ecrire ici votre message..." aria-label="With textarea"></textarea>
+            <textarea id="text" name="text" id="text" class="form-control" placeholder="Ecrire ici votre message..." aria-label="With textarea"><?= isset($_POST['text']) ? $_POST['text'] : '' ?></textarea>
         </div>
     </div>
     <div class="col-11 mb-3 justify-content-center">

@@ -73,7 +73,7 @@ class Clients extends DataBase
         $query->execute();
         $result = $query->fetchAll();
 
-        if (count($result) == 0) {
+        if (count($result) == 1) {
             return true;
         } else {
             return false;

@@ -410,8 +410,7 @@ include('../inc/header.php');
                 <form action="devis.php?steps=1" method="POST">
                     <?php if (isset($_SESSION['travaux'])) { ?>
                         <?php foreach ($_SESSION['travaux'] as $key => $value) {
-                           $thisJob =  $jobsObj->getAOnejobs($value['travaux']);
-                            // var_dump($jobs[$value['type']][$value['travaux']]);
+                            $thisJob =  $jobsObj->getAOnejobs($value['travaux']);
                         ?>
                             <div class="border border-secondary rounded pt-3 m-2">
                                 <ul>
@@ -439,52 +438,41 @@ include('../inc/header.php');
         if ($_GET['steps'] == 4) { ?>
             <div class="row justify-content-center">
                 <h2 class="text-center">Générer votre devis : <br> Les traveaux que vous sohaitez</h2>
-                <form class="row justify-content-center" action="devis.php?steps=4" method="post">
+                <form class="row justify-content-center" action="" method="post">
                     <div class="mb-3 col-11">
-                        <label for="">Nom et Prénom</label>
+                        <label for="firstname">Nom et Prénom <span class="text-danger">*</span></label>
+                        <span class="ms-2 text-danger"><?= isset($errors['firstname']) ? $errors['firstname'] : '' ?></span>
+                        <span class="ms-2 text-danger"><?= isset($errors['lastname']) ? $errors['lastname'] : '' ?></span>
+
                         <div class="input-group">
-                            <input type="text" aria-label="First name" placeholder="Nom" class="form-control">
-                            <input type="text" aria-label="Last name" placeholder="Prénom" class="form-control">
+                            <input type="text" name="firstname" id="firstname" aria-label="First name" placeholder="Nom" class="form-control" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>">
+                            <input type="text" name="lastname" id="lastname" aria-label="Last name" placeholder="Prénom" class="form-control" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : '' ?>">
                         </div>
                     </div>
                     <div class="mb-3 col-11">
-                        <label for="">Email</label>
+                        <label for="mail">Email <span class="text-danger">*</span></label>
                         <span class="ms-2 text-danger"><?= isset($errors['mail']) ? $errors['mail'] : '' ?></span>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Email" aria-label="Email" value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>">
+                            <input type="text" name="mail" id="mail" class="form-control" placeholder="Email" aria-label="Email" value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>">
                         </div>
                     </div>
                     <div class="mb-3 col-11">
                         <label for="phone">Numéro de téléphone</label>
                         <span class="ms-2 text-danger"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
                         <div class="input-group">
-                            <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
+                            <input type="phone" class="form-control" placeholder="Ex: 07 00 00 00 00" id="phone" name="phone" value="<?= isset($_POST['phone']) ? $_POST['phone'] : '' ?>">
                         </div>
                     </div>
                     <div class="mb-3 col-11">
-                        <label for="city">Ville et Code Postale</label>
+                        <label for="city">Ville et Code Postale <span class="text-danger">*</span></label>
                         <span class="ms-2 text-danger"><?= isset($errors['address']) ? $errors['address'] : '' ?></span>
                         <div class="input-group">
                             <input type="text" name="city" id="city" aria-label="City" placeholder="Ville" class="form-control" value="<?= isset($_POST['city']) ? $_POST['city'] : '' ?>">
                             <input type="text" name="zip" id="zip" aria-label="Zip" placeholder="Code postale" class="form-control" value="<?= isset($_POST['zip']) ? $_POST['zip'] : '' ?>">
                         </div>
                     </div>
-                    <div class="mb-3 col-11">
-                        <label for="">Ajouter plus de details pour les traveaux</label>
-                        <div class="input-group">
-                            <textarea class="form-control" placeholder="Ecrire ici..." aria-label="With textarea"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-11 mb-3 justify-content-center">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2">
-                            <label class="form-check-label" for="invalidCheck2">
-                                J'ai lu et j'accepte la <a href="politiques.php">politique de confidentialité</a>
-                            </label>
-                        </div>
-                    </div>
                     <div class="col-11 mb-3 text-center">
-                        <button class="btn greenbtn" type="submit">Envoyer</button>
+                        <input type="submit" name="validate" class="btn greenbtn" value="Envoyer">
                     </div>
                 </form>
             </div>

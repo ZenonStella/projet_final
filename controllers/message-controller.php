@@ -18,10 +18,10 @@ if ($showForm == true) {
         $phoneNumber = htmlspecialchars($_POST['phone']);
         $text = htmlspecialchars($_POST['text']);
         $mail = htmlspecialchars($_POST['mail']);
-        $created = date('Y:m:d');
+        $created = date('Y/m/d');
         // echo $created;
         // var_dump($phoneNumber);
-        if ($clientsObj->checkIfClientsExists($mail)) {
+        if (!$clientsObj->checkIfClientsExists($mail)) {
             if ($phoneNumber != '') {
                 $clientsObj->addNewClientsWithPhone($lastname, $firstname, $phoneNumber, $mail);
             } else {
@@ -29,7 +29,6 @@ if ($showForm == true) {
             }
         }
         $client = $clientsObj->getOneClientByMail($mail);
-        var_dump($client);
         $missivessObj->addNewMissives($text, $created, $client['c_id']);
         // $doctorsObj = new Doctors();
         // $usersDoctors = new Users();
@@ -39,7 +38,7 @@ if ($showForm == true) {
         $_SESSION['swal'] = [
             'icon' => 'success',
             'title' => 'Message',
-            'text' => 'Le message a bien été prise en compte, nous vous recontacterons prochainement y repondre '
+            'text' => 'Le message a bien été prise en compte, nous vous recontacterons prochainement pour y repondre '
         ];
         header('Location: home.php');
         exit;

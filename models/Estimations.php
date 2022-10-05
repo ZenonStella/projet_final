@@ -13,13 +13,31 @@ class Estimations extends DataBase
      * 
      * @return void 
      */
-    public function addNewEstimations(string $name, string $categorys): void
+    public function addNewEstimations(string $zip, string $city, string $date, int $client)
     {
         $pdo = parent::connectDb();
-        $sql = "INSERT INTO type_of_postes(tp_name, c_id_categorys_postes) VALUES (:name, :categorys)";
+        $sql = "INSERT INTO estimations(e_zip, e_city, e_created_at,c_id_clients) 
+        VALUES (:zip,:city,:date,:client)";
         $query = $pdo->prepare($sql);
-        $query->bindValue(':name', $name, PDO::PARAM_STR);
-        $query->bindValue(':categorys', $categorys, PDO::PARAM_STR);
+        $query->bindValue(':zip', $zip, PDO::PARAM_STR);
+        $query->bindValue(':city', $city, PDO::PARAM_STR);
+        $query->bindValue(':date', $date, PDO::PARAM_STR);
+        $query->bindValue(':client', $client, PDO::PARAM_STR);
+        $query->execute();
+
+        return $pdo->lastInsertId();
+    }
+    public function addNewMission(int $quantity, string $propriety, string $unite, int $tp_id, $idDevis)
+    {
+        $pdo = parent::connectDb();
+        $sql = "INSERT INTO jobs(p_quantity, p_propriety, p_unite,e_id_estimation, tp_id_type_of_postes) 
+        VALUES (:quantity,:propriety,:unite,:e_id,:tp_id)";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':quantity', $quantity, PDO::PARAM_STR);
+        $query->bindValue(':propriety', $propriety, PDO::PARAM_STR);
+        $query->bindValue(':unite', $unite, PDO::PARAM_STR);
+        $query->bindValue(':tp_id', $tp_id, PDO::PARAM_STR);
+        $query->bindValue(':e_id', $idDevis, PDO::PARAM_STR);
         $query->execute();
     }
     public function getAllEstimations()
