@@ -20,7 +20,6 @@ if ($showForm == true) {
         $mail = htmlspecialchars($_POST['mail']);
         $created = date('Y/m/d');
         // echo $created;
-        // var_dump($phoneNumber);
         if (!$clientsObj->checkIfClientsExists($mail)) {
             if ($phoneNumber != '') {
                 $clientsObj->addNewClientsWithPhone($lastname, $firstname, $phoneNumber, $mail);

@@ -4,7 +4,6 @@ require_once '../models/Database.php';
 require_once '../models/Users.php';
 require_once '../models/Pictures.php';
 $usersObj = new Users();
-// var_dump($_SERVER);
 $errors = [];
 $showForm = false;
 $regexName = "/^[ 'éèêëÉÈñàâçïîûüôöa-zA-Z]+$/";
@@ -133,5 +132,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $showForm = true;
         }
     }
-    // var_dump($errors);
 }

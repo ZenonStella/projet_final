@@ -4,11 +4,6 @@ require_once '../controllers/form_controller.php';
 require_once '../controllers/message-controller.php';
 require('../inc/header.php');
 ?>
-<pre>
-    <?php
-    print_r($_POST);
-    ?>
-</pre>
 <h2 class="text-center mb-5">Bienvenus sur notre page d'envoie de message!</h2>
 <p class="text-cneter">Laissez nous un message si vous avez des questions</p>
 <ul class="nav nav-tabs mb-5">

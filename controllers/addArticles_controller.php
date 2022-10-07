@@ -39,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $articlesObj->addNewArticles($created, $text, $preveiw, $picture, $name, $title, $_SESSION['user']['u_id']);
         $_SESSION['swal'] = [
             'icon' => 'success',
-            'title' => 'Image',
-            'text' => 'L\'image a bien été enregistrée'
+            'title' => 'Article',
+            'text' => 'L\'article a bien été enregistrée'
         ];
         header('Location: news.php');
         exit;

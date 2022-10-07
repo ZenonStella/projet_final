@@ -485,7 +485,9 @@ include('../inc/header.php');
 </div>
 
 <?php
-include('../inc/footer.php'); ?>
+include('../inc/footer.php'); 
+require_once '../inc/sweetAlert.php';
+?>
 <!-- <script src="../assets/js/script.js"></script> -->
 <?php
 include('../inc/end.php');

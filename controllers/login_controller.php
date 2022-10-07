@@ -6,5 +6,5 @@ $usersObj = new Users();
 if ($showForm) {
     $user = $usersObj->getOneUsers($_POST['mail']);
     $_SESSION['user'] = $user;
-    header('Location: home.php');
+    header('Location: ../admin/home.php');
 }

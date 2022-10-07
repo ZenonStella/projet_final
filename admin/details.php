@@ -121,11 +121,6 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
         </div>
     <?php }
     if ($_GET['obj'] == 3) { ?>
-        <pre>
-            <?php
-            print_r($meet);
-            ?>
-        </pre>
         <div class="row justify-content-center">
             <div class="back">
                 <a class="btn btn-danger rounded mb-5" href="messages.php">Retour à la liste des messages</a>

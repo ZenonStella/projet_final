@@ -22,7 +22,6 @@ if ($showForm == true) {
         $user = $usersObj->getOneUsersByRole('editeur');
         // $hourFormat = 'HH:MM:II';
         // echo $created;
-        // var_dump($phoneNumber);
         if ($clientsObj->checkIfClientsExists($mail)) {
             if ($phoneNumber != '') {
                 $clientsObj->addNewClientsWithPhone($lastname, $firstname, $phoneNumber, $mail);
@@ -31,12 +30,11 @@ if ($showForm == true) {
             }
         }
         $client = $clientsObj->getOneClientByMail($mail);
-        var_dump($user);
         $meetsObj->addNewMeets($created,$date,$hour,$client['c_id'],$user['u_id']);
         $_SESSION['swal'] = [
             'icon' => 'success',
             'title' => 'Rendez-vous',
-            'text' => 'Le rendez vous a bien été prise en compte, nous vous recontacterons prochainement pour le confirmer '
+            'text' => 'Le rendez-vous a bien été prise en compte, nous vous recontacterons prochainement pour le confirmer '
         ];
         header('Location: home.php');
         exit;

@@ -175,13 +175,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $client = $clientsObj->getOneClientByMail($mail);
             $idDevis = $estimationsObj->addNewEstimations($zip,$city,$date,$client['c_id']);
             foreach ($_SESSION['travaux'] as $key => $value) {
-                // var_dump($value);
                 $estimationsObj->addNewMission($value['size'], $value['description'], $value['units'], $value['travaux'], $idDevis);
             }
             $_SESSION['swal'] = [
                 'icon' => 'success',
                 'title' => 'Devis',
-                'text' => 'Le devis a bien été prise en compte, nous vous recontacterons prochainement pour y repondre '
+                'text' => 'Le devis a bien été prise en compte, nous vous recontacterons prochainement pour y repondre.'
             ];
             header('Location: home.php');
             exit;

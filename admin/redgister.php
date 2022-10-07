@@ -4,11 +4,6 @@ require_once '../controllers/form_controller.php';
 require_once '../controllers/addUsers_controller.php';
 require('inc/header.php');
 ?>
-<pre>
-    <?php
-    var_dump($showForm);
-    ?>
-</pre>
 <h1 class="m-5 text-center">Formulaire de création d'utilisateurs</h1>
 <form action="" method="POST">
     <div class="row justify-content-center">
@@ -61,6 +56,8 @@ require('inc/header.php');
 </form>
 <?php
 require('inc/footer.php');
+require_once '../inc/sweetAlert.php';
+
 ?>
 <script src="../assets/js/form.js"></script>
 <?php

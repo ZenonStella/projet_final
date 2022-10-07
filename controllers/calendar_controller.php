@@ -76,12 +76,6 @@ function getSpecialDays($year)
          return $specialDays;
 }
 $arraySpecialDays = getSpecialDays($year);
-
-    // $meets = $meetsObj->getAllMeetsByYearAndMonth($year, $monthNumber);
-// echo '<pre>';
-// print_r($meets);
-// echo '</pre>';
-
 function createCase($firstCaseTimestamp, $caseNumber, $month, $arraySpecialDays)
 {
     
