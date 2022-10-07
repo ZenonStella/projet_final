@@ -123,10 +123,10 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
     if ($_GET['obj'] == 3) { ?>
         <div class="row justify-content-center">
             <div class="back">
-                <a class="btn btn-danger rounded mb-5" href="messages.php">Retour à la liste des messages</a>
+                <a class="btn btn-danger rounded mb-5" href="meet.php">Retour à la liste des rendeze-vous</a>
             </div>
             <div>
-                <p class="h2 text-center">Informations d'un message</p>
+                <p class="h2 text-center">Informations du rendez-vous</p>
                 <p>Ces informations ne sont modifiable que par l'administrateur ou l'éditeur.</p>
             </div>
             <div class="card text-white col-lg-5 col-11 green my-3 py-5 shadow justify-content-center">
@@ -135,7 +135,8 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                     <p>Prénom : <?= $meet['c_lastname'] ?></p>
                     <p>Mail : <?= $meet['c_mail'] ?></p>
                     <p>Créer le : <?= $meet['me_created_at'] ?></p>
-                    <p>message : <br><?= $meet['me_meet_date'] ?></p>
+                    <p>Rendez-vous le : <br><?= $meet['me_meet_date'] ?> à <?= $meet['me_meet_at'] ?></p>
+                    <p>Localisation : <?= $meet['me_zip'] ?> <?= $meet['me_city'] ?></p>
                     <p>Réponse : <?= $meet['me_responce'] == 0 ? 'non' : 'oui' ?></p>
                 </div>
             </div>
@@ -170,7 +171,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
     if ($_GET['obj'] == 5) { ?>
         <div class="row justify-content-center">
             <div class="back">
-                <a class="btn btn-danger rounded mb-5" href="devis.php">Retour à la liste des messages</a>
+                <a class="btn btn-danger rounded mb-5" href="devis.php">Retour à la liste des devis</a>
             </div>
             <div>
                 <p class="h2 text-center">Informations d'un devis</p>
@@ -188,12 +189,12 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                         <?php } ?></p>
                     <p>Localisation : <?= $devis['e_zip'] ?> <?= $devis['e_city'] ?></p>
                     <p>Créer le : <?= $devis['e_created_at'] ?></p>
-                    <p>Réponse : <?= $devis['e_responce'] == 0 ? '<i class="bi bi-envelope-fill text-white"></i>' : '<i class="bi bi-envelope-paper-fill text-white"></i>' ?></p>
+                    <p>Réponse : <?= $devis['e_responce'] == 0 ? 'Non <i class="bi bi-envelope-fill text-white"></i>' : 'Oui <i class="bi bi-envelope-paper-fill text-white"></i>' ?></p>
                 </div>
 
             </div>
             <div class="card my-3 shadow">
-                <p class="h3 text-center my-2">Liste des devis de ce client</p>
+                <p class="h3 text-center my-2">Liste des missions demandés par ce client</p>
                 <div class="row">
                     <table class="table table-striped rounded border">
                         <thead class="green">
@@ -219,9 +220,40 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                 </div>
             </div>
         </div>
+    <?php }
+    if ($_GET['obj'] == 6) { ?>
+        <div class="row justify-content-center">
+            <div class="back">
+                <a class="btn btn-danger rounded mb-5" href="devis.php">Retour à la liste des articles</a>
+            </div>
+            <div>
+                <p class="h2 text-center">Informations d'un article</p>
+                <!-- <p>Ces informations ne sont modifiable que par l'administrateur ou l'éditeur.</p> -->
+            </div>
+            <div class="card text-white col-lg-5 col-11 green my-3 py-5 shadow justify-content-center">
+                <div class="row justify-content-center">
+                    <p class="h5">Le createur de l'article</p>
+                    <p>Nom : <?= $article['u_firstname'] ?></p>
+                    <p>Prénom : <?= $article['u_lastname'] ?></p>
+                    <p>Mail : <?= $article['u_email'] ?></p>
+                    <p>Créer le : <?= $article['a_created_at'] ?></p>
+                </div>
 
-
-
+            </div>
+            <div class="card my-3 shadow">
+                <p class="h3 text-center my-2">Liste des missions demandés par ce client</p>
+                <div class="row">
+                    <div class="picture col-lg-4 col-10">
+                        <img src="data:image/png;base64,<?= $article['a_img'] ?>" alt="<?= $article['a_img_name'] ?>">
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <p class="h4 text-center"><?= $article['a_titles'] ?></p>
+                        <p><?= $article['a_preveiw'] ?></p>
+                        <p><?= $article['a_text'] ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
 <?php }
 }
 require('inc/footer.php');

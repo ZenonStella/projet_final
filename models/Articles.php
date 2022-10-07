@@ -138,10 +138,11 @@ class Articles extends DataBase
     public function getAOneArticles(int $articles)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM articles 
-        WHERE a_id = $articles";
-        $query = $pdo->query($sql);
-        $result = $query->fetCh();
+        $sql = 'SELECT *,DATE_FORMAT(a_created_at, "%d/%m/%Y") as a_created_at FROM articles INNER JOIN users ON articles.u_id_users = users.u_id WHERE a_id = :id';
+        $query = $pdo->prepare($sql);    
+        $query->bindValue(':id', $articles, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetch();
         return $result;
     }
     public function updateArticles(int $articles, string $edit, string $title,string $preveiw, string $text, string $img)

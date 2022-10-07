@@ -18,7 +18,7 @@ require('inc/header.php');
             <?php foreach ($pictures as $picture) { ?>
                 <div class="col-sm-4 col-lg-2 col-3 mb-4">
                     <div class="card">
-                        <img src="data:image/webp;base64,<?= $picture['g_picture'] ?>" alt="<?= $picture['g_name'] ?>">
+                        <img src="data:image/png;base64,<?= $picture['g_picture'] ?>" alt="<?= $picture['g_name'] ?>">
                     </div>
                 </div>
             <?php } ?>
@@ -34,9 +34,12 @@ require('inc/header.php');
             foreach ($articles as $article) { ?>
                 <div class="card d-flex flex-row">
                     <div class="img-card-admin">
-                        <img src="data:image/webp;base64,<?= $article['a_img'] ?>" alt="<?= $artticle['a_img_name'] ?>">
+                        <img src="data:image/png;base64,<?= $article['a_img'] ?>" alt="<?= $artticle['a_img_name'] ?>">
                     </div>
-                    <div class="card-body"><?= $article['a_titles'] ?></div>
+                    <div class="card-body">
+                        <p><?= $article['a_titles'] ?></p>
+                        <p><?= $article['a_preveiw'] ?></p>
+                    </div>
                 </div>
             <?php } ?>
         </div>

@@ -11,7 +11,6 @@ if (isset($_GET['id']) && empty($_GET['id'])) {
         <a class="btn btn-danger rounded mb-5" href="home.php">Retour à la page d'accueil <i class="bi bi-house-fill"></i></a>
         <a class="btn btn-danger rounded mb-5" href="news.php">Retour à la page de gestion de contenus</a>
         <a class="btn btn-danger rounded mb-5" href="articles.php">Retour à la liste des articles</a>
-    
     </div>
     <div class="col-10">
         <h2>Ajouter un image existante dans la galerie à l'article</h2>
@@ -19,7 +18,8 @@ if (isset($_GET['id']) && empty($_GET['id'])) {
         <div class="row" data-masonry='{"percentPosition": true }'>
             <?php foreach ($pictures as $picture) { ?>
                 <div class="col-sm-4 col-lg-3 col-6 mb-4">
-                    <img src="data:image/webp;base64,<?= $picture['g_picture'] ?>" alt="<?= $picture['g_name'] ?>">
+                    <p><?= $picture['g_name'] ?></p>
+                    <img src="data:image/png;base64,<?= $picture['g_picture'] ?>" alt="<?= $picture['g_name'] ?>">
                 </div>
             <?php } ?>
         </div>

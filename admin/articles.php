@@ -15,7 +15,7 @@ require('inc/header.php');
             <div class="card card-article-admin">
                 <div class="d-flex flex-row">
                     <div class="img-card-admin2">
-                        <img src="data:image/webp;base64,<?= $article['a_img'] ?>" alt="<?= $artticle['a_img_name'] ?>">
+                        <img src="data:image/png;base64,<?= $article['a_img'] ?>" alt="<?= $artticle['a_img_name'] ?>">
                     </div>
                     <div class="card-body">
                         <p class="h4"><?= $article['a_titles'] ?></p>
@@ -23,10 +23,10 @@ require('inc/header.php');
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="my-1 btn greenbtn">Lire l'article <i class="bi bi-book-fill"></i></a>
+                    <a href="details.php?obj=6&id=<?= $article['a_id'] ?>" class="my-1 btn greenbtn">Lire l'article <i class="bi bi-book-fill"></i></a>
                     <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
-                        <a href="" class="my-1 btn edithbtn">Modifier l'article <i class="bi bi-pencil-fill"></i></a>
-                        <a href="selectPictures.php" class="my-1 btn edithbtn">Ajouter des images a l'article <i class="bi bi-file-earmark-plus-fill"></i></a>
+                        <a href="edit.php?obj=6&id=<?= $article['a_id'] ?>" class="my-1 btn edithbtn">Modifier l'article <i class="bi bi-pencil-fill"></i></a>
+                        <a href="selectPictures.php?aricle=<?= $article['a_id'] ?>" class="my-1 btn edithbtn">Ajouter des images a l'article <i class="bi bi-file-earmark-plus-fill"></i></a>
                         <button type="button" class="my-1 btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#article<?= $article['a_id'] ?>">
                             Supprimer <i class="bi bi-trash3-fill"></i>
                         </button>

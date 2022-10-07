@@ -35,7 +35,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
     } else if ($_GET['obj'] == 3) {
         if (isset($_GET['id'])) {
             $meetsObj = new Meets();
-            // $meetsObj->unarchiveMeets($_GET['id']);
+            $meetsObj->unarchiveMeets($_GET['id']);
             header('Location: archivesMeets.php');
         }
     } else if ($_GET['obj'] == 4) {
@@ -46,9 +46,15 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
         }
     } else if ($_GET['obj'] == 5) {
         if (isset($_GET['id'])) {
-            $meetsObj = new Estimations();
-            // $estiationsObj->unarchiveEstimations($_GET['id']);
+            $estiationsObj = new Estimations();
+            $estiationsObj->unarchiveEstimations($_GET['id']);
             header('Location: archivesEstimations.php');
+        }
+    } else if ($_GET['obj'] == 6) {
+        if (isset($_GET['id'])) {
+            $articlesObj = new Articles();
+            $aticlesObj->unarchiveArticles($_GET['id']);
+            header('Location: home.php');
         }
     } else {
         header('Location: ../views/404.php');

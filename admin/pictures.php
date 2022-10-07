@@ -8,7 +8,7 @@ require('inc/header.php');
         <?php foreach ($pictures as $picture) { ?>
             <div class="col-sm-4 col-lg-2 col-3 mb-4">
                 <div class="card">
-                    <img src="data:image/webp;base64,<?= $picture['g_picture'] ?>" alt="<?= $picture['g_name'] ?>">
+                    <a class="example-image-link" href="data:image/png;base64,<?= $picture['g_picture'] ?>" data-lightbox="example-set"><img src="data:image/png;base64,<?= $picture['g_picture'] ?>" alt="<?= $picture['g_name'] ?>"></a>
                 </div>
             </div>
         <?php } ?>

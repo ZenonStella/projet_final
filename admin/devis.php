@@ -25,9 +25,9 @@ require_once '../controllers/admin_devis_controller.php';
                     <?php foreach ($devis as $devi) { ?>
                         <tr>
                             <td><?= $devi['c_firstname'] ?> <?= $devi['c_lastname'] ?></td>
-                            <td><a href="details.php?obj=5&id=<?= $devi['e_id'] ?>" class="btn btn-info">Voir +</a>
+                            <td><a href="details.php?obj=5&id=<?= $devi['e_id'] ?>" class="btn greenbtn">Voir +</a>
                                 <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
-                                    <a href="" class="btn greenbtn">Modifier</a>
+                                    <?= $devi['e_responce'] == 0 ? '<a href="" class="btn greenbtn">Marquer comme repondus <i class="bi bi-envelope-fill text-white"></i>' : '<a href="" class="btn edithbtn">Marquer comme non repondus <i class="bi bi-envelope-paper-fill text-white"></i>' ?></a>
                                     <button type="button" class="btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#devi<?= $devi['e_id'] ?>">
                                         Supprimer <i class="bi bi-trash3-fill"></i>
                                     </button>

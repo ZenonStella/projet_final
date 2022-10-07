@@ -1,9 +1,15 @@
 <?php
 session_start();
-require_once '../controllers/form_controller.php';
 require_once '../controllers/addUsers_controller.php';
 require('inc/header.php');
+
 ?>
+<pre>
+    <?php
+    print_r($_POST);
+    print_r($errors);
+    ?>
+</pre>
 <h1 class="m-5 text-center">Formulaire de création d'utilisateurs</h1>
 <form action="" method="POST">
     <div class="row justify-content-center">
@@ -11,9 +17,11 @@ require('inc/header.php');
             <div class="row justify-content-center">
                 <div class="mb-3 col-11">
                     <label for="">Nom et Prénom</label>
+                    <span class="ms-2 text-danger"><?= isset($errors['firstname']) ? $errors['firstname'] : '' ?></span>
+                    <span class="ms-2 text-danger"><?= isset($errors['lastname']) ? $errors['lastname'] : '' ?></span>
                     <div class="input-group">
-                        <input type="text" aria-label="First name" placeholder="Nom" class="form-control">
-                        <input type="text" aria-label="Last name" placeholder="Prénom" class="form-control">
+                        <input type="text" name="firstname" id="firstname" aria-label="First name" placeholder="Nom" class="form-control" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>">
+                        <input type="text" name="lastname" id="lastname" aria-label="Last name" placeholder="Prénom" class="form-control" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : '' ?>">
                     </div>
                 </div>
                 <div class="mb-3 col-11">
@@ -55,11 +63,9 @@ require('inc/header.php');
     </div>
 </form>
 <?php
-require('inc/footer.php');
-require_once '../inc/sweetAlert.php';
-
-?>
+require('inc/footer.php'); ?>
 <script src="../assets/js/form.js"></script>
 <?php
+require_once '../inc/sweetAlert.php';
 require('inc/end.php');
 ?>

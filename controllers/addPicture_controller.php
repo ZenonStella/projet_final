@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         $after = htmlspecialchars($_POST['after']);
         if ($_FILES['picture']['error'] == 4) {
-            $img = base64_encode(file_get_contents('../assets/img/IMG-20220912-WA0000.jpg'));
+            $img = base64_encode(file_get_contents('../assets/img/IMG-20220912-WA0000.png'));
         } else {
             $resultUploadImage = Pictures::uploadImage('picture', $paramUpload);
             $picture = Pictures::convertImagetoBase64($paramUpload['directory'] . $resultUploadImage['imageName']);

@@ -9,3 +9,4 @@ require_once '../models/Meets.php';
 
 $meetsO = new Meets();
 $meets = $meetsO->getAllMeets();
+$tenMeets = $meetsO->getTenMeets();

@@ -103,7 +103,15 @@ class Meets extends DataBase
     public function getAllMeets()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM meets INNER JOIN clients ON meets.c_id_clients = clients.c_id WHERE me_soft_delete = 0";
+        $sql = 'SELECT *,DATE_FORMAT(me_meet_date,"%d/%m/%Y") AS me_meet_date,TIME_FORMAT(me_meet_at,"%Hh%i") AS me_meet_at FROM meets INNER JOIN clients ON meets.c_id_clients = clients.c_id WHERE me_soft_delete = 0';
+        $query = $pdo->query($sql);
+        $result = $query->fetChAll();
+        return $result;
+    }
+    public function getTenMeets()
+    {
+        $pdo = parent::connectDb();
+        $sql = 'SELECT *,DATE_FORMAT(me_meet_date,"%d/%m/%Y") AS me_meet_date,TIME_FORMAT(me_meet_at,"%Hh%i") AS me_meet_at FROM meets INNER JOIN clients ON meets.c_id_clients = clients.c_id WHERE me_soft_delete = 0 LIMIT 10';
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -166,6 +174,14 @@ class Meets extends DataBase
         $query->bindValue(':hour', $hour, PDO::PARAM_STR);
         $query->bindValue(':date', $date, PDO::PARAM_STR);
         $query->bindValue(':id', $meets, PDO::PARAM_STR);
+        $query->execute();
+    }
+    public function unarchiveMeets(int $meet)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE meets SET me_soft_delete = 0 WHERE me_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $meet, PDO::PARAM_STR);
         $query->execute();
     }
     public function softDeleteMeets(int $meet)

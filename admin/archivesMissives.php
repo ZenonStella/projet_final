@@ -67,7 +67,6 @@ require('inc/header.php');
                                 </div>
                             </div>
                         </div>
-                    <?php } { ?>
                     <?php } ?>
                 </tbody>
             </table>

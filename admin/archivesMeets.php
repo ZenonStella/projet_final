@@ -22,17 +22,52 @@ require('inc/header.php');
                         <tr>
                             <td><?= $meet['c_lastname'] ?> <?= $meet['c_firstname'] ?></td>
                             <td><?= $meet['me_meet_date'] ?> à <?= $meet['me_meet_at'] ?></td>
-                            <!-- <td>
-                                <a href="" class="btn greenbtn">Désarchier</a>
+                            <td>
+                                <button type="button" class="btn greenbtn" data-bs-toggle="modal" data-bs-target="#meet<?= $meet['me_id'] ?>Update">
+                                    Désarchiver
+                                </button>
                                 <?php if ($_SESSION['user']['u_role'] == 'admin') { ?>
-                                    <a href="" class="btn btn-warning">Editer</a>
-                                    <a href="" class="btn btn-danger">Supprimer <i class="bi bi-trash3-fill"></i></a>
-                                <?php
-                                } ?> -->
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#meet<?= $meet['me_id'] ?>Delete">
+                                        Supprimer <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                <?php } ?>
                             </td>
                         </tr>
-                    <?php } { ?>
-                    <?php } ?>
+                        <div class="modal fade" id="meet<?= $meet['me_id'] ?>Update" tabindex="-1" aria-labelledby="meet<?= $meet['me_id'] ?>UpdateLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header greenbg text-white">
+                                        <h5 class="modal-title" id="meet<?= $meet['me_id'] ?>UpdateLabel">Désarchiver le rendez-vous du <?= $meet['me_meet_date'] ?> à <?= $meet['me_meet_at'] ?> avec <?= $meet['c_firstname'] ?> <?= $meet['c_lastname'] ?></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Vous vous apretez à désarchiver un rendez-vous qui <?= $meet['me_respoce'] = 1 ? 'n\'a pas eu de réponse' : 'a eu une réponse' ?>. Voulez vous continuer?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                        <a href="unarchive.php?obj=3&id=<?= $meet['me_id'] ?>" class="btn greenbtn">Désarchiver</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="meet<?= $meet['me_id'] ?>Delete" tabindex="-1" aria-labelledby="meet<?= $meet['me_id'] ?>DeleteLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header greenbg text-white">
+                                        <h5 class="modal-title" id="meet<?= $meet['me_id'] ?>DeleteLabel">Supprimer lerendez-vous du <?= $meet['me_meet_date'] ?> à <?= $meet['me_meet_at'] ?> avec <?= $meet['c_firstname'] ?> <?= $meet['c_lastname'] ?></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Vous vous apretez à supprimer définitivement un rendez-vous qui <?= $meet['me_respoce'] = 1 ? 'n\'a pas eu de réponse' : 'a eu une réponse' ?>. Voulez vous continuer?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>
+                                        <a href="delete.php?obj=3&id=<?= $meet['me_id'] ?>" class="btn btn-danger">Supprimer <i class="bi bi-trash3-fill"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php }  ?>
                 </tbody>
             </table>
         </div>

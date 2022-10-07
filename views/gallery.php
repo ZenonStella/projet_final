@@ -11,7 +11,7 @@ require('../inc/header.php');
     foreach ($pictures as $picture) { ?>
         <div class="col-sm-4 col-lg-3 col-6 mb-4">
             <div class="card">
-            <a class="example-image-link" href="data:image/png;base64,<?= $picture['g_picture'] ?>" data-lightbox="example-set"><img src="data:image/webp;base64,<?= $picture['g_picture'] ?>" alt="<?= $picture['g_name'] ?>"></a>
+            <a class="example-image-link" href="data:image/png;base64,<?= $picture['g_picture'] ?>" data-lightbox="example-set"><img src="data:image/png;base64,<?= $picture['g_picture'] ?>" alt="<?= $picture['g_name'] ?>"></a>
             </div>
         </div>
     <?php }

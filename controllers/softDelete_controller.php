@@ -40,8 +40,8 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
     if ($_GET['obj'] == 3) {
         if (isset($_GET['id'])) {
             $meetsObj = new Meets();
-            // $meetsObj->softDeleteMeets($_GET['id']);
-            header('Location: meets.php');
+            $meetsObj->softDeleteMeets($_GET['id']);
+            header('Location: meet.php');
         }
     }
     if ($_GET['obj'] == 4) {

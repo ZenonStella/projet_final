@@ -2,6 +2,7 @@
 if (!isset($_SESSION['user'])) {
     header('location: connection.php');
     exit;
+    exit;
 }
 require_once '../config.php';
 require_once '../models/Database.php';
@@ -10,18 +11,24 @@ require_once '../models/Missives.php';
 require_once '../models/Meets.php';
 require_once '../models/Users.php';
 require_once '../models/Estimations.php';
+require_once '../models/Articles.php';
+require_once '../models/Pictures.php';
 $clientsObj = new Clients();
 $usersObj = new Users();
 $meetsObj = new Meets();
 $missivesObj = new Missives();
 $estimationsObj = new Estimations();
+$articlesObj = new Articles();
+$picturesObj = new Pictures();
 setlocale(LC_ALL, "fr_FR", "French");
 $objs = [
     1 => 'client',
     2 => 'user',
     3 => 'meet',
     4 => 'missive',
-    5 => 'estimation'
+    5 => 'estimation',
+    6 => 'article',
+    7 => 'picture'
 ];
 
 if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
@@ -34,9 +41,11 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                 $estimations = $estimationsObj->getAllEstimationsByClients($_GET['id']);
             } else {
                 header('Location: ../views/404.php');
+                exit;
             }
         } else {
             header('Location: ../views/404.php');
+            exit;
         }
     } else if ($_GET['obj'] == 2) {
         if (isset($_GET['id'])) {
@@ -44,9 +53,11 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                 $user = $usersObj->getOneUsersById($_GET['id']);
             } else {
                 header('Location: ../views/404.php');
+                exit;
             }
         } else {
             header('Location: ../views/404.php');
+            exit;
         }
     } else if ($_GET['obj'] == 3) {
         if (isset($_GET['id'])) {
@@ -54,9 +65,11 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                 $meet = $meetsObj->getAOneMeets($_GET['id']);
             } else {
                 header('Location: ../views/404.php');
+                exit;
             }
         } else {
             header('Location: ../views/404.php');
+            exit;
         }
     } else if ($_GET['obj'] == 4) {
         if (isset($_GET['id'])) {
@@ -64,9 +77,11 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                 $missive = $missivesObj->getAOneMissives($_GET['id']);
             } else {
                 header('Location: ../views/404.php');
+                exit;
             }
         } else {
             header('Location: ../views/404.php');
+            exit;
         }
     } else if ($_GET['obj'] == 5) {
         if (isset($_GET['id'])) {
@@ -74,8 +89,24 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
             $missions = $estimationsObj->getMissionsOfOneEstimationByClients($devis['e_id']);
         } else {
             header('Location: ../views/404.php');
+            exit;
+        }
+    } else if ($_GET['obj'] == 6) {
+        if (isset($_GET['id'])) {
+            $article = $articlesObj->getAOneArticles($_GET['id']);
+        } else {
+            header('Location: ../views/404.php');
+            exit;
+        }
+    } else if ($_GET['obj'] == 7) {
+        if (isset($_GET['id'])) {
+            $picture = $picturesObj->getOnePictures($_GET['id']);
+        } else {
+            header('Location: ../views/404.php');
+            exit;
         }
     } else {
         header('Location: ../views/404.php');
+        exit;
     }
 }

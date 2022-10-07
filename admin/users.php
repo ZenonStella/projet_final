@@ -15,14 +15,18 @@ require('inc/header.php');
             <table class="table table-striped rounded border">
                 <thead class="green">
                     <tr>
+                        <th scope="col">Identité</th>
                         <th scope="col">Adresse mail</th>
+                        <th scope="col">Rôle</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($users as $user) { ?>
                         <tr>
+                        <td><?= $user['u_firstname'] ?> <?= $user['u_lastname'] ?></td>
                             <td><?= $user['u_email'] ?></td>
+                            <td><?= $user['u_role'] ?></td>
                             <td>
                                 <a href="details.php?obj=2&id=<?= $user['u_id'] ?>" class="btn greenbtn my-1">+ d'infos</a>
                                 <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>

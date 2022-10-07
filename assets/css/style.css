@@ -54,7 +54,7 @@ img {
     width: 20%;
 }
 .img-card-admin2 {
-    width: 50%;
+    width: 100%;
 }
 .thepicture {
     width: 50%;
@@ -73,7 +73,9 @@ a {
 .befor {
     color: gray;
 }
-
+.picture{
+    width: 30%;
+}
 .img-article {
     width: 90%;
 }

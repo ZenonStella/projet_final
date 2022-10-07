@@ -1,0 +1,3 @@
+ErrorDocument 404 /error404.php
+# permet de ne pas naviguer dans les dossiers
+Options All -Indexes

@@ -7,10 +7,32 @@ require_once '../controllers/admin_missives_controller.php';
 require_once '../controllers/calendar_controller.php';
 ?>
 <div class="row justify-content-center">
-<div class="col-10 my-3 justify-content-center">
-    <p class="h3">Navigez a travers l'administration grâce au menus en haut a droite</p>
-</div>
-    <div class="col-11 my-3 justify-content-center">
+    <div class="col-10 my-3 justify-content-center">
+        <p class="h3">Navigez a travers l'administration grâce au menus en haut a droite</p>
+    </div>
+    <div class="col-11 my-3">
+        <div class="row justify-content-center">
+            <p class="h3 text-center p3">Les messages de nos clients</p>
+            <table class="table table-striped rounded border">
+                <thead class="green">
+                    <tr>
+                        <th scope="col">Identité</th>
+                        <th scope="col">Rendez-vous</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($tenMeets as $meet) { ?>
+                        <tr>
+                            <td><?= $meet['c_lastname'] ?> <?= $meet['c_firstname'] ?></td>
+                            <td class="text-truncate">Le <?= $meet['me_meet_date'] ?> à <?= $meet['me_meet_at'] ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            <a href="meet.php" class="col-6 mt-3 btn greenbtn">Gerer mes rendez-vous <i class="bi bi-calendar3 text-white"></i></a>
+        </div>
+    </div>
+    <!-- <div class="col-11 my-3 justify-content-center">
         <p class="h3 text-center p3">Nos Rendez-vous</p>
         <p class="text-center"><?= $monthLetters ?> <?= $year ?></p>
         <p class="text-center"></p>
@@ -27,7 +49,7 @@ require_once '../controllers/calendar_controller.php';
             </div>
             <a href="meet.php" class="col-5 mt-3 btn greenbtn">Gerer mes RDV <i class="bi bi-calendar3 text-white"></i></a>
         </div>
-    </div>
+    </div> -->
     <div class="col-11 my-3">
         <div class="row justify-content-center">
             <p class="h3 text-center p3">Les messages de nos clients</p>
