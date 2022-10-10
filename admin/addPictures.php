@@ -23,12 +23,12 @@ include('inc/header.php');
                 </div>
             </div>
     <div class="mb-3 col-11 justify-content-center aling-items-center flex-wrap">
-        <label for="categorys">Categories
+        <label for="categorys">Catègories
         <span class="ms-2 text-danger"><?= isset($errors['categorys']) ? $errors['categorys'] : '' ?></span>
         </label>
         <div class="input-group">
             <select name="categorys" class="form-select" id="categorys">
-                <option value="">--- Choisir une categorie ---</option>
+                <option value="">--- Choisir une catègorie ---</option>
                 <?php foreach ($categorysJobs as $categoryJob) { ?>
                     <option value="<?= $categoryJob['tp_id'] ?>"><?= $categoryJob['tp_name'] ?></option>
                 <?php } ?>
@@ -39,7 +39,7 @@ include('inc/header.php');
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" name="after" id="after">
             <label class="form-check-label" for="after">
-                Cocher si c'est une photo après traveau
+                Cocher si c'est une photo après travaux
             <span class="ms-2 text-danger"><?= isset($errors['after']) ? $errors['after'] : '' ?></span>
             </label>
         </div>

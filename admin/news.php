@@ -23,7 +23,7 @@ require('inc/header.php');
                 </div>
             <?php } ?>
         </div>
-        <div class="edit mb-4">
+        <div class="edit my-4">
             <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
                 <a href="addArticles.php" class="btn greenbtn">Ajouter un article</a>
             <?php } ?>

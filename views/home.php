@@ -48,7 +48,7 @@ require('../inc/header.php');
       </div>
       <div class="col-lg-8">
         <p class="">
-          Vous avez acheté un terrain vide? Vous voulez une piscine ou une terrasse pour l'été? vous voulez renover un batiment existant? <a href="contact.php">Contactez-nous!</a>
+          Vous avez acheté un terrain vide ? Vous voulez une piscine ou une terrasse pour l'été ? Vous voulez rénover un bâtiment existant ? <a href="contact.php">Contactez-nous !</a>
         </p>
         <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magnam, tenetur esse eaque suscipit fugit, inventore eos blanditiis eum eveniet ipsa, minima optio aut possimus nihil. Quo provident quod exercitationem. </p>
         <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magnam, tenetur esse eaque suscipit fugit, inventore eos blanditiis eum eveniet ipsa, minima optio aut possimus nihil. Quo provident quod exercitationem. </p>

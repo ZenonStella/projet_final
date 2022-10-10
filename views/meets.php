@@ -4,14 +4,14 @@ require_once '../controllers/form_controller.php';
 require_once '../controllers/meets_controller.php';
 require('../inc/header.php');
 ?>
-<h2 class="text-center">Bienvenus sur notre page de prise de rendez-vous!</h2>
+<h2 class="text-center">Bienvenue sur notre page de prise de rendez-vous!</h2>
 <p class="text-center mb-5">Prenez rendez-vous avec nous</p>
 <ul class="nav nav-tabs mb-5">
     <li class="nav-item">
         <a class="nav-link" href="contact.php">Contact</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="missives.php">Nous laisser un massage</a>
+        <a class="nav-link" href="missives.php">Nous laisser un message</a>
     </li>
     <li class="nav-item">
         <a class="nav-link active" href="meets.php">Prendre rendez-vous</a>
@@ -46,8 +46,8 @@ require('../inc/header.php');
         <span class="ms-2 text-danger"><?= isset($errors['date']) ? $errors['date'] : '' ?></span>
         <span class="ms-2 text-danger"><?= isset($errors['hour']) ? $errors['hour'] : '' ?></span>
         <div class="input-group">
-            <input type="date" placeholder="Date" name="date" id="date" class="form-control" value="<?= isset($_POST['date']) ? $_POST['date'] : '' ?>">
-            <input type="time" placeholder="Heure" name="hour" id="hour" class="form-control" value="<?= isset($_POST['hour']) ? $_POST['hour'] : '' ?>">
+            <input type="date" placeholder="Date" name="date" id="date" class="form-control" min="<?= date('Y-m-d') ?>" value="<?= isset($_POST['date']) ? $_POST['date'] : '' ?>">
+            <input type="time" placeholder="Heure" name="hour" id="hour" class="form-control" min="<?= date('H:') ?>" value="<?= isset($_POST['hour']) ? $_POST['hour'] : '' ?>">
         </div>
     </div>
     <div class="col-11 mb-3 justify-content-center">

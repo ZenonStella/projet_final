@@ -43,7 +43,7 @@ require('inc/header.php');
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Vous vous apretez à supprimer un client. Voulez vous continuer?
+                                        Vous vous apprêtez à supprimer un client. Voulez-vous continuer ?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>

@@ -43,8 +43,8 @@ class Estimations extends DataBase
     public function getAllEstimations()
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM estimations INNER JOIN
-        clients ON estimations.c_id_clients = clients.c_id";
+        $sql = 'SELECT *,DATE_FORMAT(e_created_at,"%d/%m/%Y") AS e_created_at FROM estimations INNER JOIN
+        clients ON estimations.c_id_clients = clients.c_id ORDER BY e_created_at';
         $query = $pdo->query($sql);
         $result = $query->fetChAll();
         return $result;
@@ -127,6 +127,14 @@ class Estimations extends DataBase
         $query->bindValue(':name', $name, PDO::PARAM_STR);
         $query->bindValue(':categorys', $categorys, PDO::PARAM_STR);
         $query->bindValue(':id', $Estimations, PDO::PARAM_STR);
+        $query->execute();
+    }
+    public function responceEstimations(int $devis)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE estimations SET e_soft_delete = 0 WHERE e_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $devis, PDO::PARAM_STR);
         $query->execute();
     }
     public function unarchiveEstimations(int $devis)

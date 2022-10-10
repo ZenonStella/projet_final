@@ -1,5 +1,5 @@
 </div>
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top mt-auto">
+<footer class="d-flex flex-wrap justify-content-between greenbg align-items-center py-3 border-top mt-auto">
     <p class="col-md-4 mb-0 text-muted">&copy; 2022 Company, Inc</p>
 
     <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -72,8 +72,8 @@
         </svg>
     </a>
     <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="mentions.php" class="nav-link px-2 text-muted">Mentions Légales</a></li>
-        <li class="nav-item"><a href="politiques.php" class="nav-link px-2 text-muted">Politique de confidentialité</a></li>
+        <li class="nav-item"><a href="mentions.php" class="nav-link px-2 text-white text-decoration-none">Mentions Légales</a></li>
+        <li class="nav-item"><a href="politiques.php" class="nav-link px-2 text-white text-decoration-none">Politique de confidentialité</a></li>
     </ul>
 </footer>
 <script src="../assets/js/lightbox-plus-jquery.js"></script>

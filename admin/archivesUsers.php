@@ -41,7 +41,7 @@ require('inc/header.php');
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Vous vous apretez à désarchiver un utilisateur. Voulez vous continuer?
+                                        Vous vous apprêtez à désarchiver un utilisateur. Voulez-vous continuer ?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
@@ -58,7 +58,7 @@ require('inc/header.php');
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Vous vous apretez à supprimer définitivement un utilisateur. Voulez vous continuer?
+                                        Vous vous apprêtez à supprimer définitivement un utilisateur. Voulez-vous continuer ?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>

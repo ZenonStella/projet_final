@@ -44,7 +44,7 @@ require_once '../controllers/admin_meets_controller.php';
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Vous vous apretez à supprimer un message qui <?= $meet['me_respoce'] = 1 ? 'n\'a pas eu de réponse' : 'a eu une réponse' ?>. Voulez vous continuer?
+                                    Vous vous apprêtez à supprimer un message qui <?= $meet['me_respoce'] = 1 ? 'n\'a pas eu de réponse' : 'a eu une réponse' ?>. Voulez-vous continuer ?
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>
@@ -57,7 +57,7 @@ require_once '../controllers/admin_meets_controller.php';
                 <?php } ?>
             </tbody>
         </table>
-        <a href="meet.php" class="col-6 mt-3 btn greenbtn">Gerer mes rendez-vous <i class="bi bi-calendar3 text-white"></i></a>
+        <!-- <a href="meet.php" class="col-6 mt-3 btn greenbtn">Gerer mes rendez-vous <i class="bi bi-calendar3 text-white"></i></a> -->
     </div>
 </div>
 <!-- <div class="row justify-content-center">

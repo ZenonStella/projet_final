@@ -13,7 +13,7 @@ require_once '../controllers/admin_devis_controller.php';
             <table class="table table-striped rounded border">
                 <thead>
                     <tr>
-                        <th scope="col">Indentité</th>
+                        <th scope="col">Identité</th>
                         <th scope="col">Localisation</th>
                         <th scope="col">Action</th>
                     </tr>

@@ -10,7 +10,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
             </div>
             <div>
                 <p class="h2 text-center">Informations client</p>
-                <p>Ces informations ne sont modifiable que par le client en question ou l'administrateur.</p>
+                <p class="text-center">Ces informations ne sont modifiable que par le client en question ou l'administrateur.</p>
             </div>
             <div class="card  col-lg-5 col-11 green my-3 py-5 shadow justify-content-center">
                 <div class="row text-white justify-content-center">
@@ -108,7 +108,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
             </div>
             <div>
                 <p class="h2 text-center">Informations d'utilisateur</p>
-                <p>Ces informations ne sont modifiable que par l'utilisateur en question ou l'administrateur.</p>
+                <p class="text-center">Ces informations ne sont modifiable que par l'utilisateur en question ou l'administrateur.</p>
             </div>
             <div class="card text-white col-lg-5 col-11 green my-3 py-5 shadow justify-content-center">
                 <div class="row justify-content-center">
@@ -149,7 +149,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
             </div>
             <div>
                 <p class="h2 text-center">Informations d'un message</p>
-                <p>Ces informations ne sont modifiable que par l'administrateur ou l'éditeur.</p>
+                <p class="text-center">Ces informations ne sont modifiable que par l'administrateur ou l'éditeur.</p>
             </div>
             <div class="card text-white col-lg-5 col-11 green my-3 py-5 shadow justify-content-center">
                 <div class="row justify-content-center">
@@ -175,7 +175,6 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
             </div>
             <div>
                 <p class="h2 text-center">Informations d'un devis</p>
-                <!-- <p>Ces informations ne sont modifiable que par l'administrateur ou l'éditeur.</p> -->
             </div>
             <div class="card text-white col-lg-5 col-11 green my-3 py-5 shadow justify-content-center">
                 <div class="row justify-content-center">
@@ -228,7 +227,6 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
             </div>
             <div>
                 <p class="h2 text-center">Informations d'un article</p>
-                <!-- <p>Ces informations ne sont modifiable que par l'administrateur ou l'éditeur.</p> -->
             </div>
             <div class="card text-white col-lg-5 col-11 green my-3 py-5 shadow justify-content-center">
                 <div class="row justify-content-center">

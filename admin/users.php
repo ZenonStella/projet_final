@@ -24,7 +24,7 @@ require('inc/header.php');
                 <tbody>
                     <?php foreach ($users as $user) { ?>
                         <tr>
-                        <td><?= $user['u_firstname'] ?> <?= $user['u_lastname'] ?></td>
+                            <td><?= $user['u_firstname'] ?> <?= $user['u_lastname'] ?></td>
                             <td><?= $user['u_email'] ?></td>
                             <td><?= $user['u_role'] ?></td>
                             <td>
@@ -44,7 +44,7 @@ require('inc/header.php');
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Vous vous apretez à supprimer un utilisateur. Voulez vous continuer?
+                                        Vous vous apprêtez à supprimer un utilisateur. Voulez-vous continuer ?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>

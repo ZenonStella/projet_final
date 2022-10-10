@@ -137,11 +137,11 @@
                             if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') {
                             ?>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" href="users.php">Mes utilisateurs</a>
+                                    <a class="nav-link text-dark" href="users.php">Mes employés</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" href="news.php">Gerer mon contenu</a>
+                                    <a class="nav-link text-dark" href="news.php">Gérer mon contenu</a>
                                 </li>
                             <?php
                             }
@@ -156,7 +156,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="../views/logout.php">Deconection</a></li>
+                                    <li><a class="dropdown-item" href="../views/logout.php">Deconnexion</a></li>
                                 </ul>
                             </li>
                         </ul>

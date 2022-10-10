@@ -26,7 +26,7 @@ include('../inc/header.php');
     if (isset($_GET['steps']) && array_key_exists($_GET['steps'], $steps)) {
         if ($_GET['steps'] == 1) { ?>
             <div class="row justify-content-center">
-                <h2 class="text-center">Générer votre devis : <br> Choisissez la categorie de traveaux que vous sohaitez</h2>
+                <h2 class="text-center">Générer votre devis : <br> Choisissez la categorie de travaux que vous souhaitez</h2>
                 <div class="row flex-row justify-content-evenly flex-wrap">
                     <div class="card col-lg-2 col-5 mt-3 py-2 firstchoice">
                         <a class="<?= isset($_GET['type']) && $_GET['type'] == 1 ? 'active' : '' ?>" href="devis.php?steps=2&firstchoice=1">
@@ -356,7 +356,7 @@ include('../inc/header.php');
         if ($_GET['steps'] == 2) {
             if (isset($_GET['firstchoice']) && array_key_exists($_GET['firstchoice'], $firstChoices)) { ?>
                 <div class="row justify-content-center">
-                    <h2 class="text-center">Générer votre devis : <br> Choisissez les traveaux que vous sohaitez et leur dimentions</h2>
+                    <h2 class="text-center">Générer votre devis : <br> Choisissez les travaux que vous souhaitez et leurs dimensions</h2>
                     <div class="col-lg-9 col-12 flex-row">
                         <form action="devis.php?steps=3&firstchoice=<?= $_GET['firstchoice'] ?>" method="POST" class="row justify-content-center my-5">
                             <div class="col-11 mb-3">
@@ -373,7 +373,7 @@ include('../inc/header.php');
                             </div>
                             <div class="col-11 mb-3">
                                 <label class="" for="meusure">
-                                    Dimentions
+                                    Dimensions
                                 </label>
                                 <div class="input-group">
                                     <input class="inputNb form-control" type="number" name="meusure" id="meusure" value="<?= $_SESSION['travaux'][$index]['size'] ?? '' ?>">
@@ -406,7 +406,7 @@ include('../inc/header.php');
         }
         if ($_GET['steps'] == 3) { ?>
             <div class="row justify-content-center">
-                <h2 class="text-center">Générer votre devis : <br> Resumé des traveaux que vous sohaitez</h2>
+                <h2 class="text-center">Générer votre devis : <br> Resumé des travaux que vous souhaitez</h2>
                 <form action="devis.php?steps=1" method="POST">
                     <?php if (isset($_SESSION['travaux'])) { ?>
                         <?php foreach ($_SESSION['travaux'] as $key => $value) {
@@ -437,7 +437,7 @@ include('../inc/header.php');
         <?php }
         if ($_GET['steps'] == 4) { ?>
             <div class="row justify-content-center">
-                <h2 class="text-center">Générer votre devis : <br> Les traveaux que vous sohaitez</h2>
+                <h2 class="text-center">Générer votre devis : <br> Les travaux que vous souhaitez</h2>
                 <form class="row justify-content-center" action="" method="post">
                     <div class="mb-3 col-11">
                         <label for="firstname">Nom et Prénom <span class="text-danger">*</span></label>

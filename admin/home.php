@@ -8,11 +8,11 @@ require_once '../controllers/calendar_controller.php';
 ?>
 <div class="row justify-content-center">
     <div class="col-10 my-3 justify-content-center">
-        <p class="h3">Navigez a travers l'administration grâce au menus en haut a droite</p>
+        <p class="h1 text-center">Gestion</p>
     </div>
-    <div class="col-11 my-3">
+    <div class="col-11 my-5">
         <div class="row justify-content-center">
-            <p class="h3 text-center p3">Les messages de nos clients</p>
+            <p class="h3 text-center p3">Les rendez-vous de nos clients</p>
             <table class="table table-striped rounded border">
                 <thead class="green">
                     <tr>
@@ -29,7 +29,7 @@ require_once '../controllers/calendar_controller.php';
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="meet.php" class="col-6 mt-3 btn greenbtn">Gerer mes rendez-vous <i class="bi bi-calendar3 text-white"></i></a>
+            <a href="meet.php" class="col-6 mt-3 btn greenbtn">Gérer mes rendez-vous <i class="bi bi-calendar3 text-white"></i></a>
         </div>
     </div>
     <!-- <div class="col-11 my-3 justify-content-center">
@@ -50,7 +50,7 @@ require_once '../controllers/calendar_controller.php';
             <a href="meet.php" class="col-5 mt-3 btn greenbtn">Gerer mes RDV <i class="bi bi-calendar3 text-white"></i></a>
         </div>
     </div> -->
-    <div class="col-11 my-3">
+    <div class="col-11 my-5">
         <div class="row justify-content-center">
             <p class="h3 text-center p3">Les messages de nos clients</p>
             <table class="table table-striped rounded border">
@@ -69,16 +69,16 @@ require_once '../controllers/calendar_controller.php';
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="messages.php" class="col-6 mt-3 btn greenbtn">Gerer mes messages <i class="bi bi-chat-left-text-fill text-white"></i></a>
+            <a href="messages.php" class="col-6 mt-3 btn greenbtn">Gérer mes messages <i class="bi bi-chat-left-text-fill text-white"></i></a>
         </div>
     </div>
-    <div class="col-11 my-3">
+    <div class="col-11 my-5">
         <div class="row justify-content-center">
             <p class="h3 text-center p3">Nos clients</p>
             <table class="table table-striped rounded border">
                 <thead class="green">
                     <tr>
-                        <th scope="col">Indentité</th>
+                        <th scope="col">Identité</th>
                         <th scope="col">Contact</th>
                     </tr>
                 </thead>
@@ -91,7 +91,7 @@ require_once '../controllers/calendar_controller.php';
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="clients.php" class="col-6 mt-3 btn greenbtn">Gerer les client <i class="bi bi-people-fill text-white"></i></a>
+            <a href="clients.php" class="col-6 mt-3 btn greenbtn">Gérer les client <i class="bi bi-people-fill text-white"></i></a>
         </div>
     </div>
 </div>

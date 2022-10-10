@@ -17,14 +17,16 @@ require_once '../controllers/admin_devis_controller.php';
             <table class="table table-striped rounded border">
                 <thead>
                     <tr>
-                        <th scope="col">Indentité</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Identité</th>
+                        <th scope="col">Date de la demande</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($devis as $devi) { ?>
                         <tr>
                             <td><?= $devi['c_firstname'] ?> <?= $devi['c_lastname'] ?></td>
+                            <td class="text-center"><?= $devi['e_created_at'] ?></td>
                             <td><a href="details.php?obj=5&id=<?= $devi['e_id'] ?>" class="btn greenbtn">Voir +</a>
                                 <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
                                     <?= $devi['e_responce'] == 0 ? '<a href="" class="btn greenbtn">Marquer comme repondus <i class="bi bi-envelope-fill text-white"></i>' : '<a href="" class="btn edithbtn">Marquer comme non repondus <i class="bi bi-envelope-paper-fill text-white"></i>' ?></a>
@@ -42,7 +44,7 @@ require_once '../controllers/admin_devis_controller.php';
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Vous vous apretez à supprimer un devi. Voulez vous continuer?
+                                        Vous vous apprêtez à supprimer un devi. Voulez-vous continuer ?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn greenbtn" data-bs-dismiss="modal">Annuler</button>

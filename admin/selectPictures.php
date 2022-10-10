@@ -13,8 +13,8 @@ if (isset($_GET['id']) && empty($_GET['id'])) {
         <a class="btn btn-danger rounded mb-5" href="articles.php">Retour à la liste des articles</a>
     </div>
     <div class="col-10">
-        <h2>Ajouter un image existante dans la galerie à l'article</h2>
-        <p class="h5">Si une ou des images que vous cherchez n'est pas pressentes, <a href="addPictures.php">entregistrez</a> la avant de revenire sur cette page</p>
+        <h2>Ajouter une image existante dans la galerie à l'article</h2>
+        <p class="h5">Si une ou plusieurs images que vous cherchez n'est pas présente dans la liste, <a href="addPictures.php">enregistrez</a> là avant de revenir sur cette page.</p>
         <div class="row" data-masonry='{"percentPosition": true }'>
             <?php foreach ($pictures as $picture) { ?>
                 <div class="col-sm-4 col-lg-3 col-6 mb-4">

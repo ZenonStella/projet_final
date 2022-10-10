@@ -2,6 +2,8 @@
 class Users extends DataBase
 {
     private int $_users_id;
+    private string $_users_firstname;
+    private string $_users_lastname;
     private string $_users_mail;
     private string $_users_password;
     private int $_role_id_role;
@@ -13,6 +15,22 @@ class Users extends DataBase
     public function getUsersId()
     {
         return $this->_users_id;
+    }
+    public function setUsersFirstname(int $firstname)
+    {
+        $this->_users_firstname = $firstname;
+    }
+    public function getUsersFirstname()
+    {
+        return $this->_users_firstname;
+    }
+    public function setUsersLastname(int $lastname)
+    {
+        $this->_users_lastname = $lastname;
+    }
+    public function getUsersLastname()
+    {
+        return $this->_users_lastname;
     }
     public function setUsersMail(string $mail)
     {
@@ -90,7 +108,18 @@ class Users extends DataBase
         $result = $query->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
-    public function addUsers(string $lastname,string $firstname,string $mail, string $password, string $role)
+
+    /**
+     * Fonction permettant de créer un utilisateur
+     *      
+     *  @param string $lastname : le prénom de l'utilisateur
+     *  @param string $firstname : le nom de l'utilisateur
+     *  @param string $mail : le mail de l'utilisateur
+     *  @param string $password : le mot de passe hacher de l'utilisateur
+     *  @param string $role : le role de l'utilisateur
+     * 
+     */
+    public function addUsers(string $lastname, string $firstname, string $mail, string $password, string $role)
     {
         $pdo = parent::connectDb();
         $sql = "INSERT INTO users (u_lastname,u_firstname,u_email, u_password, u_role) VALUES (:lastname,:firstname,:mail,:password, :role)";
@@ -119,6 +148,8 @@ class Users extends DataBase
         $result = $query->fetchAll();
         return $result;
     }
+
+
     public function getOneUsers(string $mail)
     {
         $pdo = parent::connectDb();
@@ -129,6 +160,14 @@ class Users extends DataBase
         $result = $query->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    /**
+     * Fonction permettant de recupérer un utilisateur selon son id
+     *      
+     *  @param string $id : identifiant unique de l'utilisateur
+     * 
+     * @return array : tableau contenant les infos du User
+     */
     public function getOneUsersById(string $id)
     {
         $pdo = parent::connectDb();
@@ -149,17 +188,28 @@ class Users extends DataBase
         $result = $query->fetch();
         return $result;
     }
-    public function updateUsers(string $lastname,string $firstname,string $mail)
+
+    /**
+     * Fonction permettant de modifier un utilisateur
+     *      
+     *  @param string $id : l'identifient unique de l'utilisateur
+     *  @param string $lastname : le prénom de l'utilisateur
+     *  @param string $firstname : le nom de l'utilisateur
+     *  @param string $mail : le mail de l'utilisateur
+     * 
+     */
+    public function updateUsers(string $lastname, string $firstname, string $mail, int $id)
     {
         $pdo = parent::connectDb();
-        $sql = "UPDATE users SET u_lastname=:lastname,u_firstname=:firstname,u_email=:mail WHERE u_email = :mail";
+        $sql = "UPDATE users SET u_lastname=:lastname,u_firstname=:firstname,u_email=:mail WHERE u_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':mail', $mail, PDO::PARAM_STR);
         $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
         $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
+        $query->bindValue(':id', $id, PDO::PARAM_STR);
         $query->execute();
     }
-    public function updatePasswordUser(string $mail ,string $password)
+    public function updatePasswordUser(string $mail, string $password)
     {
         $pdo = parent::connectDb();
         $sql = "UPDATE users SET u_password=:password WHERE u_email = :mail";
@@ -178,21 +228,33 @@ class Users extends DataBase
         $query->bindValue(':soft', 0, PDO::PARAM_STR);
         $query->execute();
     }
-    public function softDeleteUsers(int $user)
+    /**
+     * Fonction permettant d'archiver un utilisateur
+     *      
+     *  @param string $id : l'identifient unique de l'utilisateur
+     * 
+     */
+    public function softDeleteUsers(int $id)
     {
         $pdo = parent::connectDb();
         $sql = "UPDATE users SET u_soft_delete=:soft WHERE u_id = :id";
         $query = $pdo->prepare($sql);
-        $query->bindValue(':id', $user, PDO::PARAM_STR);
+        $query->bindValue(':id', $id, PDO::PARAM_STR);
         $query->bindValue(':soft', 1, PDO::PARAM_STR);
         $query->execute();
     }
-    public function deleteUsers(int $user)
+    /**
+     * Fonction permettant de modifier un utilisateur
+     *      
+     *  @param string $id : l'identifient unique de l'utilisateur
+     * 
+     */
+    public function deleteUsers(int $id)
     {
         $pdo = parent::connectDb();
         $sql = "DELETE FROM users WHERE u_id = :id";
         $query = $pdo->prepare($sql);
-        $query->bindValue(':id', $user, PDO::PARAM_STR);
+        $query->bindValue(':id', $id, PDO::PARAM_STR);
         $query->execute();
     }
 }

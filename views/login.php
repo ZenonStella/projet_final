@@ -5,7 +5,7 @@ require_once '../controllers/login_controller.php';
 include('../inc/header.php');
 ?>
 <div class="mt-5">
-    <h2 class="text-center">Connection</h2>
+    <h2 class="text-center">Connexion</h2>
     <form action="" method="POST">
         <div class="row justify-content-center">
             <div class="col-8 border border-secondary rounded shadow p-4 login">
@@ -32,7 +32,7 @@ include('../inc/header.php');
             </div>
         </div>
     </form>
-    <p class="text-center mt-3"><a href="passlost.php">Mot de passe oublier?</a></p>
+    <p class="text-center mt-3"><a href="passlost.php">Mot de passe oublié?</a></p>
 </div>
 <?php
 include('../inc/footer.php');

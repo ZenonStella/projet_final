@@ -4,8 +4,8 @@ require_once '../controllers/gallery_controller.php';
 require('../inc/header.php');
 
 ?>
-<h2 class="text-center">Bienvenus sur notre galerie!</h2>
-<p class="text-center">Ici vous pourrez trouver les photographie de tout nos chantiers</p>
+<h2 class="text-center">Bienvenue sur notre galerie!</h2>
+<p class="text-center">Vous pourrez retrouvez ici les photographies de tous nos chantiers</p>
 <div class="row" data-masonry='{"percentPosition": true }'>
     <?php
     foreach ($pictures as $picture) { ?>

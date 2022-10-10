@@ -115,17 +115,12 @@
                         <?php
                         if (isset($_SESSION['user'])) { ?>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="logout.php">Deconnection</a>
+                                <a class="nav-link text-white" href="logout.php">Deconnexion</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="../admin/home.php">Admin</a>
                             </li>
-                        <?php } else { ?>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="login.php">Connection</a>
-                            </li>
-                        <?php }
-                        ?>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

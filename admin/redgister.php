@@ -4,13 +4,7 @@ require_once '../controllers/addUsers_controller.php';
 require('inc/header.php');
 
 ?>
-<pre>
-    <?php
-    print_r($_POST);
-    print_r($errors);
-    ?>
-</pre>
-<h1 class="m-5 text-center">Formulaire de création d'utilisateurs</h1>
+<h1 class="m-5 text-center">Formulaire d'ajout d'utilisateurs</h1>
 <form action="" method="POST">
     <div class="row justify-content-center">
         <div class="col-lg-8 col-11 border border-secondary rounded shadow p-4">
