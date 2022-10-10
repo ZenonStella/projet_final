@@ -51,7 +51,7 @@ include('inc/header.php');
 
 <?php
 require('inc/footer.php');
-require_once '../inc/sweetAlert.php';
+// require_once '../inc/sweetAlert.php';
 ?>
 <script src="../assets/js/upload.js"></script>
 <?php

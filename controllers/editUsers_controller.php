@@ -54,11 +54,11 @@ else if (!preg_match($regexName, $_POST['firstname'])) {
         $firstname = htmlspecialchars($_POST['firstname']);
         $mail = htmlspecialchars($_POST['mail']);
         $usersO->updateUsers($lastname, $firstname, $mail, $_SESSION['user']['u_id']);
-        $_SESSION['swal'] = [
-            'icon' => 'success',
-            'title' => 'Profil',
-            'text' => 'Les modifications apportées à votre profil ont bien été enregistrés'
-        ];
+        // $_SESSION['swal'] = [
+        //     'icon' => 'success',
+        //     'title' => 'Profil',
+        //     'text' => 'Les modifications apportées à votre profil ont bien été enregistrés'
+        // ];
         header('Location: users.php');
         exit;
     }

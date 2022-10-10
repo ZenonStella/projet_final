@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/lightbox.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <title>Traveaux service</title>
+    <title>Ttravaux service</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="greenbg">
@@ -110,7 +110,7 @@
                             <a class="nav-link text-white" href="actualite.php">Actualité</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="contact.php">Contacts</a>
+                            <a class="nav-link text-white" href="missives.php">Contacts</a>
                         </li>
                         <?php
                         if (isset($_SESSION['user'])) { ?>

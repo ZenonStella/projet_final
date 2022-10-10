@@ -34,11 +34,11 @@ if ($showForm == true) {
 
         // $doctorsObj->addNewdoctors($lastname, $firstname, $phoneNumber, $specialities, $mail);
         // $usersDoctors->addUsers($mail, password_hash($password, PASSWORD_DEFAULT), 3);
-        $_SESSION['swal'] = [
-            'icon' => 'success',
-            'title' => 'Message',
-            'text' => 'Le message a bien été prise en compte, nous vous recontacterons prochainement pour y repondre '
-        ];
+        // $_SESSION['swal'] = [
+        //     'icon' => 'success',
+        //     'title' => 'Message',
+        //     'text' => 'Le message a bien été prise en compte, nous vous recontacterons prochainement pour y repondre '
+        // ];
         header('Location: home.php');
         exit;
     }

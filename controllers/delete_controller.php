@@ -55,4 +55,18 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
             header('Location: home.php');
         }
     }
+    if ($_GET['obj'] == 6) {
+        if (isset($_GET['id'])) {
+            $meetsObj = new Articles();
+            $estiationsObj->deleteArticles($_GET['id']);
+            header('Location: home.php');
+        }
+    }
+    if ($_GET['obj'] == 7) {
+        if (isset($_GET['id'])) {
+            $meetsObj = new Pictures();
+            $estiationsObj->deletePictures($_GET['id']);
+            header('Location: home.php');
+        }
+    }
 }

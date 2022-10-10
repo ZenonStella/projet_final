@@ -38,11 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $picture = Pictures::convertImagetoBase64($paramUpload['directory'] . $resultUploadImage['imageName']);
         }
         $pictureObj->addNewPicture($name, $picture, $category, $after);
-        $_SESSION['swal'] = [
-            'icon' => 'success',
-            'title' => 'Image',
-            'text' => 'L\'image a bien été enregistrée'
-        ];
+        // $_SESSION['swal'] = [
+        //     'icon' => 'success',
+        //     'title' => 'Image',
+        //     'text' => 'L\'image a bien été enregistrée'
+        // ];
         header('Location: news.php');
         exit;
     }

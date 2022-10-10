@@ -124,11 +124,19 @@ class Pictures extends DataBase
     public function getOnePictures(int $picture)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM galery WHERE a_id = :id";
+        $sql = "SELECT * FROM galery WHERE g_id = :id";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id', $picture, PDO::PARAM_STR);
         $query->execute();
         $result = $query->fetChAll();
         return $result;
+    }
+    public function deletePictures(int $galery)
+    {
+        $pdo = parent::connectDb();
+        $sql = "DELETE FROM galery WHERE g_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $galery, PDO::PARAM_STR);
+        $query->execute();
     }
 }

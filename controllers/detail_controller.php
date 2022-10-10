@@ -98,13 +98,6 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
             header('Location: ../views/404.php');
             exit;
         }
-    } else if ($_GET['obj'] == 7) {
-        if (isset($_GET['id'])) {
-            $picture = $picturesObj->getOnePictures($_GET['id']);
-        } else {
-            header('Location: ../views/404.php');
-            exit;
-        }
     } else {
         header('Location: ../views/404.php');
         exit;

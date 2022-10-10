@@ -37,11 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         $created = date('Y:m:d');
         $articlesObj->addNewArticles($created, $text, $preveiw, $picture, $name, $title, $_SESSION['user']['u_id']);
-        $_SESSION['swal'] = [
-            'icon' => 'success',
-            'title' => 'Article',
-            'text' => 'L\'article a bien été enregistrée'
-        ];
+        // $_SESSION['swal'] = [
+        //     'icon' => 'success',
+        //     'title' => 'Article',
+        //     'text' => 'L\'article a bien été enregistrée'
+        // ];
         header('Location: news.php');
         exit;
     }

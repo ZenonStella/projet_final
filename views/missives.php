@@ -5,11 +5,11 @@ require_once '../controllers/message-controller.php';
 require('../inc/header.php');
 ?>
 <h2 class="text-center mb-5">Bienvenue sur notre page d'envoie de message!</h2>
-<p class="text-cneter">Laissez nous un message si vous avez des questions</p>
+<p class="text-center">Laissez nous un message si vous avez des questions</p>
 <ul class="nav nav-tabs mb-5">
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a class="nav-link"  href="contact.php">Contact</a>
-  </li>
+  </li> -->
   <li class="nav-item">
     <a class="nav-link active" href="missives.php">Nous laisser un message</a>
   </li>
@@ -64,6 +64,6 @@ require('../inc/header.php');
 </form>
 <?php
 require('../inc/footer.php');
-require_once '../inc/sweetAlert.php';
+// require_once '../inc/sweetAlert.php';
 include('../inc/end.php');
 ?>

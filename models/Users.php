@@ -181,7 +181,7 @@ class Users extends DataBase
     public function getOneUsersByRole(string $role)
     {
         $pdo = parent::connectDb();
-        $sql = "SELECT * FROM users WHERE u_role = :role AND u_soft_delete = 0";
+        $sql = "SELECT * FROM users WHERE u_role = :role AND u_soft_delete = 0 LIMIT 1";
         $query = $pdo->prepare($sql);
         $query->bindValue(':role', $role, PDO::PARAM_STR);
         $query->execute();

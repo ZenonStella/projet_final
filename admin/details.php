@@ -198,7 +198,7 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
                     <table class="table table-striped rounded border">
                         <thead class="green">
                             <tr>
-                                <th scope="col">Categorie</th>
+                                <th scope="col">Catégorie</th>
                                 <th scope="col">Mission</th>
                                 <th scope="col">Quantité</th>
                                 <th scope="col">Proprietés</th>
@@ -223,36 +223,42 @@ if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
     if ($_GET['obj'] == 6) { ?>
         <div class="row justify-content-center">
             <div class="back">
-                <a class="btn btn-danger rounded mb-5" href="devis.php">Retour à la liste des articles</a>
+                <a class="btn btn-danger rounded mb-5" href="articles.php">Retour à la liste des articles</a>
             </div>
-            <div>
-                <p class="h2 text-center">Informations d'un article</p>
-            </div>
-            <div class="card text-white col-lg-5 col-11 green my-3 py-5 shadow justify-content-center">
-                <div class="row justify-content-center">
-                    <p class="h5">Le createur de l'article</p>
-                    <p>Nom : <?= $article['u_firstname'] ?></p>
-                    <p>Prénom : <?= $article['u_lastname'] ?></p>
-                    <p>Mail : <?= $article['u_email'] ?></p>
-                    <p>Créer le : <?= $article['a_created_at'] ?></p>
+            <?php
+            if (empty($article)) { ?>
+                <p class="text-center h3">Veuillez sélectionner un article valide</p>
+            <?php } else { ?>
+                <div>
+                    <p class="h2 text-center">Informations d'un article</p>
                 </div>
-
-            </div>
-            <div class="card my-3 shadow">
-                <p class="h3 text-center my-2">Liste des missions demandés par ce client</p>
-                <div class="row">
-                    <div class="picture col-lg-4 col-10">
-                        <img src="data:image/png;base64,<?= $article['a_img'] ?>" alt="<?= $article['a_img_name'] ?>">
-                    </div>
-                    <div class="col-lg-6 col-12">
-                        <p class="h4 text-center"><?= $article['a_titles'] ?></p>
-                        <p><?= $article['a_preveiw'] ?></p>
-                        <p><?= $article['a_text'] ?></p>
+                <div class="card text-white col-lg-5 col-11 green my-3 py-5 shadow justify-content-center">
+                    <div class="row justify-content-center">
+                        <p class="h5">Le createur de l'article</p>
+                        <p>Nom : <?= $article['u_firstname'] ?></p>
+                        <p>Prénom : <?= $article['u_lastname'] ?></p>
+                        <p>Mail : <?= $article['u_email'] ?></p>
+                        <p>Créer le : <?= $article['a_created_at'] ?></p>
                     </div>
                 </div>
-            </div>
+                <div class="card my-3 shadow">
+                    <div class="article row justify-content-center">
+                        <div class="d-flex mb-5 col-11">
+                            <div class="img-article">
+                                <img src="data:image/png;base64,<?= $article['a_img'] ?>" alt="">
+                            </div>
+                            <div class="text-article ps-2">
+                                <h2 class="text-center"><?= $article['a_titles'] ?></h2>
+                                <p class=""><?= $article['a_preveiw'] ?></p>
+                                <p><?= $article['a_text'] ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php  } ?>
         </div>
-<?php }
+        <!-- </div> -->
+    <?php }
 }
 require('inc/footer.php');
 require('inc/end.php');

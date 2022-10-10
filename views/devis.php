@@ -6,7 +6,7 @@ include('../inc/header.php');
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item<?= isset($_GET['steps']) && $_GET['steps'] == 1  ? ' active" aria-current="page' : '' ?>">
-            <?= isset($_GET['steps']) && $_GET['steps'] == 1  ? '1 - Categorie de travaux' : '<a href="devis.php?steps=1' . (isset($_GET['firstchoice']) ? "&firstchoice=" . $_GET['firstchoice'] : "") . '">1 - Categorie de travaux</a>' ?>
+            <?= isset($_GET['steps']) && $_GET['steps'] == 1  ? '1 - Catégorie de travaux' : '<a href="devis.php?steps=1' . (isset($_GET['firstchoice']) ? "&firstchoice=" . $_GET['firstchoice'] : "") . '">1 - Catégorie de travaux</a>' ?>
         </li>
         <li class="breadcrumb-item<?= isset($_GET['steps']) && $_GET['steps'] == 2  ? ' active" aria-current="page' : '' ?>">
             <?= isset($_GET['steps']) && $_GET['steps'] == 2  ? '2 - Description des travaux' : '<a href="devis.php?steps=2' . (isset($_GET['firstchoice']) ? "&firstchoice=" . $_GET['firstchoice'] : "") . '">2 - Description des travaux</a>' ?>
@@ -26,7 +26,7 @@ include('../inc/header.php');
     if (isset($_GET['steps']) && array_key_exists($_GET['steps'], $steps)) {
         if ($_GET['steps'] == 1) { ?>
             <div class="row justify-content-center">
-                <h2 class="text-center">Générer votre devis : <br> Choisissez la categorie de travaux que vous souhaitez</h2>
+                <h2 class="text-center">Générer votre devis : <br> Choisissez la catégorie de travaux que vous souhaitez</h2>
                 <div class="row flex-row justify-content-evenly flex-wrap">
                     <div class="card col-lg-2 col-5 mt-3 py-2 firstchoice">
                         <a class="<?= isset($_GET['type']) && $_GET['type'] == 1 ? 'active' : '' ?>" href="devis.php?steps=2&firstchoice=1">
@@ -486,7 +486,7 @@ include('../inc/header.php');
 
 <?php
 include('../inc/footer.php'); 
-require_once '../inc/sweetAlert.php';
+// require_once '../inc/sweetAlert.php';
 ?>
 <!-- <script src="../assets/js/script.js"></script> -->
 <?php

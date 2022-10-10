@@ -7,9 +7,9 @@ require('../inc/header.php');
 <h2 class="text-center">Bienvenue sur notre page de prise de rendez-vous!</h2>
 <p class="text-center mb-5">Prenez rendez-vous avec nous</p>
 <ul class="nav nav-tabs mb-5">
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="contact.php">Contact</a>
-    </li>
+    </li> -->
     <li class="nav-item">
         <a class="nav-link" href="missives.php">Nous laisser un message</a>
     </li>
@@ -17,7 +17,7 @@ require('../inc/header.php');
         <a class="nav-link active" href="meets.php">Prendre rendez-vous</a>
     </li>
 </ul>
-<form class="row justify-content-center" action="" method="post">
+<form class="row justify-content-center" action="" method="POST">
     <div class="mb-3 col-11">
         <label for="firstname">Nom et Prénom <span class="text-danger">*</span></label>
         <span class="ms-2 text-danger"><?= isset($errors['firstname']) ? $errors['firstname'] : '' ?></span>
@@ -50,6 +50,14 @@ require('../inc/header.php');
             <input type="time" placeholder="Heure" name="hour" id="hour" class="form-control" min="<?= date('H:') ?>" value="<?= isset($_POST['hour']) ? $_POST['hour'] : '' ?>">
         </div>
     </div>
+    <div class="mb-3 col-11">
+        <label for="city">Ville et Code Postale <span class="text-danger">*</span></label>
+        <span class="ms-2 text-danger"><?= isset($errors['address']) ? $errors['address'] : '' ?></span>
+        <div class="input-group">
+            <input type="text" name="city" id="city" aria-label="City" placeholder="Ville" class="form-control" value="<?= isset($_POST['city']) ? $_POST['city'] : '' ?>">
+            <input type="text" name="zip" id="zip" aria-label="Zip" placeholder="Code postale" class="form-control" value="<?= isset($_POST['zip']) ? $_POST['zip'] : '' ?>">
+        </div>
+    </div>
     <div class="col-11 mb-3 justify-content-center">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" name="cgu" id="cgu">
@@ -64,7 +72,7 @@ require('../inc/header.php');
     </div>
 </form>
 <?php
-require('../inc/footer.php'); 
-require_once '../inc/sweetAlert.php';
+require('../inc/footer.php');
+// require_once '../inc/sweetAlert.php';
 include('../inc/end.php');
 ?>

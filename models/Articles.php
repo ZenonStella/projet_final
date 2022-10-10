@@ -158,6 +158,22 @@ class Articles extends DataBase
         $query->bindValue(':id', $articles, PDO::PARAM_STR);
         $query->execute();
     }
+    public function unPosteArticles(int $article)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE articles SET a_posted = 0 WHERE a_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $article, PDO::PARAM_STR);
+        $query->execute();
+    }
+    public function posteArticles(int $article, string $date)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE articles SET a_posted = 1 WHERE a_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $article, PDO::PARAM_STR);
+        $query->execute();
+    }
     public function softDeleteArticles(int $article)
     {
         $pdo = parent::connectDb();

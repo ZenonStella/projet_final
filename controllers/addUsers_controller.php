@@ -79,11 +79,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
         $role = htmlspecialchars($_POST['role']);
         $usersO->addUsers($lastname, $firstname, $mail, $password, $role);
-        $_SESSION['swal'] = [
-            'icon' => 'success',
-            'title' => 'Utilisateur',
-            'text' => 'L\'utilisateur a bien été enregistrée'
-        ];
+        // $_SESSION['swal'] = [
+        //     'icon' => 'success',
+        //     'title' => 'Utilisateur',
+        //     'text' => 'L\'utilisateur a bien été enregistrée'
+        // ];
         header('Location: users.php');
         exit;
     }

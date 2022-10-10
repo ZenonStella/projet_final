@@ -54,7 +54,7 @@ require('inc/header.php');
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header greenbg text-white">
-                                        <h5 class="modal-title" id="meet<?= $meet['me_id'] ?>DeleteLabel">Supprimer lerendez-vous du <?= $meet['me_meet_date'] ?> à <?= $meet['me_meet_at'] ?> avec <?= $meet['c_firstname'] ?> <?= $meet['c_lastname'] ?></h5>
+                                        <h5 class="modal-title" id="meet<?= $meet['me_id'] ?>DeleteLabel">Supprimer le rendez-vous du <?= $meet['me_meet_date'] ?> à <?= $meet['me_meet_at'] ?> avec <?= $meet['c_firstname'] ?> <?= $meet['c_lastname'] ?></h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">

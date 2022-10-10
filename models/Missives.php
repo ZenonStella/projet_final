@@ -154,6 +154,22 @@ class Missives extends DataBase
         $query->bindValue(':id', $missives, PDO::PARAM_STR);
         $query->execute();
     }    
+    public function unResponceMissives(int $missive)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE missives SET mi_responce = 0 WHERE mi_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $missive, PDO::PARAM_STR);
+        $query->execute();
+    }
+    public function responceMissives(int $missive)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE missives SET mi_responce = 1 WHERE mi_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $missive, PDO::PARAM_STR);
+        $query->execute();
+    }
     public function unarchiveMissives(int $missive)
     {
         $pdo = parent::connectDb();

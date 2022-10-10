@@ -60,6 +60,6 @@ require('inc/header.php');
 require('inc/footer.php'); ?>
 <script src="../assets/js/form.js"></script>
 <?php
-require_once '../inc/sweetAlert.php';
+// require_once '../inc/sweetAlert.php';
 require('inc/end.php');
 ?>

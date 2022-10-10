@@ -88,15 +88,17 @@ class Meets extends DataBase
      * 
      * @return void 
      */
-    public function addNewMeets(string $created_at, string $date, string $hour, string $clients, string $users): void
+    public function addNewMeets(string $created_at, string $date, string $hour, string $clients, string $users, string $zip, string $city): void
     {
         $pdo = parent::connectDb();
-        $sql = "INSERT INTO  meets (me_created_at, me_meet_date, me_meet_at, u_id_users, c_id_clients) VALUES (:created_at,:date,:hour, :users, :client)";
+        $sql = "INSERT INTO  meets (me_created_at, me_meet_date, me_meet_at,me_zip, u_id_users, c_id_clients) VALUES (:created_at,:date,:hour,:zip,:city :users, :client)";
         $query = $pdo->prepare($sql);
         $query->bindValue(':created_at', $created_at, PDO::PARAM_STR);
         $query->bindValue(':date', $date, PDO::PARAM_STR);
         $query->bindValue(':hour', $hour, PDO::PARAM_STR);
         $query->bindValue(':users', $users, PDO::PARAM_STR);
+        $query->bindValue(':zip', $zip, PDO::PARAM_STR);
+        $query->bindValue(':city', $city, PDO::PARAM_STR);
         $query->bindValue(':client', $clients, PDO::PARAM_STR);
         $query->execute();
     }
@@ -174,6 +176,22 @@ class Meets extends DataBase
         $query->bindValue(':hour', $hour, PDO::PARAM_STR);
         $query->bindValue(':date', $date, PDO::PARAM_STR);
         $query->bindValue(':id', $meets, PDO::PARAM_STR);
+        $query->execute();
+    }
+    public function unResponceMeets(int $meet)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE meets SET me_responce = 0 WHERE me_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $meet, PDO::PARAM_STR);
+        $query->execute();
+    }
+    public function responceMeets(int $meet)
+    {
+        $pdo = parent::connectDb();
+        $sql = "UPDATE meets SET me_responce = 1 WHERE me_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id', $meet, PDO::PARAM_STR);
         $query->execute();
     }
     public function unarchiveMeets(int $meet)

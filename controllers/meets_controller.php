@@ -20,6 +20,8 @@ if ($showForm == true) {
         $hour = htmlspecialchars($_POST['hour']);
         $created = date('Y:m:d');
         $user = $usersObj->getOneUsersByRole('editeur');
+        $zip = htmlspecialchars($_POST['zip']);
+        $city = htmlspecialchars($_POST['city']);
         // $hourFormat = 'HH:MM:II';
         // echo $created;
         if ($clientsObj->checkIfClientsExists($mail)) {
@@ -30,12 +32,12 @@ if ($showForm == true) {
             }
         }
         $client = $clientsObj->getOneClientByMail($mail);
-        $meetsObj->addNewMeets($created,$date,$hour,$client['c_id'],$user['u_id']);
-        $_SESSION['swal'] = [
-            'icon' => 'success',
-            'title' => 'Rendez-vous',
-            'text' => 'Le rendez-vous a bien été prise en compte, nous vous recontacterons prochainement pour le confirmer '
-        ];
+        $meetsObj->addNewMeets($created,$date,$hour,$client['c_id'],$user['u_id'],$zip,$city);
+        // $_SESSION['swal'] = [
+        //     'icon' => 'success',
+        //     'title' => 'Rendez-vous',
+        //     'text' => 'Le rendez-vous a bien été prise en compte, nous vous recontacterons prochainement pour le confirmer '
+        // ];
         header('Location: home.php');
         exit;
     }

@@ -1,8 +1,8 @@
 <?php
 session_start();
 require('inc/header.php');
-require_once '../controllers/form_controller.php';
-require_once '../controllers/admin_devis_controller.php';
+// require_once '../controllers/form_controller.php';
+require_once '../controllers/devis_admin_controller.php';
 ?>
 <div class="row justify-content-center">
     <div class="back">
@@ -29,7 +29,11 @@ require_once '../controllers/admin_devis_controller.php';
                             <td class="text-center"><?= $devi['e_created_at'] ?></td>
                             <td><a href="details.php?obj=5&id=<?= $devi['e_id'] ?>" class="btn greenbtn">Voir +</a>
                                 <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
-                                    <?= $devi['e_responce'] == 0 ? '<a href="" class="btn greenbtn">Marquer comme repondus <i class="bi bi-envelope-fill text-white"></i>' : '<a href="" class="btn edithbtn">Marquer comme non repondus <i class="bi bi-envelope-paper-fill text-white"></i>' ?></a>
+                                    <?php if ($devi['e_responce'] == 0 ){?>
+                                        <a href="responce.php?obj=5&id=<?= $devi['e_id'] ?>" class="btn greenbtn">Marquer comme repondus <i class="bi bi-envelope-fill text-white"></i></a>
+                                        <?php } else { ?>
+                                            <a href="unresponce.php?obj=5&id=<?= $devi['e_id'] ?>" class="btn edithbtn">Marquer comme non repondus <i class="bi bi-envelope-paper-fill text-white"></i></a>
+                                        <?php } ?>
                                     <button type="button" class="btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#devi<?= $devi['e_id'] ?>">
                                         Supprimer <i class="bi bi-trash3-fill"></i>
                                     </button>

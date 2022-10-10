@@ -23,45 +23,46 @@ $objs = [
 ];
 
 if (isset($_GET['obj']) && array_key_exists($_GET['obj'], $objs)) {
-    if ($_GET['obj'] == 1) {
-        if (isset($_GET['id'])) {
-            $clientsObj = new Clients();
-            $clientsObj->softDeleteClients($_GET['id']);
-            header('Location: clients.php');
-        }
-    }
-    if ($_GET['obj'] == 2) {
-        if (isset($_GET['id'])) {
-            $usersObj = new Users();
-            $usersObj->softDeleteUsers($_GET['id']);
-            header('Location: users.php');
-        }
-    }
+    // if ($_GET['obj'] == 1) {
+    //     if (isset($_GET['id'])) {
+    //         $clientsObj = new Clients();
+    //         // $clientsObj->softDeleteClients($_GET['id']);
+    //         header('Location: clients.php');
+    //     }
+    // }
+    // if ($_GET['obj'] == 2) {
+    //     if (isset($_GET['id'])) {
+    //         $usersObj = new Users();
+    //         // $usersObj->softDeleteUsers($_GET['id']);
+    //         header('Location: users.php');
+    //     }
+    // }
     if ($_GET['obj'] == 3) {
         if (isset($_GET['id'])) {
             $meetsObj = new Meets();
-            $meetsObj->softDeleteMeets($_GET['id']);
+            $meetsObj->responceMeets($_GET['id']);
             header('Location: meet.php');
         }
     }
     if ($_GET['obj'] == 4) {
         if (isset($_GET['id'])) {
             $meetsObj = new Missives();
-            $meetsObj->softDeleteMissives($_GET['id']);
+            $meetsObj->responceMissives($_GET['id']);
             header('Location: messages.php');
         }
     }
     if ($_GET['obj'] == 5) {
         if (isset($_GET['id'])) {
             $estimationsObj = new Estimations();
-            $estimationsObj->softDeleteEstimations($_GET['id']);
+            $estimationsObj->responceEstimations($_GET['id']);
             header('Location: devis.php');
         }
     }
     if ($_GET['obj'] == 6) {
         if (isset($_GET['id'])) {
             $articlesObj = new Articles();
-            $aticlesObj->softDeleteArticles($_GET['id']);
+            $date = date('Y-m-d');
+            $aticlesObj->posteArticles($_GET['id'], $date);
             header('Location: articles.php');
         }
     }

@@ -15,11 +15,11 @@ require('inc/header.php');
                 </div>
             </div>
             <div class="mb-3 col-11">
-                <label for="categorys">Categories</label>
+                <label for="categorys">Catégories</label>
                 <span class="ms-2 text-danger"><?= isset($errors['categorys']) ? $errors['categorys'] : '' ?></span>
                 <div class="input-group">
                     <select name="categorys" id="categorys">
-                        <option value="">--- Choisir une categorie ---</option>
+                        <option value="">--- Choisir une catégorie ---</option>
                         <?php foreach ($categorysJobs as $categoryJob) { ?>
                             <option value="<?= $categoryJob['c_id'] ?>"><?= $categoryJob['c_name'] ?></option>
                         <?php } ?>
@@ -38,7 +38,7 @@ require('inc/header.php');
 
 <?php
 require('inc/footer.php'); 
-require_once '../inc/sweetAlert.php';
+// require_once '../inc/sweetAlert.php';
 ?>
 <script src="../assets/js/form.js"></script>
 <?php

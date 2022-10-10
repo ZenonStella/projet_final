@@ -177,11 +177,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             foreach ($_SESSION['travaux'] as $key => $value) {
                 $estimationsObj->addNewMission($value['size'], $value['description'], $value['units'], $value['travaux'], $idDevis);
             }
-            $_SESSION['swal'] = [
-                'icon' => 'success',
-                'title' => 'Devis',
-                'text' => 'Le devis a bien été prise en compte, nous vous recontacterons prochainement pour y repondre.'
-            ];
+            // $_SESSION['swal'] = [
+            //     'icon' => 'success',
+            //     'title' => 'Devis',
+            //     'text' => 'Le devis a bien été prise en compte, nous vous recontacterons prochainement pour y repondre.'
+            // ];
             header('Location: home.php');
             exit;
         }
