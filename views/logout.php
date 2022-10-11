@@ -7,7 +7,7 @@ require_once '../controllers/logout_controller.php';
 include('../inc/header.php');
 ?>
 <h1 class="mt-5 title text-center">Déconnexion</h1>
-<p>Vous vous êtes bien déconnecté</p>
+<p class="text-center">Vous êtes bien déconnecté</p>
 <?php 
 include('../inc/footer.php');
 
