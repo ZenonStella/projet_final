@@ -24,20 +24,20 @@ require('inc/header.php');
             </div>
             <div class="card-footer">
                 <a href="details.php?obj=6&id=<?= $article['a_id'] ?>" class="my-1 btn greenbtn">Lire l'article <i class="bi bi-book-fill"></i></a>
-                <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
-                    <!-- <?php if ($article['a_posted'] == 0) { ?>
-                        <a href="responce.php?obj=6&id=<?= $article['a_id'] ?>" class="btn greenbtn">Poster l'article<i class="bi bi-envelope-fill text-white"></i>
-                        <?php
+                <!-- <?php if ($_SESSION['user']['u_role'] == 'admin' || $_SESSION['user']['u_role'] == 'editeur') { ?>
+                    <?php if ($article['a_posted'] == 0) { ?>
+                        <a href="responce.php?obj=6&id=<?= $article['a_id'] ?>" class="btn greenbtn">Poster l'article<i class="bi bi-envelope-fill text-white"></i></a>
+                    <?php
                     } else { ?>
-                            <a href="unresponce.php?obj=6&id=<?= $article['a_id'] ?>" class="btn edithbtn">Retirer l'article <i class="bi bi-envelope-paper-fill text-white"></i>
-                            <?php } ?>
-                            </a> -->
-                            <!-- <a href="edit.php?obj=6&id=<?= $article['a_id'] ?>" class="my-1 btn edithbtn">Modifier l'article <i class="bi bi-pencil-fill"></i></a> -->
-                            <!-- <a href="selectPictures.php?aricle=<?= $article['a_id'] ?>" class="my-1 btn edithbtn">Ajouter des images a l'article <i class="bi bi-file-earmark-plus-fill"></i></a> -->
-                            <button type="button" class="my-1 btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#article<?= $article['a_id'] ?>">
-                                Supprimer <i class="bi bi-trash3-fill"></i>
-                            </button>
-                        <?php } ?>
+                        <a href="unresponce.php?obj=6&id=<?= $article['a_id'] ?>" class="btn edithbtn">Retirer l'article <i class="bi bi-envelope-paper-fill text-white"></i></a>
+                    <?php } ?> -->
+
+                    <!-- <a href="edit.php?obj=6&id=<?= $article['a_id'] ?>" class="my-1 btn edithbtn">Modifier l'article <i class="bi bi-pencil-fill"></i></a> -->
+                    <!-- <a href="selectPictures.php?aricle=<?= $article['a_id'] ?>" class="my-1 btn edithbtn">Ajouter des images a l'article <i class="bi bi-file-earmark-plus-fill"></i></a> -->
+                    <button type="button" class="my-1 btn btn-danger my-1" data-bs-toggle="modal" data-bs-target="#article<?= $article['a_id'] ?>">
+                        Supprimer <i class="bi bi-trash3-fill"></i>
+                    </button>
+                <?php } ?>
             </div>
             <div class="modal fade " id="article<?= $article['a_id'] ?>" tabindex="-1" aria-labelledby="article<?= $article['a_id'] ?>Label" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">

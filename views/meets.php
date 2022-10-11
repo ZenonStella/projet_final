@@ -4,6 +4,13 @@ require_once '../controllers/form_controller.php';
 require_once '../controllers/meets_controller.php';
 require('../inc/header.php');
 ?>
+<pre>
+    <?php 
+    print_r($errors);
+    print_r($_POST);
+    print_r($client);
+    ?>
+</pre>
 <h2 class="text-center">Bienvenue sur notre page de prise de rendez-vous!</h2>
 <p class="text-center mb-5">Prenez rendez-vous avec nous</p>
 <ul class="nav nav-tabs mb-5">

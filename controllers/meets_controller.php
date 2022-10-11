@@ -18,13 +18,13 @@ if ($showForm == true) {
         $mail = htmlspecialchars($_POST['mail']);
         $date = $_POST['date'];
         $hour = htmlspecialchars($_POST['hour']);
-        $created = date('Y:m:d');
+        $created = date('Y-m-d');
         $user = $usersObj->getOneUsersByRole('editeur');
         $zip = htmlspecialchars($_POST['zip']);
         $city = htmlspecialchars($_POST['city']);
         // $hourFormat = 'HH:MM:II';
         // echo $created;
-        if ($clientsObj->checkIfClientsExists($mail)) {
+        if (!$clientsObj->checkIfClientsExists($mail)) {
             if ($phoneNumber != '') {
                 $clientsObj->addNewClientsWithPhone($lastname, $firstname, $phoneNumber, $mail);
             } else {

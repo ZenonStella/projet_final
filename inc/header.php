@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/lightbox.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <title>Ttravaux service</title>
+    <title>Travaux service</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="greenbg">

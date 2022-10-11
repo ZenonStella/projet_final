@@ -82,19 +82,19 @@ class Meets extends DataBase
      * Permet de rajouter un meets dans la table meets
      * 
      * @param  string $created_at : Nom du meets
-     * @param  string $date : Prenom duu meets
+     * @param  string $date : Prenom du meets
      * @param  string $hour : Numéro du meets
-     * @param  string $users : users du meets 
+     * @param  string $users : users du meets
      * 
      * @return void 
      */
-    public function addNewMeets(string $created_at, string $date, string $hour, string $clients, string $users, string $zip, string $city): void
+    public function addNewMeets(string $created_at, string $date, string $hour, string $clients, string $users, string $zip, string $city)
     {
         $pdo = parent::connectDb();
-        $sql = "INSERT INTO  meets (me_created_at, me_meet_date, me_meet_at,me_zip, u_id_users, c_id_clients) VALUES (:created_at,:date,:hour,:zip,:city :users, :client)";
+        $sql = "INSERT INTO  `meets` (`me_created_at`, `me_meet_date`, `me_meet_at`,`me_zip`,`me_city`, `u_id_users`, `c_id_clients`) VALUES (:created_at, :myDate, :hour, :zip, :city, :users, :client)";
         $query = $pdo->prepare($sql);
         $query->bindValue(':created_at', $created_at, PDO::PARAM_STR);
-        $query->bindValue(':date', $date, PDO::PARAM_STR);
+        $query->bindValue(':myDate', $date, PDO::PARAM_STR);
         $query->bindValue(':hour', $hour, PDO::PARAM_STR);
         $query->bindValue(':users', $users, PDO::PARAM_STR);
         $query->bindValue(':zip', $zip, PDO::PARAM_STR);
@@ -168,7 +168,7 @@ class Meets extends DataBase
         $result = $query->fetCh();
         return $result;
     }
-    public function updateMeets(int $meets,string $hour,string $date)
+    public function updateMeets(int $meets, string $hour, string $date)
     {
         $pdo = parent::connectDb();
         $sql = "UPDATE meets SET me_meet_date=:date, me_meet_at=:hour  WHERE meets_id = :id";
